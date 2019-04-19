@@ -1,10 +1,13 @@
 
-// THIS CODE IS INCOMPLETE
+
 
 public class Member extends Person {
     private float height;
     private float startWeight;
     private String chosenPackage;
+
+
+    public Member() {}
 
     public Member(String email, String name, String address,
                   String gender, float height, float startWeight, String chosenPackage) {
@@ -14,12 +17,17 @@ public class Member extends Person {
         setChosenPackage(chosenPackage);
     }
 
+
     public float getHeight() {
         return height;
     }
 
     public void setHeight(float height) {
-        this.height = 0 ;
+        if (height >= 1 && height <= 3) {
+            this.height = height;
+        } else {
+            this.height = 1;
+        }
     }
 
     public float getStartWeight() {
@@ -27,7 +35,11 @@ public class Member extends Person {
     }
 
     public void setStartWeight(float startWeight) {
-        this.startWeight = 0 ;
+        if (startWeight >= 35 && startWeight <= 250) {
+            this.startWeight = startWeight;
+        } else {
+            this.startWeight = 35;
+        }
     }
 
     public String getChosenPackage() {
@@ -38,5 +50,19 @@ public class Member extends Person {
         this.chosenPackage = chosenPackage;
     }
 
+    /**
+     * Builds a String representing a user friendly representation of member info
+     * @return Details of the member
+     */
+    public String toString()
+    {
+        return "Member name: " + getName()
+                + ", email: " + getEmail()
+                + ", address: " + getAddress()
+                + ", gender: " + getGender()
+                + ", height: " + getHeight() + "m"
+                + ", starting weight: " + getStartWeight() + "kg"
+                + ", " + getChosenPackage();
+    }
 }
 

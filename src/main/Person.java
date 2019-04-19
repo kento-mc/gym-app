@@ -1,5 +1,5 @@
 
-// THIS CODE IS INCOMPLETE
+
 
 public class Person {
     private String name;
@@ -7,8 +7,23 @@ public class Person {
     private String address;
     private String gender;
 
+
+    public Person() {}
+
+    public Person(String email, String name, String address, String gender) {
+        setName(name);
+        this.email = email;
+        this.address = address;
+        setGender(gender);
+    }
+
+
     public void setName(String name) {
-        this.name = name;
+        if (name.length() > 30) {
+            this.name = name.substring(0, 30);
+        } else {
+            this.name = name;
+        }
     }
 
     public void setAddress(String address) {
@@ -16,7 +31,11 @@ public class Person {
     }
 
     public void setGender(String gender) {
-        this.gender = "Unspecified";
+        if (!gender.equals("M") && !gender.equals("F")) {
+            this.gender = "Unspecified";
+        } else {
+            this.gender = gender;
+        }
     }
 
     public String getName() {
@@ -35,10 +54,4 @@ public class Person {
         return gender;
     }
 
-    public Person(String email, String name, String address, String gender) {
-        setName(name);
-        this.email = email;
-        this.address = address;
-        setGender(gender);
-    }
 }

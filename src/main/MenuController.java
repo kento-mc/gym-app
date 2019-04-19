@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class MenuController {
 
     private Scanner input;
-    private GymAPI api;
+    private GymAPI gym;
 
     public static void main(String[] args) {
         MenuController menu = new MenuController();
@@ -11,7 +11,7 @@ public class MenuController {
 
     public MenuController(){
         input = new Scanner(System.in);
-        api = new GymAPI();
+        gym = new GymAPI();
         // load XML
         runWelcomeMenu();
     }
@@ -163,9 +163,11 @@ public class MenuController {
 
             switch (option)
             {
-                case 1:     System.out.println("I am a member!");
+                case 1:     registerMember();
+                            runMemberMenu();
                             break;
-                case 2:     System.out.println("I am a trainer!");
+                case 2:     registerTrainer();
+                            runTrainerMenu();
                             break;
                 case 3:     runWelcomeMenu();
                             break;
@@ -338,9 +340,9 @@ public class MenuController {
 
             switch (option)
             {
-                case 1:     System.out.println("New member!");
+                case 1:     registerMember();
                             break;
-                case 2:     System.out.println("All the members!");
+                case 2:     System.out.println(gym.listMembers());
                             break;
                 case 3:     System.out.println("Search the members!");
                             break;
@@ -399,13 +401,13 @@ public class MenuController {
             switch (option)
             {
                 case 1:     System.out.println("Assess!");
-                    break;
+                            break;
                 case 2:     System.out.println("Comment the assessment!");
-                    break;
+                            break;
                 case 3:     runTrainerMenu();
-                    break;
+                            break;
                 default:    System.out.println("Invalid option entered: " + option);
-                    break;
+                            break;
             }
 
             //pause the program so that the user can read what we just printed to the terminal window
@@ -422,4 +424,99 @@ public class MenuController {
         System.exit(0);
     }
 
+    /**
+     * Gather the member data from the user and create a new member.
+     */
+    private void registerMember(){
+        input.nextLine();   // dummy read of String to clear the buffer - bug in Scanner class.
+        System.out.print("\nEnter the member's name:  ");
+        String memberName = input.nextLine();
+
+        System.out.print("\nEnter the member's email address: ");
+        String email = input.nextLine();
+
+        System.out.print("\nEnter the member's address: ");
+        String address = input.nextLine();
+
+        System.out.println("\nEnter the member's gender (M/F/other): ");
+        String gender = input.nextLine();
+
+        float height = 0;
+        boolean goodInput = false; 	//Loop  Control Variable
+        do {
+            try {
+                System.out.print("\nEnter the member's height (m):  ");
+                height = input.nextFloat();
+                goodInput = true;
+            }
+            catch (Exception e) {
+                input.nextLine();  //swallows Scanner bug
+                System.out.println("\nNumber expected - you entered text");
+            }
+        }  while (!goodInput);
+
+        float startWeight = 0; 	//Loop  Control Variable
+        do {
+            try {
+                System.out.print("\nEnter the member's starting weight (kg):  ");
+                startWeight = input.nextFloat();
+                goodInput = true;
+            }
+            catch (Exception e) {
+                input.nextLine();  //swallows Scanner bug
+                System.out.println("\nNumber expected - you entered text");
+            }
+        }  while (!goodInput);
+
+        String chosenPackage = "";
+
+        System.out.println("\nWhich package has the member chosen?: ");
+        System.out.println("---------");
+        System.out.println("  1) Package 1");
+        System.out.println("  2) Package 2");
+        System.out.println("  3) Package 3");
+        System.out.println("  4) WIT Package");
+        System.out.print("==>> ");
+        int option = input.nextInt();
+
+        switch (option)
+        {
+            case 1:     chosenPackage = "Package 1";
+                        break;
+            case 2:     chosenPackage = "Package 2";
+                        break;
+            case 3:     chosenPackage = "Package 3";
+                        break;
+            case 4:     chosenPackage = "WIT Package";
+                        break;
+            default:    System.out.println("Invalid option entered: " + option);
+                        break;
+        }
+
+        gym.addMember(new Member(email, memberName, address, gender, height, startWeight, chosenPackage));
+
+        System.out.println("\nNew member - " + memberName + " - has been registered.");
+    }
+
+    /**
+     * Gather the member data from the user and create a new trainer.
+     */
+    private void registerTrainer(){
+        input.nextLine();   // dummy read of String to clear the buffer - bug in Scanner class.
+        System.out.print("\nEnter the trainer's name:  ");
+        String trainerName = input.nextLine();
+
+        System.out.print("\nEnter the trainer's email address: ");
+        String email = input.nextLine();
+
+        System.out.print("\nEnter the trainer's address: ");
+        String address = input.nextLine();
+
+        System.out.println("\nEnter the trainer's gender (M/F/other): ");
+        String gender = input.nextLine();
+
+        gym.addTrainer(new Trainer(email, trainerName, address, gender));
+
+        System.out.println("\nNew trainer - " + trainerName + " - has been registered.");
+    }
 }
