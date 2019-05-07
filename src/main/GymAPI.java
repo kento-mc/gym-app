@@ -34,6 +34,52 @@ public class GymAPI {
         }
     }
 
+    public Member searchMembersByEmail (String emailEntered)
+    {
+        for (Member member : members)
+        {
+            if (member.getEmail().equals(emailEntered)) {
+                return member;
+            }
+        }
+        return null;
+    }
+
+    public ArrayList<String> searchMembersByName (String nameEntered)
+    {
+        ArrayList<String> nameMatches = new ArrayList<String>();
+        for (Member member : members)
+        {
+            if (member.getName().contains(nameEntered) || member.getName().equals(nameEntered)) {
+                nameMatches.add(member.getName());
+            }
+        }
+        return nameMatches;
+    }
+
+    public Trainer searchTrainersByEmail (String emailEntered)
+    {
+        for (Trainer trainer : trainers) {
+            if (trainer.getEmail().equals(emailEntered)) {
+                return trainer;
+            }
+        }
+        return null;
+    }
+
+    public ArrayList<String> searchTrainersByName (String nameEntered)
+    {
+        ArrayList<String> nameMatches = new ArrayList<String>();
+        for (Trainer trainer : trainers)
+        {
+            if (trainer.getName().contains(nameEntered) || trainer.getName().equals(nameEntered)) {
+                nameMatches.add(trainer.getName());
+            }
+        }
+        return nameMatches;
+    }
+
+
     public ArrayList<Trainer> getTrainers() {
         return trainers;
     }

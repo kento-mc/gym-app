@@ -2,14 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="09b8f374-3f57-4751-b291-a348c7a903bd" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment3/GymAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment3/GymAPI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment3/MenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment3/MenuController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment3/Trainer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment3/Trainer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/Assignment3/GymAPITest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Assignment3/GymAPITest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/Assignment3/MemberTest$Constructor$Gender.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/Assignment3/MemberTest$Constructor$Height.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/Assignment3/MemberTest$Constructor$Name.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/Assignment3/MemberTest$Constructor$Weight.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/Assignment3/MemberTest$Constructor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/Assignment3/MemberTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Assignment3/MemberTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/GymAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GymAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Member.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/PremiumMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/PremiumMember.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Trainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Trainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/GymAPITest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/GymAPITest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/MemberTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/MemberTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -24,37 +31,61 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/MenuController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="501">
-              <caret line="187" column="46" lean-forward="true" selection-start-line="187" selection-start-column="46" selection-end-line="187" selection-end-column="46" />
+            <state relative-caret-position="7740">
+              <caret line="518" column="44" selection-start-line="518" selection-start-column="44" selection-end-line="518" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/GymAPITest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1609">
+              <caret line="318" selection-start-line="318" selection-end-line="318" />
               <folding>
-                <element signature="e#153#154#0" expanded="true" />
-                <element signature="e#211#212#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-commons/1.1.0/junit-platform-commons-1.1.0.jar!/org/junit/platform/commons/util/ReflectionUtils.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="186">
+              <caret line="194" selection-start-line="194" selection-end-line="194" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/MemberTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="29" column="64" selection-start-line="29" selection-start-column="64" selection-end-line="29" selection-end-column="64" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/GymAPI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="29" selection-start-line="29" selection-end-line="29" />
+            <state relative-caret-position="150">
+              <caret line="42" column="13" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
               <folding>
-                <element signature="e#329#330#0" expanded="true" />
-                <element signature="e#359#360#0" expanded="true" />
                 <element signature="e#377#378#0" expanded="true" />
-                <element signature="e#405#406#0" expanded="true" />
-                <element signature="e#439#440#0" expanded="true" />
-                <element signature="e#470#471#0" expanded="true" />
-                <element signature="e#509#510#0" expanded="true" />
-                <element signature="e#538#539#0" expanded="true" />
-                <element signature="e#500#501#0" expanded="true" />
-                <element signature="e#524#525#0" expanded="true" />
-                <element signature="e#562#563#0" expanded="true" />
-                <element signature="e#586#587#0" expanded="true" />
+                <element signature="e#412#413#0" expanded="true" />
+                <element signature="e#2014#2022#0" expanded="true" />
+                <element signature="e#2238#2239#0" expanded="true" />
+                <element signature="e#2322#2323#0" expanded="true" />
+                <element signature="e#2395#2396#0" expanded="true" />
+                <element signature="e#2471#2472#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -63,13 +94,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/Person.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="37" column="9" lean-forward="true" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
+            <state relative-caret-position="316">
+              <caret line="45" selection-start-line="45" selection-end-line="45" />
               <folding>
+                <element signature="e#580#581#0" expanded="true" />
                 <element signature="e#618#619#0" expanded="true" />
+                <element signature="e#859#860#0" expanded="true" />
                 <element signature="e#886#887#0" expanded="true" />
                 <element signature="e#946#947#0" expanded="true" />
+                <element signature="e#980#981#0" expanded="true" />
                 <element signature="e#1010#1011#0" expanded="true" />
+                <element signature="e#1043#1044#0" expanded="true" />
                 <element signature="e#1072#1073#0" expanded="true" />
               </folding>
             </state>
@@ -79,13 +114,16 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/Member.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="780">
-              <caret line="52" selection-start-line="52" selection-end-line="65" selection-end-column="5" />
+            <state relative-caret-position="330">
+              <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
               <folding>
                 <element signature="e#495#496#0" expanded="true" />
                 <element signature="e#524#525#0" expanded="true" />
+                <element signature="e#742#743#0" expanded="true" />
                 <element signature="e#776#777#0" expanded="true" />
+                <element signature="e#1036#1037#0" expanded="true" />
                 <element signature="e#1072#1073#0" expanded="true" />
+                <element signature="e#1130#1131#0" expanded="true" />
                 <element signature="e#1180#1181#0" expanded="true" />
               </folding>
             </state>
@@ -96,7 +134,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/PremiumMember.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="15">
-              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -105,7 +143,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/Assessment.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
-              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
@@ -113,11 +151,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/Trainer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="44" lean-forward="true" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
+            <state relative-caret-position="90">
+              <caret line="6" column="93" selection-start-line="6" selection-start-column="93" selection-end-line="6" selection-end-column="93" />
               <folding>
-                <element signature="e#92#93#0" expanded="true" />
-                <element signature="e#114#115#0" expanded="true" />
+                <element signature="e#671#672#0" expanded="true" />
+                <element signature="e#703#704#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -139,25 +177,25 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assignment3.iml" />
-        <option value="$PROJECT_DIR$/src/test/GymAPITest.java" />
         <option value="$PROJECT_DIR$/src/main/SetDemo.java" />
         <option value="$PROJECT_DIR$/src/main/Assessment.java" />
         <option value="$PROJECT_DIR$/src/main/GymUtility.java" />
-        <option value="$PROJECT_DIR$/src/test/MemberTest.java" />
         <option value="$PROJECT_DIR$/src/main/PremiumMember.java" />
-        <option value="$PROJECT_DIR$/src/main/GymAPI.java" />
         <option value="$PROJECT_DIR$/src/main/Member.java" />
         <option value="$PROJECT_DIR$/src/main/Person.java" />
         <option value="$PROJECT_DIR$/src/main/Trainer.java" />
         <option value="$PROJECT_DIR$/src/main/MenuController.java" />
+        <option value="$PROJECT_DIR$/src/test/MemberTest.java" />
+        <option value="$PROJECT_DIR$/src/test/GymAPITest.java" />
+        <option value="$PROJECT_DIR$/src/main/GymAPI.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="473" />
+    <option name="x" value="356" />
     <option name="y" value="23" />
-    <option name="width" value="1186" />
-    <option name="height" value="989" />
+    <option name="width" value="1324" />
+    <option name="height" value="990" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -218,8 +256,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -280,7 +318,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.MenuController">
+  <component name="RunManager" selected="JUnit.GymAPITest">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -371,9 +409,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.GymAPITest" />
         <item itemvalue="Application.MenuController" />
         <item itemvalue="JUnit.MemberTest" />
-        <item itemvalue="JUnit.GymAPITest" />
         <item itemvalue="Application.Member" />
         <item itemvalue="Application.Assessment" />
       </list>
@@ -391,49 +429,53 @@
       <updated>1524132451770</updated>
       <workItem from="1555267627349" duration="13667000" />
       <workItem from="1555517463274" duration="1315000" />
-      <workItem from="1555675821692" duration="11686000" />
+      <workItem from="1555675821692" duration="20673000" />
+      <workItem from="1556671811275" duration="1222000" />
+      <workItem from="1556922447634" duration="12000" />
+      <workItem from="1557170742930" duration="6805000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="GymAPITest - 2019.04.19 at 14h 55m 32s.xml">
+    <history-entry file="GymAPITest - 2019.05.07 at 11h 30m 26s.xml">
       <configuration name="GymAPITest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GymAPITest - 2019.04.19 at 14h 57m 28s.xml">
+    <history-entry file="GymAPITest - 2019.05.07 at 11h 30m 44s.xml">
       <configuration name="GymAPITest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GymAPITest - 2019.04.19 at 14h 58m 06s.xml">
+    <history-entry file="GymAPITest - 2019.05.07 at 11h 30m 58s.xml">
       <configuration name="GymAPITest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GymAPITest - 2019.04.19 at 14h 58m 47s.xml">
+    <history-entry file="GymAPITest - 2019.05.07 at 11h 35m 55s.xml">
       <configuration name="GymAPITest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GymAPITest - 2019.04.19 at 15h 20m 59s.xml">
+    <history-entry file="GymAPITest - 2019.05.07 at 11h 36m 10s.xml">
       <configuration name="GymAPITest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MemberTest - 2019.04.19 at 16h 40m 52s.xml">
-      <configuration name="MemberTest" configurationId="JUnit" />
+    <history-entry file="GymAPITest - 2019.05.07 at 11h 46m 30s.xml">
+      <configuration name="GymAPITest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MemberTest - 2019.04.19 at 16h 42m 34s.xml">
-      <configuration name="MemberTest" configurationId="JUnit" />
+    <history-entry file="GymAPITest - 2019.05.07 at 11h 47m 01s.xml">
+      <configuration name="GymAPITest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MemberTest - 2019.04.19 at 16h 53m 47s.xml">
-      <configuration name="MemberTest" configurationId="JUnit" />
+    <history-entry file="GymAPITest - 2019.05.07 at 11h 47m 29s.xml">
+      <configuration name="GymAPITest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MemberTest - 2019.04.19 at 16h 54m 04s.xml">
-      <configuration name="MemberTest" configurationId="JUnit" />
+    <history-entry file="GymAPITest - 2019.05.07 at 11h 52m 41s.xml">
+      <configuration name="GymAPITest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MemberTest - 2019.04.19 at 16h 56m 55s.xml">
-      <configuration name="MemberTest" configurationId="JUnit" />
+    <history-entry file="GymAPITest - 2019.05.07 at 11h 55m 59s.xml">
+      <configuration name="GymAPITest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26668000" />
+    <option name="totallyTimeSpent" value="43694000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="473" y="23" width="1186" height="989" extended-state="0" />
+    <frame x="356" y="23" width="1324" height="990" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20454545" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21840873" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -442,19 +484,19 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33444816" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49912587" weight="0.39910814" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33407572" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49912587" weight="0.3986637" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32998884" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5008741" side_tool="true" weight="0.39910814" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.2541806" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.25389755" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.24960998" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
@@ -465,7 +507,7 @@
       <window_info anchor="right" id="Database" order="9" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20454545" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21840873" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -474,19 +516,19 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33444816" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39910814" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.33407572" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49912587" weight="0.3986637" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32998884" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.2541806" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5008741" side_tool="true" weight="0.39910814" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.25389755" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.24960998" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
@@ -503,22 +545,20 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/Person.java</url>
-          <line>52</line>
-          <properties class="Person" method="getGender">
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/GymAPITest.java</url>
+          <line>317</line>
+          <properties class="GymAPITest.SearchTrainerEmail.Some" method="match">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/GymAPI.java</url>
-          <line>28</line>
-          <properties />
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Assignment3.iml">
@@ -550,30 +590,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/PremiumMember.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Assessment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/MemberTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="531">
-          <caret line="136" column="31" selection-start-line="136" selection-start-column="31" selection-end-line="136" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/GymUtilityTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -581,10 +597,94 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/MenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7740">
+          <caret line="518" column="44" selection-start-line="518" selection-start-column="44" selection-end-line="518" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/MemberTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="29" column="64" selection-start-line="29" selection-start-column="64" selection-end-line="29" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Assessment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/PremiumMember.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Member.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+          <folding>
+            <element signature="e#495#496#0" expanded="true" />
+            <element signature="e#524#525#0" expanded="true" />
+            <element signature="e#742#743#0" expanded="true" />
+            <element signature="e#776#777#0" expanded="true" />
+            <element signature="e#1036#1037#0" expanded="true" />
+            <element signature="e#1072#1073#0" expanded="true" />
+            <element signature="e#1130#1131#0" expanded="true" />
+            <element signature="e#1180#1181#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-commons/1.1.0/junit-platform-commons-1.1.0.jar!/org/junit/platform/commons/util/ReflectionUtils.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="194" selection-start-line="194" selection-end-line="194" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Trainer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="93" selection-start-line="6" selection-start-column="93" selection-end-line="6" selection-end-column="93" />
+          <folding>
+            <element signature="e#671#672#0" expanded="true" />
+            <element signature="e#703#704#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Person.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
+          <folding>
+            <element signature="e#580#581#0" expanded="true" />
+            <element signature="e#618#619#0" expanded="true" />
+            <element signature="e#859#860#0" expanded="true" />
+            <element signature="e#886#887#0" expanded="true" />
+            <element signature="e#946#947#0" expanded="true" />
+            <element signature="e#980#981#0" expanded="true" />
+            <element signature="e#1010#1011#0" expanded="true" />
+            <element signature="e#1043#1044#0" expanded="true" />
+            <element signature="e#1072#1073#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/GymAPITest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="11" lean-forward="true" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
+        <state relative-caret-position="1609">
+          <caret line="318" selection-start-line="318" selection-end-line="318" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -593,71 +693,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/GymAPI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        <state relative-caret-position="150">
+          <caret line="42" column="13" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
           <folding>
-            <element signature="e#329#330#0" expanded="true" />
-            <element signature="e#359#360#0" expanded="true" />
             <element signature="e#377#378#0" expanded="true" />
-            <element signature="e#405#406#0" expanded="true" />
-            <element signature="e#439#440#0" expanded="true" />
-            <element signature="e#470#471#0" expanded="true" />
-            <element signature="e#509#510#0" expanded="true" />
-            <element signature="e#538#539#0" expanded="true" />
-            <element signature="e#500#501#0" expanded="true" />
-            <element signature="e#524#525#0" expanded="true" />
-            <element signature="e#562#563#0" expanded="true" />
-            <element signature="e#586#587#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Person.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="37" column="9" lean-forward="true" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
-          <folding>
-            <element signature="e#618#619#0" expanded="true" />
-            <element signature="e#886#887#0" expanded="true" />
-            <element signature="e#946#947#0" expanded="true" />
-            <element signature="e#1010#1011#0" expanded="true" />
-            <element signature="e#1072#1073#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Member.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="52" selection-start-line="52" selection-end-line="65" selection-end-column="5" />
-          <folding>
-            <element signature="e#495#496#0" expanded="true" />
-            <element signature="e#524#525#0" expanded="true" />
-            <element signature="e#776#777#0" expanded="true" />
-            <element signature="e#1072#1073#0" expanded="true" />
-            <element signature="e#1180#1181#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Trainer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="44" lean-forward="true" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
-          <folding>
-            <element signature="e#92#93#0" expanded="true" />
-            <element signature="e#114#115#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/MenuController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="187" column="46" lean-forward="true" selection-start-line="187" selection-start-column="46" selection-end-line="187" selection-end-column="46" />
-          <folding>
-            <element signature="e#153#154#0" expanded="true" />
-            <element signature="e#211#212#0" expanded="true" />
+            <element signature="e#412#413#0" expanded="true" />
+            <element signature="e#2014#2022#0" expanded="true" />
+            <element signature="e#2238#2239#0" expanded="true" />
+            <element signature="e#2322#2323#0" expanded="true" />
+            <element signature="e#2395#2396#0" expanded="true" />
+            <element signature="e#2471#2472#0" expanded="true" />
           </folding>
         </state>
       </provider>

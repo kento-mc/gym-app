@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class MenuController {
 
     private Scanner input;
-    private GymAPI gym;
+    private GymAPI gymAPI;
 
     public static void main(String[] args) {
         MenuController menu = new MenuController();
@@ -11,7 +11,7 @@ public class MenuController {
 
     public MenuController(){
         input = new Scanner(System.in);
-        gym = new GymAPI();
+        gymAPI = new GymAPI();
         // load XML
         runWelcomeMenu();
     }
@@ -342,7 +342,7 @@ public class MenuController {
             {
                 case 1:     registerMember();
                             break;
-                case 2:     System.out.println(gym.listMembers());
+                case 2:     System.out.println(gymAPI.listMembers());
                             break;
                 case 3:     System.out.println("Search the members!");
                             break;
@@ -493,7 +493,7 @@ public class MenuController {
                         break;
         }
 
-        gym.addMember(new Member(email, memberName, address, gender, height, startWeight, chosenPackage));
+        gymAPI.addMember(new Member(email, memberName, address, gender, height, startWeight, chosenPackage));
 
         System.out.println("\nNew member - " + memberName + " - has been registered.");
     }
@@ -515,7 +515,10 @@ public class MenuController {
         System.out.println("\nEnter the trainer's gender (M/F/other): ");
         String gender = input.nextLine();
 
-        gym.addTrainer(new Trainer(email, trainerName, address, gender));
+        System.out.println("\nEnter the trainer's specialty: ");
+        String specialty = input.nextLine();
+
+        gymAPI.addTrainer(new Trainer(email, trainerName, address, gender, specialty));
 
         System.out.println("\nNew trainer - " + trainerName + " - has been registered.");
     }

@@ -131,7 +131,7 @@ public class MemberTest {
 
     @Nested
     @DisplayName("Constructor tests")
-    class Constructor {
+    class Constructir {
 
         @Nested
         @DisplayName("The height field")

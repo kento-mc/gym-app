@@ -1,9 +1,12 @@
 public class Trainer extends Person{
 
+    private String specialty;
+
     public Trainer() {}
 
-    public Trainer(String email, String name, String address, String gender) {
+    public Trainer(String email, String name, String address, String gender, String specialty) {
         super(email, name, address, gender);
+        this.specialty = specialty;
     }
 
     /**
@@ -16,5 +19,13 @@ public class Trainer extends Person{
                 + ", email: " + getEmail()
                 + ", address: " + getAddress()
                 + ", gender: " + getGender();
+    }
+
+    public String getSpecialty() {
+        return specialty;
+    }
+
+    public void setSpecialty(String specialty) {
+        this.specialty = specialty;
     }
 }
