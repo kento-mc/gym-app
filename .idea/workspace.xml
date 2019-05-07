@@ -2,22 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="09b8f374-3f57-4751-b291-a348c7a903bd" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/lib/xstream-1.4.11.1.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment3/GymAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment3/GymAPI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment3/MenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment3/MenuController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment3/Trainer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment3/Trainer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Assignment3/GymAPITest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Assignment3/GymAPITest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Assignment3/MemberTest$Constructor$Gender.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Assignment3/MemberTest$Constructor$Height.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Assignment3/MemberTest$Constructor$Name.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Assignment3/MemberTest$Constructor$Weight.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Assignment3/MemberTest$Constructor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Assignment3/MemberTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Assignment3/MemberTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/GymAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GymAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Trainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Trainer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/GymAPITest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/GymAPITest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/MemberTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/MemberTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,15 +18,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/MenuController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7740">
-              <caret line="518" column="44" selection-start-line="518" selection-start-column="44" selection-end-line="518" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/GymAPITest.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -76,17 +54,28 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/GymAPI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="42" column="13" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
+            <state relative-caret-position="90">
+              <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
               <folding>
                 <element signature="e#377#378#0" expanded="true" />
                 <element signature="e#412#413#0" expanded="true" />
+                <element signature="e#1556#1557#0" expanded="true" />
+                <element signature="e#1593#1594#0" expanded="true" />
                 <element signature="e#2014#2022#0" expanded="true" />
-                <element signature="e#2238#2239#0" expanded="true" />
-                <element signature="e#2322#2323#0" expanded="true" />
-                <element signature="e#2395#2396#0" expanded="true" />
-                <element signature="e#2471#2472#0" expanded="true" />
+                <element signature="e#2374#2404#0" expanded="true" />
+                <element signature="e#3647#3648#0" expanded="true" />
+                <element signature="e#3720#3721#0" expanded="true" />
+                <element signature="e#3796#3797#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/GymUtility.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="675">
+              <caret line="45" column="7" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -249,7 +238,9 @@
       </profile-state>
     </entry>
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <autoscrollFromSource ProjectPane="true" />
@@ -295,16 +286,21 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="configurable.group.language" />
     <property name="settings.editor.splitter.proportion" value="0.14646906" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -318,7 +314,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.GymAPITest">
+  <component name="RunManager" selected="JUnit.MemberTest">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -409,9 +405,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MemberTest" />
         <item itemvalue="JUnit.GymAPITest" />
         <item itemvalue="Application.MenuController" />
-        <item itemvalue="JUnit.MemberTest" />
         <item itemvalue="Application.Member" />
         <item itemvalue="Application.Assessment" />
       </list>
@@ -432,14 +428,11 @@
       <workItem from="1555675821692" duration="20673000" />
       <workItem from="1556671811275" duration="1222000" />
       <workItem from="1556922447634" duration="12000" />
-      <workItem from="1557170742930" duration="6805000" />
+      <workItem from="1557170742930" duration="8397000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="GymAPITest - 2019.05.07 at 11h 30m 26s.xml">
-      <configuration name="GymAPITest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="GymAPITest - 2019.05.07 at 11h 30m 44s.xml">
       <configuration name="GymAPITest" configurationId="JUnit" />
     </history-entry>
@@ -467,15 +460,17 @@
     <history-entry file="GymAPITest - 2019.05.07 at 11h 55m 59s.xml">
       <configuration name="GymAPITest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="MemberTest - 2019.05.07 at 11h 59m 04s.xml">
+      <configuration name="MemberTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43694000" />
+    <option name="totallyTimeSpent" value="45286000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="356" y="23" width="1324" height="990" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21840873" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21840873" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -484,13 +479,13 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33407572" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.33407572" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49912587" weight="0.3986637" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32998884" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32962137" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5008741" side_tool="true" weight="0.39910814" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.25389755" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
@@ -573,13 +568,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="24" selection-start-column="24" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/GymUtility.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="45" column="7" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -691,18 +679,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/GymUtility.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="45" column="7" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/GymAPI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="42" column="13" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
+        <state relative-caret-position="90">
+          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
           <folding>
             <element signature="e#377#378#0" expanded="true" />
             <element signature="e#412#413#0" expanded="true" />
+            <element signature="e#1556#1557#0" expanded="true" />
+            <element signature="e#1593#1594#0" expanded="true" />
             <element signature="e#2014#2022#0" expanded="true" />
-            <element signature="e#2238#2239#0" expanded="true" />
-            <element signature="e#2322#2323#0" expanded="true" />
-            <element signature="e#2395#2396#0" expanded="true" />
-            <element signature="e#2471#2472#0" expanded="true" />
+            <element signature="e#2374#2404#0" expanded="true" />
+            <element signature="e#3647#3648#0" expanded="true" />
+            <element signature="e#3720#3721#0" expanded="true" />
+            <element signature="e#3796#3797#0" expanded="true" />
           </folding>
         </state>
       </provider>

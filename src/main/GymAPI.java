@@ -1,4 +1,11 @@
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
 
 public class GymAPI {
     private ArrayList<Member> members;
@@ -57,6 +64,11 @@ public class GymAPI {
         return nameMatches;
     }
 
+
+    public void addTrainer(Trainer trainer) {
+        trainers.add(trainer);
+    }
+
     public Trainer searchTrainersByEmail (String emailEntered)
     {
         for (Trainer trainer : trainers) {
@@ -79,13 +91,36 @@ public class GymAPI {
         return nameMatches;
     }
 
+    @SuppressWarnings("unchecked")
+    public void load() throws Exception {
+        XStream xstream = new XStream(new DomDriver());
+
+        // ------------------ PREVENT SECURITY WARNINGS---------------------------
+        // The Person class is what we are reading in.
+        // Modify to to include others if needed.
+
+        Class<?>[] classes = new Class[] { Person.class }; // The Person class is what we are reading in
+        XStream.setupDefaultSecurity(xstream);
+        xstream.allowTypes(classes);
+        // -----------------------------------------------------------------------
+
+        ObjectInputStream is = xstream.createObjectInputStream(new FileReader("products.xml"));
+        products = (ArrayList<Product>) is.readObject();
+        is.close();
+    }
+
+    public void save() throws Exception {
+        XStream xstream = new XStream(new DomDriver());
+        ObjectOutputStream out = xstream.createObjectOutputStream(new FileWriter("products.xml"));
+        out.writeObject(products);
+        out.close();
+    }
+
+    //-----------------------getters & setters-----------------------//
+
 
     public ArrayList<Trainer> getTrainers() {
         return trainers;
-    }
-
-    public void addTrainer(Trainer trainer) {
-        trainers.add(trainer);
     }
 
     public int numberOfMembers() {
