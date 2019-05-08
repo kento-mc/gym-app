@@ -96,24 +96,35 @@ public class GymAPI {
         XStream xstream = new XStream(new DomDriver());
 
         // ------------------ PREVENT SECURITY WARNINGS---------------------------
-        // The Person class is what we are reading in.
+        // The Trainer and Member classes are what we are reading in.
         // Modify to to include others if needed.
 
-        Class<?>[] classes = new Class[] { Person.class }; // The Person class is what we are reading in
+        Class<?>[] classes = new Class[] { Trainer.class, Member.class };
         XStream.setupDefaultSecurity(xstream);
         xstream.allowTypes(classes);
         // -----------------------------------------------------------------------
 
-        ObjectInputStream is = xstream.createObjectInputStream(new FileReader("products.xml"));
-        products = (ArrayList<Product>) is.readObject();
-        is.close();
+        ObjectInputStream membersInput = xstream.createObjectInputStream(new FileReader("members.xml"));
+        members = (ArrayList<Member>) membersInput.readObject();
+        membersInput.close();
+
+        ObjectInputStream trainersInput = xstream.createObjectInputStream(new FileReader("trainers.xml"));
+        trainers = (ArrayList<Trainer>) trainersInput.readObject();
+        trainersInput.close();
+
     }
 
     public void save() throws Exception {
         XStream xstream = new XStream(new DomDriver());
-        ObjectOutputStream out = xstream.createObjectOutputStream(new FileWriter("products.xml"));
-        out.writeObject(products);
-        out.close();
+
+        ObjectOutputStream membersOutput = xstream.createObjectOutputStream(new FileWriter("members.xml"));
+        membersOutput.writeObject(members);
+        membersOutput.close();
+
+        ObjectOutputStream trainersOutput = xstream.createObjectOutputStream(new FileWriter("trainers.xml"));
+        trainersOutput.writeObject(trainers);
+        trainersOutput.close();
+
     }
 
     //-----------------------getters & setters-----------------------//

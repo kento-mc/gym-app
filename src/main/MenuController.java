@@ -12,7 +12,6 @@ public class MenuController {
     public MenuController(){
         input = new Scanner(System.in);
         gymAPI = new GymAPI();
-        // load XML
         runWelcomeMenu();
     }
 
@@ -495,11 +494,18 @@ public class MenuController {
 
         gymAPI.addMember(new Member(email, memberName, address, gender, height, startWeight, chosenPackage));
 
+        try{
+            gymAPI.save();
+        }
+        catch(Exception e) {
+            System.err.println("Error loading from file: " + e);
+        }
+
         System.out.println("\nNew member - " + memberName + " - has been registered.");
     }
 
     /**
-     * Gather the member data from the user and create a new trainer.
+     * Gather the trainer data from the user and create a new trainer.
      */
     private void registerTrainer(){
         input.nextLine();   // dummy read of String to clear the buffer - bug in Scanner class.
@@ -519,6 +525,13 @@ public class MenuController {
         String specialty = input.nextLine();
 
         gymAPI.addTrainer(new Trainer(email, trainerName, address, gender, specialty));
+
+        try{
+            gymAPI.save();
+        }
+        catch(Exception e) {
+            System.err.println("Error loading from file: " + e);
+        }
 
         System.out.println("\nNew trainer - " + trainerName + " - has been registered.");
     }
