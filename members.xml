@@ -1,12 +1,21 @@
 <object-stream>
   <list>
     <Member>
-      <name>Butt</name>
-      <email>butt@butts.com</email>
-      <address>butt st</address>
-      <gender>Unspecified</gender>
+      <name>Homer Simpson</name>
+      <email>homer@simpson.com</email>
+      <address>742 Evergreen Terrace, Springfield, USA</address>
+      <gender>M</gender>
+      <height>1.8</height>
+      <startWeight>120.0</startWeight>
+      <chosenPackage>Package 1</chosenPackage>
+    </Member>
+    <Member>
+      <name>Marge Simpson</name>
+      <email>marge@simpson.com</email>
+      <address>742 Evergreen Terrace, Springfield, USA</address>
+      <gender>F</gender>
       <height>1.5</height>
-      <startWeight>80.0</startWeight>
+      <startWeight>60.0</startWeight>
       <chosenPackage>Package 1</chosenPackage>
     </Member>
   </list>

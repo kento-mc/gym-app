@@ -1,10 +1,11 @@
-
-
+import java.util.ArrayList;
+import java.util.List;
 
 public class Member extends Person {
     private float height;
     private float startWeight;
     private String chosenPackage;
+    private List<Assessment> assessments = new ArrayList<Assessment>();
 
 
     public Member() {}
@@ -16,7 +17,6 @@ public class Member extends Person {
         setStartWeight(startWeight);
         setChosenPackage(chosenPackage);
     }
-
 
     public float getHeight() {
         return height;

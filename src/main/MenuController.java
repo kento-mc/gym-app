@@ -12,6 +12,14 @@ public class MenuController {
     public MenuController(){
         input = new Scanner(System.in);
         gymAPI = new GymAPI();
+
+        try{
+            gymAPI.load();
+        }
+        catch(Exception e) {
+            System.err.println("Error loading from file: " + e);
+        }
+
         runWelcomeMenu();
     }
 
@@ -105,10 +113,32 @@ public class MenuController {
 
             switch (option)
             {
-                case 1:     runMemberMenu();
-                            break;
-                case 2:     runTrainerMenu();
-                            break;
+                case 1:     input.nextLine();   // dummy read of String to clear the buffer - bug in Scanner class.
+                            System.out.print("\nPlease enter your email address:  ");
+                            String email = input.nextLine();
+                            Member member = gymAPI.searchMembersByEmail(email);
+                            if (member != null) {
+                                System.out.println("Login successful!");
+                                runMemberMenu(member);
+                                break;
+                            } else {
+                                System.out.println("\nInvalid email address, please try again.");
+                                runLoginMenu();
+                                break;
+                            }
+                case 2:     input.nextLine();   // dummy read of String to clear the buffer - bug in Scanner class.
+                            System.out.print("\nPlease enter your email address:  ");
+                            email = input.nextLine();
+                            Trainer trainer = gymAPI.searchTrainersByEmail(email);
+                            if (trainer != null) {
+                                System.out.println("Login successful!");
+                                runTrainerMenu(trainer);
+                                break;
+                            } else {
+                        System.out.println("\nInvalid email address, please try again.");
+                        runLoginMenu();
+                        break;
+                    }
                 case 3:     runWelcomeMenu();
                             break;
                 default:    System.out.println("Invalid option entered: " + option);
@@ -162,11 +192,11 @@ public class MenuController {
 
             switch (option)
             {
-                case 1:     registerMember();
-                            runMemberMenu();
+                case 1:     Member member = registerMember();
+                            runMemberMenu(member);
                             break;
-                case 2:     registerTrainer();
-                            runTrainerMenu();
+                case 2:     Trainer trainer = registerTrainer();
+                            runTrainerMenu(trainer);
                             break;
                 case 3:     runWelcomeMenu();
                             break;
@@ -214,7 +244,7 @@ public class MenuController {
     /**
      * This is the method that controls the memberMenu() loop.
      */
-    private void runMemberMenu()
+    private void runMemberMenu(Member member)
     {
         int option = memberMenu();
         while (option != 0)
@@ -222,9 +252,9 @@ public class MenuController {
 
             switch (option)
             {
-                case 1:     System.out.println("Nice profile!");
+                case 1:     System.out.println(member.toString());
                             break;
-                case 2:     System.out.println("Change that profile!");
+                case 2:     runUpdateProfileMenu(member);
                             break;
                 case 3:     runProgressMenu();
                             break;
@@ -243,6 +273,129 @@ public class MenuController {
 
         //the user chose option 0, so exit the program
         System.out.println("Exiting... bye!");
+        System.exit(0);
+    }
+
+    /**
+     * updateProfileMenu() - This method displays options for which
+     * instance fields the member would like to update.
+     *
+     * @return     the user's menu choice
+     */
+    private int updateProfileMenu()
+    {
+        System.out.println("\nUpdate Menu");
+        System.out.println("Which field would you like to update?");
+        System.out.println("---------");
+        System.out.println("  1) Name");
+        System.out.println("  2) Email");
+        System.out.println("  3) Address");
+        System.out.println("  4) Gender");
+        System.out.println("  5) Height");
+        System.out.println("  6) Starting Weight");
+        System.out.println("  7) Gym Package");
+        System.out.println("---------");
+        System.out.println("  8) Return to member menu");
+        System.out.println("---------");
+        System.out.println("  0) Save & Exit");
+        System.out.print("==>> ");
+
+        int option = input.nextInt();
+        return option;
+    }
+
+    /**
+     * This is the method that controls the updateProfileMenu() loop.
+     */
+    private void runUpdateProfileMenu(Member member)
+    {
+        int option = updateProfileMenu();
+        while (option != 0)
+        {
+
+            switch (option)
+            {
+                case 1:     input.nextLine();   // dummy read
+                            System.out.println("\nEnter new name: ");
+                            String name = input.nextLine();
+                            member.setName(name);
+                            System.out.println("\nName updated: " + member.getName());
+                            break;
+                case 2:     input.nextLine();   // dummy read
+                            System.out.println("\nEnter new email address: ");
+                            String email = input.nextLine();
+                            member.setEmail(email);
+                            System.out.println("\nEmail address updated: " + member.getEmail());
+                            break;
+                case 3:     input.nextLine();   // dummy read
+                            System.out.println("\nEnter new address: ");
+                            String address = input.nextLine();
+                            member.setAddress(address);
+                            System.out.println("\nAddress updated: " + member.getAddress());
+                            break;
+                case 4:     input.nextLine();   // dummy read
+                            System.out.println("\nEnter gender: ");
+                            String gender = input.nextLine();
+                            member.setGender(gender);
+                            System.out.println("\nGender updated: " + member.getGender());
+                            break;
+                case 5:     Float height;
+                            boolean goodInput = false;
+                            do {
+                                try {
+                                    input.nextLine();   // dummy read
+                                    System.out.println("\nEnter height: ");
+                                    height = input.nextFloat();
+                                    member.setHeight(height);
+                                    System.out.println("\nHeight updated: " + member.getHeight());
+                                    goodInput = true;
+                                } catch (Exception e) {
+                                    input.nextLine();   // dummy read
+                                    System.out.println("\nNumber expected - you entered text.");
+                                    System.out.println("\nPress any key to try again...");
+                                }
+                            } while (!goodInput);
+                            break;
+                case 6:     Float startWeight;
+                            goodInput = false;
+                            do {
+                                try {
+                                    input.nextLine();   // dummy read
+                                    System.out.println("\nEnter starting weight: ");
+                                    startWeight = input.nextFloat();
+                                    member.setStartWeight(startWeight);
+                                    System.out.println("\nStarting weight updated: " + member.getStartWeight());
+                                    goodInput = true;
+                                } catch (Exception e) {
+                                    input.nextLine();   // dummy read
+                                    System.out.println("\nNumber expected - you entered text.");
+                                    System.out.println("\nPress any key to try again...");
+                                }
+                            } while (!goodInput);
+                            break;
+                case 7:     input.nextLine();   // dummy read
+                            System.out.println("\nEnter new package: ");
+                            String gymPackage = input.nextLine();
+                            member.setChosenPackage(gymPackage);
+                            System.out.println("\nPackage updated: " + member.getChosenPackage());
+                            break;
+                case 8:     runMemberMenu(member);
+                            break;
+                default:    System.out.println("\nInvalid option entered: " + option);
+                            break;
+            }
+
+            //pause the program so that the user can read what we just printed to the terminal window
+            System.out.println("\nPress any key to continue...");
+            input.nextLine();   // Scanner class bug
+            input.nextLine();
+
+            //display the main menu again
+            option = updateProfileMenu();
+        }
+
+        //the user chose option 0, so exit the program
+        System.out.println("\nExiting... bye!");
         System.exit(0);
     }
 
@@ -284,7 +437,7 @@ public class MenuController {
                             break;
                 case 2:     System.out.println("You're really FAT!");
                             break;
-                case 3:     runMemberMenu();
+                case 3:     //runMemberMenu();
                             break;
                 default:    System.out.println("Invalid option entered: " + option);
                             break;
@@ -331,7 +484,7 @@ public class MenuController {
     /**
      * This is the method that controls the trainerMenu() loop.
      */
-    private void runTrainerMenu()
+    private void runTrainerMenu(Trainer trainer)
     {
         int option = trainerMenu();
         while (option != 0)
@@ -343,10 +496,33 @@ public class MenuController {
                             break;
                 case 2:     System.out.println(gymAPI.listMembers());
                             break;
-                case 3:     System.out.println("Search the members!");
+                case 3:     input.nextLine();   // dummy read
+                            System.out.println("\nEmail to search:");
+                            String memberEmail = input.nextLine();
+                            Member member = gymAPI.searchMembersByEmail(memberEmail);
+                            if (member != null) {
+                                System.out.println("Member found!\n");
+                                member.toString();
+                                System.out.println("\nAssessments!");
+                                runAssessmentMenu(member, trainer);
+                            } else {
+                                System.out.println("\nInvalid email address, please try again.");
+                                runTrainerMenu(trainer);
+                                break;
+                            }
                             break;
-                case 4:     runAssessmentMenu();
-                            break;
+                case 4:     input.nextLine();   // dummy read
+                            System.out.println("\nEnter email address of member whose assessments you'd like to view:");
+                            memberEmail = input.nextLine();
+                            member = gymAPI.searchMembersByEmail(memberEmail);
+                            if (member != null) {
+                                System.out.println("Member found!\n");
+                                runAssessmentMenu(member, trainer);
+                            } else {
+                                System.out.println("\nInvalid email address, please try again.");
+                                runTrainerMenu(trainer);
+                                break;
+                            }
                 default:    System.out.println("Invalid option entered: " + option);
                             break;
             }
@@ -372,14 +548,15 @@ public class MenuController {
      *
      * @return     the user's menu choice
      */
-    private int assessmentMenu()
+    private int assessmentMenu(Member member)
     {
         System.out.println("\nAssessment Menu");
+        System.out.println("Member: " + member.getName());
         System.out.println("---------");
         System.out.println("  1) Add new member assessment");
         System.out.println("  2) Update comment on member assessment");
         System.out.println("---------");
-        System.out.println("  3) Return to main menu");
+        System.out.println("  3) Return to Trainer menu");
         System.out.println("---------");
         System.out.println("  0) Save & Exit");
         System.out.print("==>> ");
@@ -391,9 +568,9 @@ public class MenuController {
     /**
      * This is the method that controls the assessmentMenu() loop.
      */
-    private void runAssessmentMenu()
+    private void runAssessmentMenu(Member member, Trainer trainer)
     {
-        int option = assessmentMenu();
+        int option = assessmentMenu(member);
         while (option != 0)
         {
 
@@ -403,7 +580,7 @@ public class MenuController {
                             break;
                 case 2:     System.out.println("Comment the assessment!");
                             break;
-                case 3:     runTrainerMenu();
+                case 3:     runTrainerMenu(trainer);
                             break;
                 default:    System.out.println("Invalid option entered: " + option);
                             break;
@@ -415,7 +592,7 @@ public class MenuController {
             input.nextLine();
 
             //display the main menu again
-            option = assessmentMenu();
+            option = assessmentMenu(member);
         }
 
         //the user chose option 0, so exit the program
@@ -423,28 +600,29 @@ public class MenuController {
         System.exit(0);
     }
 
+
     /**
      * Gather the member data from the user and create a new member.
      */
-    private void registerMember(){
-        input.nextLine();   // dummy read of String to clear the buffer - bug in Scanner class.
-        System.out.print("\nEnter the member's name:  ");
+    private Member registerMember(){
+        input.nextLine();   // dummy read
+        System.out.print("\nName (first & last):  ");
         String memberName = input.nextLine();
 
-        System.out.print("\nEnter the member's email address: ");
+        System.out.print("\nEmail address: ");
         String email = input.nextLine();
 
-        System.out.print("\nEnter the member's address: ");
+        System.out.print("\nAddress: ");
         String address = input.nextLine();
 
-        System.out.println("\nEnter the member's gender (M/F/other): ");
+        System.out.println("\nGender (M/F/other): ");
         String gender = input.nextLine();
 
         float height = 0;
         boolean goodInput = false; 	//Loop  Control Variable
         do {
             try {
-                System.out.print("\nEnter the member's height (m):  ");
+                System.out.print("\nHeight (m): ");
                 height = input.nextFloat();
                 goodInput = true;
             }
@@ -457,7 +635,7 @@ public class MenuController {
         float startWeight = 0; 	//Loop  Control Variable
         do {
             try {
-                System.out.print("\nEnter the member's starting weight (kg):  ");
+                System.out.print("\nStarting weight (kg): ");
                 startWeight = input.nextFloat();
                 goodInput = true;
             }
@@ -469,7 +647,7 @@ public class MenuController {
 
         String chosenPackage = "";
 
-        System.out.println("\nWhich package has the member chosen?: ");
+        System.out.println("\nWhich package?: ");
         System.out.println("---------");
         System.out.println("  1) Package 1");
         System.out.println("  2) Package 2");
@@ -498,30 +676,34 @@ public class MenuController {
             gymAPI.save();
         }
         catch(Exception e) {
-            System.err.println("Error loading from file: " + e);
+            System.err.println("Error saving to file: " + e);
         }
 
+        Member member = gymAPI.searchMembersByEmail(email);
+
         System.out.println("\nNew member - " + memberName + " - has been registered.");
+
+        return member;
     }
 
     /**
      * Gather the trainer data from the user and create a new trainer.
      */
-    private void registerTrainer(){
+    private Trainer registerTrainer(){
         input.nextLine();   // dummy read of String to clear the buffer - bug in Scanner class.
-        System.out.print("\nEnter the trainer's name:  ");
+        System.out.print("\nName:  ");
         String trainerName = input.nextLine();
 
-        System.out.print("\nEnter the trainer's email address: ");
+        System.out.print("\nEmail address: ");
         String email = input.nextLine();
 
-        System.out.print("\nEnter the trainer's address: ");
+        System.out.print("\nAddress: ");
         String address = input.nextLine();
 
-        System.out.println("\nEnter the trainer's gender (M/F/other): ");
+        System.out.println("\nGender (M/F/other): ");
         String gender = input.nextLine();
 
-        System.out.println("\nEnter the trainer's specialty: ");
+        System.out.println("\nSpecialty: ");
         String specialty = input.nextLine();
 
         gymAPI.addTrainer(new Trainer(email, trainerName, address, gender, specialty));
@@ -530,9 +712,13 @@ public class MenuController {
             gymAPI.save();
         }
         catch(Exception e) {
-            System.err.println("Error loading from file: " + e);
+            System.err.println("Error saving to file: " + e);
         }
 
+        Trainer trainer = gymAPI.searchTrainersByEmail(email);
+
         System.out.println("\nNew trainer - " + trainerName + " - has been registered.");
+
+        return trainer;
     }
 }

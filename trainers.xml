@@ -1,3 +1,11 @@
 <object-stream>
-  <list/>
+  <list>
+    <Trainer>
+      <name>Rainier Wolfcastle</name>
+      <email>rainier@simpson.com</email>
+      <address>Austria</address>
+      <gender>M</gender>
+      <specialty>McBain</specialty>
+    </Trainer>
+  </list>
 </object-stream>

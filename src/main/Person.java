@@ -26,15 +26,21 @@ public class Person {
         }
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public void setAddress(String address) {
         this.address = address;
     }
 
     public void setGender(String gender) {
-        if (!gender.equals("M") && !gender.equals("F")) {
-            this.gender = "Unspecified";
+        if (gender.charAt(0) == 'M' || gender.charAt(0) == 'm') {
+            this.gender = "M";
+        } else if (gender.charAt(0) == 'F' || gender.charAt(0) == 'f') {
+            this.gender = "F";
         } else {
-            this.gender = gender;
+            this.gender = "Unspecified";
         }
     }
 
