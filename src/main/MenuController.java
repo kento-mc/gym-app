@@ -551,12 +551,17 @@ public class MenuController {
     private int assessmentMenu(Member member)
     {
         System.out.println("\nAssessment Menu");
-        System.out.println("Member: " + member.getName());
+        if (member.getAssessments().size() != 1) {
+            System.out.println("Member: " + member.getName() + " - " + member.getAssessments().size() + " assessments");
+        } else {
+            System.out.println("Member: " + member.getName() + " - " + member.getAssessments().size() + " assessment");
+        }
         System.out.println("---------");
         System.out.println("  1) Add new member assessment");
-        System.out.println("  2) Update comment on member assessment");
+        System.out.println("  2) Comment on member assessment");
+        System.out.println("  3) List all assessments");
         System.out.println("---------");
-        System.out.println("  3) Return to Trainer menu");
+        System.out.println("  4) Return to Trainer menu");
         System.out.println("---------");
         System.out.println("  0) Save & Exit");
         System.out.print("==>> ");
@@ -576,11 +581,28 @@ public class MenuController {
 
             switch (option)
             {
-                case 1:     System.out.println("Assess!");
+                case 1:     input.nextLine();   // dummy read
+                            System.out.println("\nPlease enter weight measurement (kg):");
+                            Float weight = input.nextFloat();
+                            System.out.println("\nPlease enter thigh measurement (cm):");
+                            Float thigh = input.nextFloat();
+                            System.out.println("\nPlease enter waist measurement (cm):");
+                            Float waist = input.nextFloat();
+                            member.addAssessment(weight, thigh, waist);
+                            System.out.println("\nAssessment added for " + member.getName());
                             break;
-                case 2:     System.out.println("Comment the assessment!");
+                case 2:     input.nextLine();   // dummy read
+                            System.out.println("\nPlease enter date of assessment (YY/MM/DD):");
+                            String date = input.nextLine();
+                            Assessment assessment = (Assessment) member.getAssessments().get(date);
+                            System.out.println("\nPlease enter your comment:");
+                            String comment = input.nextLine();
+                            assessment.addComment(comment);
+                            System.out.println("\nComment \"" + assessment.getComment() + "\" added to assessment dated " + date);
                             break;
-                case 3:     runTrainerMenu(trainer);
+                case 3:     System.out.println(member.getAssessments());
+                            break;
+                case 4:     runTrainerMenu(trainer);
                             break;
                 default:    System.out.println("Invalid option entered: " + option);
                             break;

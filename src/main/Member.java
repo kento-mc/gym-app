@@ -1,11 +1,13 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
 
 public class Member extends Person {
     private float height;
     private float startWeight;
     private String chosenPackage;
-    private List<Assessment> assessments = new ArrayList<Assessment>();
+    private HashMap assessments;
 
 
     public Member() {}
@@ -16,7 +18,34 @@ public class Member extends Person {
         setHeight(height);
         setStartWeight(startWeight);
         setChosenPackage(chosenPackage);
+        assessments = new HashMap();
     }
+
+    public void addAssessment(Float weight, Float thigh, Float waist) {
+        Date date = new Date();
+        DateFormat dateFormat = new SimpleDateFormat("yy/MM/dd"); // HH:mm:ss
+        String dateString = dateFormat.format(date);
+        Assessment assessment = new Assessment(weight, thigh, waist);
+        assessments.put(dateString, assessment);
+    }
+
+    /**
+     * Builds a String representing a user friendly representation of member info
+     * @return Details of the member
+     */
+    public String toString()
+    {
+        return "Member name: " + getName()
+                + ", email: " + getEmail()
+                + ", address: " + getAddress()
+                + ", gender: " + getGender()
+                + ", height: " + getHeight() + "m"
+                + ", starting weight: " + getStartWeight() + "kg"
+                + ", " + getChosenPackage();
+    }
+
+    //-----------------------getters & setters-----------------------//
+
 
     public float getHeight() {
         return height;
@@ -46,23 +75,13 @@ public class Member extends Person {
         return chosenPackage;
     }
 
+    public HashMap getAssessments() {
+        return assessments;
+    }
+
     public void setChosenPackage(String chosenPackage) {
         this.chosenPackage = chosenPackage;
     }
 
-    /**
-     * Builds a String representing a user friendly representation of member info
-     * @return Details of the member
-     */
-    public String toString()
-    {
-        return "Member name: " + getName()
-                + ", email: " + getEmail()
-                + ", address: " + getAddress()
-                + ", gender: " + getGender()
-                + ", height: " + getHeight() + "m"
-                + ", starting weight: " + getStartWeight() + "kg"
-                + ", " + getChosenPackage();
-    }
 }
 

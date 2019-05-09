@@ -8,6 +8,7 @@
       <height>1.8</height>
       <startWeight>120.0</startWeight>
       <chosenPackage>Package 1</chosenPackage>
+      <assessments/>
     </Member>
     <Member>
       <name>Marge Simpson</name>
@@ -17,6 +18,17 @@
       <height>1.5</height>
       <startWeight>60.0</startWeight>
       <chosenPackage>Package 1</chosenPackage>
+      <assessments/>
+    </Member>
+    <Member>
+      <name>Bart Simpson</name>
+      <email>bart@simpson.com</email>
+      <address>Springfield</address>
+      <gender>M</gender>
+      <height>1.2</height>
+      <startWeight>50.0</startWeight>
+      <chosenPackage>WIT Package</chosenPackage>
+      <assessments/>
     </Member>
   </list>
 </object-stream>

@@ -8,6 +8,13 @@ public class Assessment {
 
     public Assessment() {}
 
+    public Assessment(Float weight, Float thigh, Float waist){
+        setWeight(weight);
+        setThigh(thigh);
+        setWaist(waist);
+        comment = "                                   ";
+    }
+
     public Assessment(Float weight, Float thigh, Float waist, String comment) {
         setWeight(weight);
         setThigh(thigh);
@@ -23,6 +30,17 @@ public class Assessment {
         setTrainer(trainer);
     }
 
+    public void addComment(String comment) {
+        setComment(comment);
+    }
+
+    public String toString() {
+        return "\n" +
+            "//----------------------------------------------------------------------------------------------//\n" +
+            "//----- WEIGHT ----------- WAIST --------- THIGH ------------------- COMMENT -------------------//\n" +
+            "//----- " + weight + "kg ----------- " + waist + "cm --------- " + thigh + "cm ---" + comment + "---//\n" +
+            "//----------------------------------------------------------------------------------------------//\n\n";
+    }
 
     //-----------------------getters & setters-----------------------//
 
