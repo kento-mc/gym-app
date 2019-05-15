@@ -1,16 +1,16 @@
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.TreeSet;
 
 public class Member extends Person {
     private float height;
     private float startWeight;
     private String chosenPackage;
-    private HashMap assessments;
+    private HashMap<String, Assessment> assessments;
 
 
-    public Member() {}
+    public Member() {
+    }
 
     public Member(String email, String name, String address,
                   String gender, float height, float startWeight, String chosenPackage) {
@@ -21,13 +21,106 @@ public class Member extends Person {
         assessments = new HashMap();
     }
 
-    public void addAssessment(Float weight, Float thigh, Float waist) {
-        Date date = new Date();
-        DateFormat dateFormat = new SimpleDateFormat("yy/MM/dd"); // HH:mm:ss
-        String dateString = dateFormat.format(date);
+    public void addAssessment(String date, Float weight, Float thigh, Float waist) {
         Assessment assessment = new Assessment(weight, thigh, waist);
-        assessments.put(dateString, assessment);
+        assessments.put(date, assessment);
     }
+
+    public Assessment latestAssessment() {
+        //Returns the latest assessment based on last entry (by calendar date).
+        if (!assessments.isEmpty()) {
+            Assessment assessment = assessments.get(sortedAssessmentDates().last());
+            return assessment;
+        } else {
+            return null;
+        }
+    }
+
+    public TreeSet<String> sortedAssessmentDates() {
+        TreeSet<String> sorted = new TreeSet<>();
+        Iterator<String> it = assessments.keySet().iterator();
+        while (it.hasNext()) {
+            String date = it.next();
+            sorted.add(date);
+        }
+        return sorted;
+    }
+
+    public String weightProgress() {
+        float currentWeight = (assessments.get(sortedAssessmentDates().last())).getWeight();
+        float previousWeight = (assessments.get(sortedAssessmentDates().lower(sortedAssessmentDates().last())).getWeight());
+        String current = "You currently weigh " + currentWeight + " kg.";
+        String progress = "";
+
+        if (assessments.size() >= 2) {
+            if (currentWeight < previousWeight) {
+                progress = "\nYou're making progress!"
+                         + "\nYou've lost " + (previousWeight - currentWeight) + " kg since your last assessment.\n"
+                         + current;
+            } else if (currentWeight > previousWeight) {
+                progress = "\nYou're going to have to work harder."
+                         + "\nYou've gained " + (currentWeight - previousWeight) + " kg since your last assessment.\n"
+                         + current;
+            } else if (currentWeight == previousWeight) {
+                progress = "\nYou're stuck."
+                         + "\nYou weigh exactly the same as when you were last assessed.\n"
+                         + current;
+            }
+        } else if (assessments.size() == 1) {
+            if (currentWeight < getStartWeight()) {
+                progress = "\nYou're making progress!"
+                         + "\nYou've lost " + (getStartWeight() - currentWeight) + " kg since you joined.\n"
+                         + current;
+            } else if (currentWeight > previousWeight) {
+                progress = "\nYou're going to have to work harder."
+                         + "\nYou've gained " + (currentWeight - getStartWeight()) + " kg since you joined.\n"
+                         + current;
+            } else if (currentWeight == previousWeight) {
+                progress = "\nYou're stuck."
+                         + "\nYou weigh exactly the same as when you joined.\n"
+                         + current;
+            }
+
+        } else {
+            progress = "\nIt looks like your trainer hasn't recorded an assessment for you yet."
+                       + current;
+
+        }
+        return progress;
+    }
+
+    public String waistProgress() {
+        float currentWaist = (assessments.get(sortedAssessmentDates().last())).getWaist();
+        float previousWaist = (assessments.get(sortedAssessmentDates().lower(sortedAssessmentDates().last())).getWaist());
+        String current = "Your current waist measurement is " + currentWaist + " cm.";
+        String progress = "";
+
+        if (assessments.size() >= 2) {
+            if (currentWaist < previousWaist) {
+                progress = "\nYou're making progress!"
+                         + "\nYour waist measurement has decreased by " + (previousWaist - currentWaist)
+                         + " cm since your last assessment.\n"
+                         + current;
+            } else if (currentWaist > previousWaist) {
+                progress = "\nYou're going to have to work harder."
+                         + "\nYour waist measurement has increased by " + (currentWaist - previousWaist)
+                         + " cm since your last assessment.\n"
+                         + current;
+            } else if (currentWaist == previousWaist) {
+                progress = "\nYou're stuck."
+                         + "\nYour waist measurement is exactly the same as when you were last assessed.\n"
+                         + current;
+            }
+        } else if (assessments.size() == 1) {
+            progress = "\nSorry, but you've only recorded one assessment so far. No progress to track yet!";
+        } else {
+            progress = "\nIt looks like your trainer hasn't recorded an assessment for you yet."
+                      +"\nComplete your first assessment to start tracking your waist measurement.";
+        }
+        return progress;
+    }
+
+    //public abstract void chosenPackage(String chosenPackage) ()
 
     /**
      * Builds a String representing a user friendly representation of member info
@@ -35,10 +128,7 @@ public class Member extends Person {
      */
     public String toString()
     {
-        return "Member name: " + getName()
-                + ", email: " + getEmail()
-                + ", address: " + getAddress()
-                + ", gender: " + getGender()
+        return super.toString()
                 + ", height: " + getHeight() + "m"
                 + ", starting weight: " + getStartWeight() + "kg"
                 + ", " + getChosenPackage();
@@ -51,16 +141,24 @@ public class Member extends Person {
         return height;
     }
 
+    public float getStartWeight() {
+        return startWeight;
+    }
+
+    public String getChosenPackage() {
+        return chosenPackage;
+    }
+
+    public HashMap<String, Assessment> getAssessments() {
+        return assessments;
+    }
+
     public void setHeight(float height) {
         if (height >= 1 && height <= 3) {
-            this.height = height;
+            this.height = (float) ((height *100) / 100.0);
         } else {
             this.height = 1;
         }
-    }
-
-    public float getStartWeight() {
-        return startWeight;
     }
 
     public void setStartWeight(float startWeight) {
@@ -71,17 +169,7 @@ public class Member extends Person {
         }
     }
 
-    public String getChosenPackage() {
-        return chosenPackage;
-    }
-
-    public HashMap getAssessments() {
-        return assessments;
-    }
-
     public void setChosenPackage(String chosenPackage) {
         this.chosenPackage = chosenPackage;
     }
-
 }
-

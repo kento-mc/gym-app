@@ -12,7 +12,7 @@ public class Assessment {
         setWeight(weight);
         setThigh(thigh);
         setWaist(waist);
-        comment = "                                   ";
+        comment = "None";
     }
 
     public Assessment(Float weight, Float thigh, Float waist, String comment) {
@@ -36,10 +36,10 @@ public class Assessment {
 
     public String toString() {
         return "\n" +
-            "//----------------------------------------------------------------------------------------------//\n" +
-            "//----- WEIGHT ----------- WAIST --------- THIGH ------------------- COMMENT -------------------//\n" +
-            "//----- " + weight + "kg ----------- " + waist + "cm --------- " + thigh + "cm ---" + comment + "---//\n" +
-            "//----------------------------------------------------------------------------------------------//\n\n";
+                "//--------------------------------------------------//\n" +
+                "  Weight: " + weight + "kg     Waist: " + waist + "cm     Thigh: " + thigh + "cm\n" +
+                "  Comment: " + comment +
+                "\n//--------------------------------------------------//\n\n";
     }
 
     //-----------------------getters & setters-----------------------//

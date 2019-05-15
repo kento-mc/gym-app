@@ -2,6 +2,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import com.thoughtworks.xstream.XStream;
@@ -17,14 +18,10 @@ public class GymAPI {
         this.trainers = new ArrayList<Trainer>();
     }
 
-
-    public ArrayList<Member> getMembers() {
-        return members;
-    }
-
     public void addMember(Member member) {
         members.add(member);
     }
+
 
     public String listMembers() {
         if (members.size() == 0){
@@ -64,6 +61,44 @@ public class GymAPI {
         return nameMatches;
     }
 
+    public ArrayList<Member> listMembersWithIdealWeight () {
+        ArrayList<Member> idealMembers = new ArrayList<>();
+        for (Member member : members) {
+            if (!member.getAssessments().isEmpty()) {
+                if (GymUtility.isIdealBodyWeight(member, member.latestAssessment()) == true) {
+                    idealMembers.add(member);
+                }
+            }
+        }
+        return idealMembers;
+    }
+
+    public ArrayList<Member> listMembersBySpecificBMICategory (String category) {
+        ArrayList<Member> membersBMI = new ArrayList<>();
+        for (Member member : members ) {
+            if (category.equals(GymUtility.determineBMICategory(GymUtility.calculateBMI(member, member.latestAssessment()))) ||
+                category.toUpperCase().equals(GymUtility.determineBMICategory(GymUtility.calculateBMI(member, member.latestAssessment()))) ||
+                GymUtility.determineBMICategory(GymUtility.calculateBMI(member, member.latestAssessment())).contains(category)) {
+                membersBMI.add(member);
+            }
+        }
+        return membersBMI;
+    }
+
+    public String listMemberDetailsImperialAndMetric () {
+        String details = "";
+        DecimalFormat df = new DecimalFormat("#.#");
+        if (!members.isEmpty()) {
+            for (Member member : members) {
+                details = details + member.getName() + ": " + Math.round(member.latestAssessment().getWeight()) + " kg (" +
+                          Math.round((member.latestAssessment().getWeight() * 2.2)) + " lbs) " + df.format(member.getHeight()) +
+                          " metres (" + Math.round((member.getHeight() * 39.37)) + " inches).\n";
+            }
+            return details;
+        } else {
+            return "No registered members";
+        }
+    }
 
     public void addTrainer(Trainer trainer) {
         trainers.add(trainer);
@@ -99,7 +134,7 @@ public class GymAPI {
         // The Trainer and Member classes are what we are reading in.
         // Modify to to include others if needed.
 
-        Class<?>[] classes = new Class[] { Trainer.class, Member.class };
+        Class<?>[] classes = new Class[] { Trainer.class, Member.class, PremiumMember.class, StudentMember.class, Assessment.class};
         XStream.setupDefaultSecurity(xstream);
         xstream.allowTypes(classes);
         // -----------------------------------------------------------------------
@@ -129,6 +164,9 @@ public class GymAPI {
 
     //-----------------------getters & setters-----------------------//
 
+    public ArrayList<Member> getMembers() {
+        return members;
+    }
 
     public ArrayList<Trainer> getTrainers() {
         return trainers;

@@ -6,8 +6,7 @@ public class Trainer extends Person{
 
     public Trainer(String email, String name, String address, String gender, String specialty) {
         super(email, name, address, gender);
-        this.specialty = specialty;
-    }
+        setSpecialty(specialty);    }
 
     /**
      * Builds a String representing a user friendly representation of trainer info

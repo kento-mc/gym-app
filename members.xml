@@ -1,6 +1,6 @@
 <object-stream>
   <list>
-    <Member>
+    <PremiumMember>
       <name>Homer Simpson</name>
       <email>homer@simpson.com</email>
       <address>742 Evergreen Terrace, Springfield, USA</address>
@@ -8,9 +8,37 @@
       <height>1.8</height>
       <startWeight>120.0</startWeight>
       <chosenPackage>Package 1</chosenPackage>
-      <assessments/>
-    </Member>
-    <Member>
+      <assessments>
+        <entry>
+          <string>19/05/02</string>
+          <Assessment>
+            <weight>99.0</weight>
+            <thigh>99.0</thigh>
+            <waist>99.0</waist>
+            <comment>None</comment>
+          </Assessment>
+        </entry>
+        <entry>
+          <string>19/05/01</string>
+          <Assessment>
+            <weight>100.0</weight>
+            <thigh>50.0</thigh>
+            <waist>80.0</waist>
+            <comment>None</comment>
+          </Assessment>
+        </entry>
+        <entry>
+          <string>19/05/03</string>
+          <Assessment>
+            <weight>95.0</weight>
+            <thigh>95.0</thigh>
+            <waist>95.0</waist>
+            <comment>None</comment>
+          </Assessment>
+        </entry>
+      </assessments>
+    </PremiumMember>
+    <PremiumMember>
       <name>Marge Simpson</name>
       <email>marge@simpson.com</email>
       <address>742 Evergreen Terrace, Springfield, USA</address>
@@ -19,8 +47,8 @@
       <startWeight>60.0</startWeight>
       <chosenPackage>Package 1</chosenPackage>
       <assessments/>
-    </Member>
-    <Member>
+    </PremiumMember>
+    <StudentMember>
       <name>Bart Simpson</name>
       <email>bart@simpson.com</email>
       <address>Springfield</address>
@@ -29,6 +57,6 @@
       <startWeight>50.0</startWeight>
       <chosenPackage>WIT Package</chosenPackage>
       <assessments/>
-    </Member>
+    </StudentMember>
   </list>
 </object-stream>
