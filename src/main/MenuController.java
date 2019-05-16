@@ -24,7 +24,8 @@ public class MenuController {
             System.err.println("\nError loading from file: " + e);
         }
 
-        System.out.println("\nWelcome to this totally sweet gym!");
+        System.out.println("\nWelcome to the Duff Light(™) Gym!");
+        System.out.println("It's either us or Moe's Tavern...");
         runWelcomeMenu();
     }
 
@@ -96,8 +97,8 @@ public class MenuController {
      */
     private int loginMenu()
     {
-        System.out.println("\nWelcome back!\n" +
-                           "\nAre you a member or trainer?");
+        System.out.println("\nWelcome back!" +
+                           "Are you a member or trainer?");
         System.out.println("---------");
         System.out.println("  1) Login as a member");
         System.out.println("  2) Login as a trainer");
@@ -175,8 +176,8 @@ public class MenuController {
      */
     private int registerMenu()
     {
-        System.out.println("\nWelcome!\n" +
-                           "\nAre you registering as a member or trainer?");
+        System.out.println("\nWelcome!" +
+                           "Are you registering as a member or trainer?");
         System.out.println("---------");
         System.out.println("  1) Register as a member");
         System.out.println("  2) Register as a trainer");
@@ -239,7 +240,6 @@ public class MenuController {
         System.out.println("Premium packages");
         System.out.println("  1) Platinum package");
         System.out.println("  2) Gold package");
-        System.out.println("Standard package");
         System.out.println("  3) Duff package");
         System.out.println("Student packages");
         System.out.println("  4) Springfield Elementary Package");
@@ -334,9 +334,9 @@ public class MenuController {
      *
      * @return     the user's menu choice
      */
-    private int memberMenu()
+    private int memberMenu(Member member)
     {
-        System.out.println("\nMember Menu");
+        System.out.println("\nMember Menu - " + member.getName());
         System.out.println("---------");
         System.out.println("  1) View profile");
         System.out.println("  2) Update profile");
@@ -355,13 +355,19 @@ public class MenuController {
      */
     private void runMemberMenu(Member member)
     {
-        int option = memberMenu();
+        int option = memberMenu(member);
         while (option != 0)
         {
 
             switch (option)
             {
-                case 1:     System.out.println(member.toString());
+                case 1:     System.out.println("\n" + member);
+                            if (member.getAssessments().isEmpty()) {
+                                System.out.println("\nNo assessments");
+                            } else {
+                                System.out.println("\nLatest assessment:");
+                                System.out.println(member.latestAssessment());
+                            }
                             break;
                 case 2:     runUpdateProfileMenu(member);
                             break;
@@ -377,7 +383,7 @@ public class MenuController {
             input.nextLine();
 
             //display the main menu again
-            option = memberMenu();
+            option = memberMenu(member);
         }
 
         //the user chose option 0, so exit the program
@@ -391,10 +397,10 @@ public class MenuController {
      *
      * @return     the user's menu choice
      */
-    private int updateProfileMenu()
+    private int updateProfileMenu(Member member)
     {
-        System.out.println("\nUpdate Menu");
-        System.out.println("Which field would you like to update?");
+        System.out.println("\nUpdate Menu - " + member.getName());
+        System.out.println("\nWhich field would you like to update?");
         System.out.println("---------");
         System.out.println("  1) Name");
         System.out.println("  2) Address");
@@ -417,7 +423,7 @@ public class MenuController {
      */
     private void runUpdateProfileMenu(Member member)
     {
-        int option = updateProfileMenu();
+        int option = updateProfileMenu(member);
         while (option != 0)
         {
 
@@ -493,7 +499,7 @@ public class MenuController {
             input.nextLine();
 
             //display the main menu again
-            option = updateProfileMenu();
+            option = updateProfileMenu(member);
         }
 
         //the user chose option 0, so exit the program
@@ -508,14 +514,22 @@ public class MenuController {
      *
      * @return     the user's menu choice
      */
-    private int progressMenu()
+    private int progressMenu(Member member)
     {
-        System.out.println("\nProgress Menu");
+        System.out.println("\nProgress Menu - " + member.getName());
+
+        if (member.latestAssessment() == null) {
+            System.out.println("No assessments");
+        } else {
+            System.out.println("\nLatest assessment:");
+            System.out.println(member.latestAssessment());
+        }
         System.out.println("---------");
-        System.out.println("  1) View progress by weight");
-        System.out.println("  2) View progress by waist measurement");
+        System.out.println("  1) List all assessments");
+        System.out.println("  2) View progress by weight");
+        System.out.println("  3) View progress by waist measurement");
         System.out.println("---------");
-        System.out.println("  3) Return to main menu");
+        System.out.println("  4) Return to main menu");
         System.out.println("---------");
         System.out.println("  0) Save & Exit");
         System.out.print("==>> ");
@@ -529,17 +543,42 @@ public class MenuController {
      */
     private void runProgressMenu(Member member)
     {
-        int option = progressMenu();
+        int option = progressMenu(member);
         while (option != 0)
         {
 
             switch (option)
             {
-                case 1:     System.out.println(member.weightProgress());
+                case 1:     System.out.println("");
+                            for (String date : member.sortedAssessmentDates().descendingSet()) {
+                                System.out.println(date + ": " + member.getAssessments().get(date));
+                            }
                             break;
-                case 2:     System.out.println(member.waistProgress());
+                case 2:     if (member.getAssessments().isEmpty()) {
+                                System.out.println("\nIt looks like your trainer hasn't recorded an assessment for you yet.");
+                            } else {
+                                System.out.println(member.weightProgress());
+                                System.out.println("\nWeight tracker");
+                                System.out.println("---------");
+                                for (String date : member.sortedAssessmentDates().descendingSet()) {
+                                    System.out.println(date + ": " + member.getAssessments().get(date).getWeight() + " kg");
+                                }
+                                System.out.println("Starting weight: " + member.getStartWeight() + " kg");
+
+                            }
                             break;
-                case 3:     runMemberMenu(member);
+                case 3:     if (member.getAssessments().isEmpty()) {
+                                System.out.println("\nIt looks like your trainer hasn't recorded an assessment for you yet.");
+                            } else {
+                                System.out.println(member.waistProgress());
+                                System.out.println("\nWaist tracker");
+                                System.out.println("---------");
+                                for (String date : member.sortedAssessmentDates().descendingSet()) {
+                                    System.out.println(date + ": " + member.getAssessments().get(date).getWaist() + " cm");
+                                }
+                            }
+                            break;
+                case 4:     runMemberMenu(member);
                             break;
                 default:    System.out.println("Invalid option entered: " + option);
                             break;
@@ -551,7 +590,7 @@ public class MenuController {
             input.nextLine();
 
             //display the main menu again
-            option = progressMenu();
+            option = progressMenu(member);
         }
 
         //the user chose option 0, so exit the program
@@ -787,28 +826,42 @@ public class MenuController {
 
         System.out.println("\nWhich package?: ");
         System.out.println("---------");
-        System.out.println("  1) Package 1");
-        System.out.println("  2) Package 2");
-        System.out.println("  3) Package 3");
-        System.out.println("  4) WIT Package");
+        System.out.println("  1) Platinum");
+        System.out.println("  2) Gold");
+        System.out.println("  3) Duff");
+        System.out.println("  4) Springfield Elementary");
+        System.out.println("  5) WIT");
         System.out.print("==>> ");
         int option = input.nextInt();
 
         switch (option)
         {
-            case 1:     chosenPackage = "Package 1";
+            case 1:     chosenPackage = "Platinum";
                         break;
-            case 2:     chosenPackage = "Package 2";
+            case 2:     chosenPackage = "Gold";
                         break;
-            case 3:     chosenPackage = "Package 3";
+            case 3:     chosenPackage = "Duff";
                         break;
-            case 4:     chosenPackage = "WIT Package";
+            case 4:     chosenPackage = "SE";
+                        break;
+            case 5:     chosenPackage = "WIT";
                         break;
             default:    System.out.println("Invalid option entered: " + option);
                         break;
         }
 
-        gymAPI.addMember(new Member(email, memberName, address, gender, height, startWeight, chosenPackage));
+        if (chosenPackage == "SE" || chosenPackage == "WIT") {
+            input.nextLine();   // dummy read
+            System.out.print("\nCollege name:  ");
+            String collegeName = input.nextLine();
+
+            System.out.print("\nStudent ID:  ");
+            String studentID = input.nextLine();
+
+            gymAPI.addMember(new StudentMember(email, memberName, address, gender, height, startWeight, chosenPackage, studentID, collegeName));
+        } else {
+            gymAPI.addMember(new PremiumMember(email, memberName, address, gender, height, startWeight, chosenPackage));
+        }
 
         try{
             gymAPI.save();
@@ -865,13 +918,13 @@ public class MenuController {
      */
     public void fillGymPackageMap()
     {
-        gymPackage.put("Package 1",
+        gymPackage.put("Platinum",
                         "Allowed access anytime to gym.\nFree access to all classes.\n" +
                         "Access to all changing areas including deluxe changing rooms.");
-        gymPackage.put("Package 2",
+        gymPackage.put("Gold",
                         "Allowed access anytime to gym.\n€3 fee for all classes.\n" +
                         "Access to all changing areas including deluxe changing rooms.");
-        gymPackage.put("Package 3",
+        gymPackage.put("Duff",
                         "Allowed access to gym at off-peak times.\n" +
                         "\n€5 fee for all classes. \nNo access to deluxe changing rooms.");
         gymPackage.put("SE",

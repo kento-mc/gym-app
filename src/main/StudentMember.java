@@ -11,17 +11,23 @@ public class StudentMember extends Member {
         super(email, name, address, gender, height, startWeight, chosenPackage);
         this.studentID = studentID;
         this.collegeName = collegeName;
+
     }
 
 
-    public void chosenPackage(String packageChoice) {}
+    public void chosenPackage(String packageChoice) {
+        if (packageChoice == "SE" || packageChoice == "WIT") {
+            super.setChosenPackage(packageChoice);
+        } else {
+            super.setChosenPackage("Duff");
+        }
+    }
 
     public String toString()
     {
         return super.toString()
-                + getCollegeName() + "\n"
-                + "Student ID: "
-                + getStudentID();
+                + "College: " + getCollegeName() + "\n"
+                + "Student ID: " + getStudentID();
     }
 
 

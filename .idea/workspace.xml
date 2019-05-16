@@ -2,53 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="09b8f374-3f57-4751-b291-a348c7a903bd" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/members.xml" beforeDir="false" afterPath="$PROJECT_DIR$/members.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment3/Assessment.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment3/Assessment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment3/GymAPI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment3/GymAPI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment3/Member.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment3/Member.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment3/MenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment3/MenuController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment3/Person.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment3/Person.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment3/PremiumMember.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment3/PremiumMember.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment3/StudentMember.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment3/StudentMember.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Assignment3/Trainer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment3/Trainer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Assignment3/GymAPITest$MemberIndex$Valid.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Assignment3/GymAPITest$MemberIndex$Valid.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Assignment3/GymAPITest$MemberIndex.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Assignment3/GymAPITest$MemberIndex.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Assignment3/GymAPITest$SearchMemberEmail$Empty.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Assignment3/GymAPITest$SearchMemberEmail$Empty.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Assignment3/GymAPITest$SearchMemberEmail$Some.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Assignment3/GymAPITest$SearchMemberEmail$Some.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Assignment3/GymAPITest$SearchMemberEmail.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Assignment3/GymAPITest$SearchMemberEmail.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Assignment3/GymAPITest$SearchMemberName$Empty.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Assignment3/GymAPITest$SearchMemberName$Empty.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Assignment3/GymAPITest$SearchMemberName$Some.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Assignment3/GymAPITest$SearchMemberName$Some.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Assignment3/GymAPITest$SearchMemberName.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Assignment3/GymAPITest$SearchMemberName.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Assignment3/GymAPITest$SearchTrainerEmail$Empty.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Assignment3/GymAPITest$SearchTrainerEmail$Empty.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Assignment3/GymAPITest$SearchTrainerEmail$Some.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Assignment3/GymAPITest$SearchTrainerEmail$Some.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Assignment3/GymAPITest$SearchTrainerEmail.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Assignment3/GymAPITest$SearchTrainerEmail.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Assignment3/GymAPITest$SearchTrainerName$Empty.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Assignment3/GymAPITest$SearchTrainerName$Empty.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Assignment3/GymAPITest$SearchTrainerName$Some.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Assignment3/GymAPITest$SearchTrainerName$Some.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Assignment3/GymAPITest$SearchTrainerName.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Assignment3/GymAPITest$SearchTrainerName.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Assignment3/GymAPITest$TrainerIndex$Empty.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Assignment3/GymAPITest$TrainerIndex$Empty.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Assignment3/GymAPITest$TrainerIndex$Valid.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Assignment3/GymAPITest$TrainerIndex$Valid.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Assignment3/GymAPITest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Assignment3/GymAPITest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Assignment3/MemberTest$Constructir$Gender.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Assignment3/MemberTest$Constructir$Gender.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Assignment3/MemberTest$Constructir$Height.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Assignment3/MemberTest$Constructir$Height.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Assignment3/MemberTest$Constructir$Name.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Assignment3/MemberTest$Constructir$Name.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Assignment3/MemberTest$Constructir$Weight.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Assignment3/MemberTest$Constructir$Weight.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Assignment3/MemberTest$Constructir.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Assignment3/MemberTest$Constructir.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Assignment3/MemberTest$Gender.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Assignment3/MemberTest$Gender.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Assignment3/MemberTest$Height.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Assignment3/MemberTest$Height.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Assignment3/MemberTest$Name.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Assignment3/MemberTest$Name.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Assignment3/MemberTest$Weight.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Assignment3/MemberTest$Weight.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Assignment3/MemberTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Assignment3/MemberTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Assessment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Assessment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/GymAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GymAPI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Member.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Person.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/PremiumMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/PremiumMember.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/StudentMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/StudentMember.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Trainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Trainer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/GymAPITest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/GymAPITest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/MemberTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/MemberTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -65,8 +24,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/MenuController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="539" column="70" selection-start-line="539" selection-start-column="70" selection-end-line="539" selection-end-column="70" />
+            <state relative-caret-position="251">
+              <caret line="852" column="47" lean-forward="true" selection-start-line="852" selection-start-column="47" selection-end-line="852" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -77,8 +36,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/members.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+            <state relative-caret-position="551">
+              <caret line="69" column="17" selection-start-line="69" selection-start-column="17" selection-end-line="69" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -101,11 +60,15 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/PremiumMember.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+            <state relative-caret-position="165">
+              <caret line="11" column="38" lean-forward="true" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
+              <folding>
+                <element signature="e#387#388#0" expanded="true" />
+                <element signature="e#423#424#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -113,8 +76,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/StudentMember.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+            <state relative-caret-position="195">
+              <caret line="13" selection-start-line="13" selection-end-line="13" />
             </state>
           </provider>
         </entry>
@@ -148,18 +111,18 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/Member.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="95" column="29" lean-forward="true" selection-start-line="95" selection-start-column="29" selection-end-line="95" selection-end-column="29" />
+            <state relative-caret-position="375">
+              <caret line="25" column="38" lean-forward="true" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#5942#5943#0" expanded="true" />
-                <element signature="e#6013#6014#0" expanded="true" />
-                <element signature="e#6089#6090#0" expanded="true" />
-                <element signature="e#6182#6183#0" expanded="true" />
-                <element signature="e#6716#6717#0" expanded="true" />
+                <element signature="e#6235#6236#0" expanded="true" />
+                <element signature="e#6306#6307#0" expanded="true" />
+                <element signature="e#6382#6383#0" expanded="true" />
+                <element signature="e#6475#6476#0" expanded="true" />
+                <element signature="e#7009#7010#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -168,8 +131,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/Assessment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-76">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
+            <state relative-caret-position="363">
+              <caret line="41" column="71" selection-start-line="41" selection-start-column="71" selection-end-line="41" selection-end-column="71" />
             </state>
           </provider>
         </entry>
@@ -192,18 +155,18 @@
         <option value="$PROJECT_DIR$/Assignment3.iml" />
         <option value="$PROJECT_DIR$/src/main/SetDemo.java" />
         <option value="$PROJECT_DIR$/src/main/GymUtility.java" />
-        <option value="$PROJECT_DIR$/src/main/Assessment.java" />
         <option value="$PROJECT_DIR$/src/main/Trainer.java" />
-        <option value="$PROJECT_DIR$/members.xml" />
-        <option value="$PROJECT_DIR$/src/main/PremiumMember.java" />
         <option value="$PROJECT_DIR$/src/test/MemberTest.java" />
         <option value="$PROJECT_DIR$/src/test/GymUtilityTest.java" />
         <option value="$PROJECT_DIR$/src/test/GymAPITest.java" />
-        <option value="$PROJECT_DIR$/src/main/StudentMember.java" />
         <option value="$PROJECT_DIR$/src/main/Person.java" />
         <option value="$PROJECT_DIR$/src/main/GymAPI.java" />
+        <option value="$PROJECT_DIR$/members.xml" />
+        <option value="$PROJECT_DIR$/src/main/Assessment.java" />
+        <option value="$PROJECT_DIR$/src/main/StudentMember.java" />
         <option value="$PROJECT_DIR$/src/main/MenuController.java" />
         <option value="$PROJECT_DIR$/src/main/Member.java" />
+        <option value="$PROJECT_DIR$/src/main/PremiumMember.java" />
       </list>
     </option>
   </component>
@@ -459,7 +422,7 @@
       <workItem from="1556922447634" duration="12000" />
       <workItem from="1557170742930" duration="12017000" />
       <workItem from="1557320393559" duration="75523000" />
-      <workItem from="1557912545926" duration="6088000" />
+      <workItem from="1557912545926" duration="16959000" />
     </task>
     <servers />
   </component>
@@ -496,7 +459,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="130517000" />
+    <option name="totallyTimeSpent" value="141388000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="353" y="23" width="1327" height="990" extended-state="0" />
@@ -596,14 +559,6 @@
           </properties>
           <option name="timeStamp" value="37" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/Member.java</url>
-          <line>48</line>
-          <properties class="Member" method="weightProgress">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="38" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -691,20 +646,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/PremiumMember.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/StudentMember.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/GymAPI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -732,22 +673,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/members.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+        <state relative-caret-position="551">
+          <caret line="69" column="17" selection-start-line="69" selection-start-column="17" selection-end-line="69" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Assessment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-76">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        <state relative-caret-position="363">
+          <caret line="41" column="71" selection-start-line="41" selection-start-column="71" selection-end-line="41" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/StudentMember.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/MenuController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="539" column="70" selection-start-line="539" selection-start-column="70" selection-end-line="539" selection-end-column="70" />
+        <state relative-caret-position="251">
+          <caret line="852" column="47" lean-forward="true" selection-start-line="852" selection-start-column="47" selection-end-line="852" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -756,15 +704,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Member.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="95" column="29" lean-forward="true" selection-start-line="95" selection-start-column="29" selection-end-line="95" selection-end-column="29" />
+        <state relative-caret-position="375">
+          <caret line="25" column="38" lean-forward="true" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5942#5943#0" expanded="true" />
-            <element signature="e#6013#6014#0" expanded="true" />
-            <element signature="e#6089#6090#0" expanded="true" />
-            <element signature="e#6182#6183#0" expanded="true" />
-            <element signature="e#6716#6717#0" expanded="true" />
+            <element signature="e#6235#6236#0" expanded="true" />
+            <element signature="e#6306#6307#0" expanded="true" />
+            <element signature="e#6382#6383#0" expanded="true" />
+            <element signature="e#6475#6476#0" expanded="true" />
+            <element signature="e#7009#7010#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/PremiumMember.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="38" lean-forward="true" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
+          <folding>
+            <element signature="e#387#388#0" expanded="true" />
+            <element signature="e#423#424#0" expanded="true" />
           </folding>
         </state>
       </provider>

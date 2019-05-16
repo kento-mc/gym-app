@@ -9,7 +9,9 @@ public class PremiumMember extends Member  {
 
     }
 
-    public void chosenPackage(String packageChoice) {}
+    public void chosenPackage(String packageChoice) {
+        super.setChosenPackage(packageChoice);
+    }
 
     public String toString() {
         return super.toString();

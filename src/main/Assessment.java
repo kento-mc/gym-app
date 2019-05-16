@@ -36,10 +36,10 @@ public class Assessment {
 
     public String toString() {
         return "\n" +
-                "//--------------------------------------------------//\n" +
-                "  Weight: " + weight + "kg     Waist: " + waist + "cm     Thigh: " + thigh + "cm\n" +
-                "  Comment: " + comment +
-                "\n//--------------------------------------------------//\n\n";
+                "//-------------------------------------------------------//\n" +
+                "   Weight: " + weight + " kg     Waist: " + waist + " cm     Thigh: " + thigh + " cm\n" +
+                "   Comment: " + comment +
+                "\n//-------------------------------------------------------//\n";
     }
 
     //-----------------------getters & setters-----------------------//

@@ -2,12 +2,17 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.TreeSet;
 
-public class Member extends Person {
+public abstract class Member extends Person {
     private float height;
     private float startWeight;
     private String chosenPackage;
     private HashMap<String, Assessment> assessments;
 
+    protected final String PACK_PLATINUM = "Platinum";
+    protected final String PACK_GOLD = "Gold";
+    protected final String PACK_DUFF = "Duff";
+    protected final String PACK_SE = "Springfield Elementary Student";
+    protected final String PACK_WIT = "WIT Student";
 
     public Member() {
     }
@@ -18,7 +23,7 @@ public class Member extends Person {
         setHeight(height);
         setStartWeight(startWeight);
         setChosenPackage(chosenPackage);
-        assessments = new HashMap();
+        assessments = new HashMap<>();
     }
 
     public void addAssessment(String date, Float weight, Float thigh, Float waist) {
@@ -46,13 +51,16 @@ public class Member extends Person {
         return sorted;
     }
 
+    public abstract void chosenPackage(String chosenPackage);
+
     public String weightProgress() {
         float currentWeight = (assessments.get(sortedAssessmentDates().last())).getWeight();
-        float previousWeight = (assessments.get(sortedAssessmentDates().lower(sortedAssessmentDates().last())).getWeight());
         String current = "You currently weigh " + currentWeight + " kg.";
         String progress = "";
 
         if (assessments.size() >= 2) {
+            float previousWeight = (assessments.get(sortedAssessmentDates().lower(sortedAssessmentDates().last())).getWeight());
+
             if (currentWeight < previousWeight) {
                 progress = "\nYou're making progress!"
                          + "\nYou've lost " + (previousWeight - currentWeight) + " kg since your last assessment.\n"
@@ -71,11 +79,11 @@ public class Member extends Person {
                 progress = "\nYou're making progress!"
                          + "\nYou've lost " + (getStartWeight() - currentWeight) + " kg since you joined.\n"
                          + current;
-            } else if (currentWeight > previousWeight) {
+            } else if (currentWeight > getStartWeight()) {
                 progress = "\nYou're going to have to work harder."
                          + "\nYou've gained " + (currentWeight - getStartWeight()) + " kg since you joined.\n"
                          + current;
-            } else if (currentWeight == previousWeight) {
+            } else if (currentWeight == getStartWeight()) {
                 progress = "\nYou're stuck."
                          + "\nYou weigh exactly the same as when you joined.\n"
                          + current;
@@ -91,11 +99,12 @@ public class Member extends Person {
 
     public String waistProgress() {
         float currentWaist = (assessments.get(sortedAssessmentDates().last())).getWaist();
-        float previousWaist = (assessments.get(sortedAssessmentDates().lower(sortedAssessmentDates().last())).getWaist());
         String current = "Your current waist measurement is " + currentWaist + " cm.";
         String progress = "";
 
         if (assessments.size() >= 2) {
+            float previousWaist = (assessments.get(sortedAssessmentDates().lower(sortedAssessmentDates().last())).getWaist());
+
             if (currentWaist < previousWaist) {
                 progress = "\nYou're making progress!"
                          + "\nYour waist measurement has decreased by " + (previousWaist - currentWaist)
@@ -119,8 +128,6 @@ public class Member extends Person {
         }
         return progress;
     }
-
-    //public abstract void chosenPackage(String chosenPackage) ()
 
     /**
      * Builds a String representing a user friendly representation of member info
