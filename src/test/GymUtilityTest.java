@@ -12,9 +12,23 @@ public class GymUtilityTest {
     Member member1;
     Assessment assessment1;
 
+    private class MockMember extends Member {
+        public MockMember() {}
+
+        public MockMember(String email, String name, String address,
+                          String gender, float height, float startWeight, String chosenPackage) {
+            super(email, name, address, gender, height, startWeight, chosenPackage);
+        }
+
+        @Override
+        public void chosenPackage(String chosenPackage) {
+            super.setChosenPackage(chosenPackage);
+        }
+    }
+
     @BeforeEach
     public void setUp() {
-        member1 = new Member("email1", "name1", "address1", "F",
+        member1 = new MockMember("email1", "name1", "address1", "F",
                 1.5f, 100.0f, "Package 1");
         assessment1 = new Assessment(12.0f, 1.0f, 1.0f, "comment");
     }

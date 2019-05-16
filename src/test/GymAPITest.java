@@ -17,15 +17,29 @@ public class GymAPITest {
     Trainer trainer2;
     Trainer trainer3;
 
+    private class MockMember extends Member {
+        public MockMember() {}
+
+        public MockMember(String email, String name, String address,
+                          String gender, float height, float startWeight, String chosenPackage) {
+            super(email, name, address, gender, height, startWeight, chosenPackage);
+        }
+
+        @Override
+        public void chosenPackage(String chosenPackage) {
+            super.setChosenPackage(chosenPackage);
+        }
+    }
+
     @BeforeEach
     public void setUp() {
         gymAPI = new GymAPI();
-        member1 = new Member("email1", "name1", "address1", "F",
+        member1 = new MockMember("email1", "name1", "address1", "F",
                 1.5f, 100.0f, "Package 1");
-        member2 = new Member("email2", "name2", "address2", "F"
+        member2 = new MockMember("email2", "name2", "address2", "F"
                 , 1.4f, 100.0f, "Package 1");
 
-        member3 = new Member("email3", "name3", "address3", "M"
+        member3 = new MockMember("email3", "name3", "address3", "M"
                 , 1.5f, 100.0f, "Package 1");
         trainer1 = new Trainer("emailt1", "namet1", "address3", "M", "s1");
         trainer2 = new Trainer("emailt2", "namet2", "address3", "M", "s1");
