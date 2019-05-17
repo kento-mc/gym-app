@@ -2,10 +2,17 @@
   <list>
     <Trainer>
       <name>Rainier Wolfcastle</name>
-      <email>rainier@simpson.com</email>
+      <email>rainier@wolfcastle.com</email>
       <address>Austria</address>
       <gender>M</gender>
       <specialty>McBain</specialty>
+    </Trainer>
+    <Trainer>
+      <name>Manjula Nahasapeemapetilon</name>
+      <email>manjula@kwikemart.com</email>
+      <address>Springfield</address>
+      <gender>F</gender>
+      <specialty>Yoga</specialty>
     </Trainer>
   </list>
 </object-stream>

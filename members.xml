@@ -7,7 +7,7 @@
       <gender>M</gender>
       <height>1.8</height>
       <startWeight>120.0</startWeight>
-      <chosenPackage>Package 1</chosenPackage>
+      <chosenPackage>Duff</chosenPackage>
       <assessments>
         <entry>
           <string>19/05/02</string>
@@ -16,6 +16,13 @@
             <thigh>99.0</thigh>
             <waist>99.0</waist>
             <comment>None</comment>
+            <trainer>
+              <name>Rainier Wolfcastle</name>
+              <email>rainier@wolfcastle.com</email>
+              <address>Austria</address>
+              <gender>M</gender>
+              <specialty>McBain</specialty>
+            </trainer>
           </Assessment>
         </entry>
         <entry>
@@ -25,6 +32,13 @@
             <thigh>50.0</thigh>
             <waist>80.0</waist>
             <comment>None</comment>
+            <trainer>
+              <name>Rainier Wolfcastle</name>
+              <email>rainier@wolfcastle.com</email>
+              <address>Austria</address>
+              <gender>M</gender>
+              <specialty>McBain</specialty>
+            </trainer>
           </Assessment>
         </entry>
         <entry>
@@ -33,7 +47,14 @@
             <weight>95.0</weight>
             <thigh>95.0</thigh>
             <waist>95.0</waist>
-            <comment>None</comment>
+            <comment>You are really fat</comment>
+            <trainer>
+              <name>Rainier Wolfcastle</name>
+              <email>rainier@wolfcastle.com</email>
+              <address>Austria</address>
+              <gender>M</gender>
+              <specialty>McBain</specialty>
+            </trainer>
           </Assessment>
         </entry>
       </assessments>
@@ -45,7 +66,7 @@
       <gender>F</gender>
       <height>1.5</height>
       <startWeight>60.0</startWeight>
-      <chosenPackage>Package 1</chosenPackage>
+      <chosenPackage>Gold</chosenPackage>
       <assessments>
         <entry>
           <string>19/05/01</string>
@@ -54,6 +75,7 @@
             <thigh>50.0</thigh>
             <waist>60.0</waist>
             <comment>None</comment>
+            <trainer/>
           </Assessment>
         </entry>
       </assessments>
@@ -65,10 +87,71 @@
       <gender>M</gender>
       <height>1.2</height>
       <startWeight>50.0</startWeight>
-      <chosenPackage>WIT Package</chosenPackage>
-      <assessments/>
+      <chosenPackage>Student</chosenPackage>
+      <assessments>
+        <entry>
+          <string>19/05/10</string>
+          <Assessment>
+            <weight>50.0</weight>
+            <thigh>35.0</thigh>
+            <waist>45.0</waist>
+            <comment>None</comment>
+            <trainer>
+              <name>Rainier Wolfcastle</name>
+              <email>rainier@wolfcastle.com</email>
+              <address>Austria</address>
+              <gender>M</gender>
+              <specialty>McBain</specialty>
+            </trainer>
+          </Assessment>
+        </entry>
+      </assessments>
       <studentID>314589</studentID>
       <collegeName>Springfield Elementary</collegeName>
     </StudentMember>
+    <StudentMember>
+      <name>Milhouse VanHouten</name>
+      <email>milhouse@vanhouten.com</email>
+      <address>poor</address>
+      <gender>M</gender>
+      <height>1.2</height>
+      <startWeight>40.0</startWeight>
+      <chosenPackage>Student</chosenPackage>
+      <assessments/>
+      <studentID>2348</studentID>
+      <collegeName>Springfield Elementary</collegeName>
+    </StudentMember>
+    <PremiumMember>
+      <name>Ned Flanders</name>
+      <email>ned@flanders.com</email>
+      <address>744 Evergreen Terrace, Springfield, USA</address>
+      <gender>M</gender>
+      <height>1.9</height>
+      <startWeight>70.0</startWeight>
+      <chosenPackage>Platinum</chosenPackage>
+      <assessments/>
+    </PremiumMember>
+    <StudentMember>
+      <name>Ralph Wigum</name>
+      <email>ralph@wigum.com</email>
+      <address>Ralph&apos;s house</address>
+      <gender>M</gender>
+      <height>1.1</height>
+      <startWeight>55.0</startWeight>
+      <chosenPackage>SE</chosenPackage>
+      <assessments/>
+      <studentID>7837</studentID>
+      <collegeName>Springfield Elementary</collegeName>
+    </StudentMember>
+    <PremiumMember>
+      <name>Moe Sizlak</name>
+      <email>What is email?</email>
+      <address>Moe&apos;s Tavern</address>
+      <gender>M</gender>
+      <height>1.7</height>
+      <startWeight>65.0</startWeight>
+      <chosenPackage>Duff</chosenPackage>
+      <assessments/>
+    </PremiumMember>
   </list>
 </object-stream>

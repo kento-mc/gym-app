@@ -9,13 +9,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Tests for GymAPI class")
 public class GymAPITest {
-    GymAPI gymAPI;
-    Member member1;
-    Member member2;
-    Member member3;
-    Trainer trainer1;
-    Trainer trainer2;
-    Trainer trainer3;
 
     private class MockMember extends Member {
         public MockMember() {}
@@ -30,6 +23,14 @@ public class GymAPITest {
             super.setChosenPackage(chosenPackage);
         }
     }
+
+    GymAPI gymAPI;
+    Member member1;
+    Member member2;
+    Member member3;
+    Trainer trainer1;
+    Trainer trainer2;
+    Trainer trainer3;
 
     @BeforeEach
     public void setUp() {

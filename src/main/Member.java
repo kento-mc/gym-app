@@ -8,12 +8,6 @@ public abstract class Member extends Person {
     private String chosenPackage;
     private HashMap<String, Assessment> assessments;
 
-    protected final String PACK_PLATINUM = "Platinum";
-    protected final String PACK_GOLD = "Gold";
-    protected final String PACK_DUFF = "Duff";
-    protected final String PACK_SE = "Springfield Elementary Student";
-    protected final String PACK_WIT = "WIT Student";
-
     public Member() {
     }
 
@@ -26,8 +20,8 @@ public abstract class Member extends Person {
         assessments = new HashMap<>();
     }
 
-    public void addAssessment(String date, Float weight, Float thigh, Float waist) {
-        Assessment assessment = new Assessment(weight, thigh, waist);
+    public void addAssessment(String date, Float weight, Float thigh, Float waist, Trainer trainer) {
+        Assessment assessment = new Assessment(weight, thigh, waist, trainer);
         assessments.put(date, assessment);
     }
 
@@ -130,7 +124,37 @@ public abstract class Member extends Person {
     }
 
     /**
+     * Builds a String representing a user friendly representation of member info, specicifcally for use
+     * in the member profile.
+     *
+     * @return Details of the member
+     */
+    public String profileString(Member member)
+    {
+        if (member.assessments.isEmpty()) {
+        return "\n" +
+                "//-----------------------------------------------------------------//\n" +
+                "   " + getName().toUpperCase() + " - " + getEmail() + " - " + chosenPackage + " package\n" +
+                "   Gender: " + getGender() + "     Weight: " + getStartWeight() + " kg" + "     Height: " + getHeight() + " m\n" +
+                "   Address: " + getAddress() +
+                "\n//-----------------------------------------------------------------//";
+        } else {
+            double bmi = GymUtility.calculateBMI(member, latestAssessment());
+            return "\n" +
+                    "//-----------------------------------------------------------------//\n" +
+                    "   " + getName().toUpperCase() + " - " + getEmail() + " - " + chosenPackage + " package\n" +
+                    "   Gender: " + getGender() + "     Weight: " + latestAssessment().getWeight() + " kg" + "     Height: " + getHeight() + " m\n" +
+                    "   Address: " + getAddress() + "\n" +
+                    "   -----------------------------------------------------------------   \n" +
+                    "   BMI: " + bmi + " - " + GymUtility.determineBMICategory(bmi) + "\n" +
+                    "   Weight is " + ((GymUtility.isIdealBodyWeight(member, latestAssessment())) ? "ideal!" : "not ideal...") +
+                    "\n//-----------------------------------------------------------------//";
+        }
+    }
+
+    /**
      * Builds a String representing a user friendly representation of member info
+     *
      * @return Details of the member
      */
     public String toString()
@@ -138,7 +162,8 @@ public abstract class Member extends Person {
         return super.toString()
                 + ", height: " + getHeight() + "m"
                 + ", starting weight: " + getStartWeight() + "kg"
-                + ", " + getChosenPackage();
+                + ", " + ((getChosenPackage().equals("Platinum") || getChosenPackage().equals("Gold")
+                        || getChosenPackage().equals("Duff")?getChosenPackage() + " package" : "Student package, "));
     }
 
     //-----------------------getters & setters-----------------------//

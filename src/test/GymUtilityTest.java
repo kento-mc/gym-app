@@ -9,8 +9,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Tests for GymUtility class")
 public class GymUtilityTest {
-    Member member1;
-    Assessment assessment1;
 
     private class MockMember extends Member {
         public MockMember() {}
@@ -25,6 +23,9 @@ public class GymUtilityTest {
             super.setChosenPackage(chosenPackage);
         }
     }
+
+    Member member1;
+    Assessment assessment1;
 
     @BeforeEach
     public void setUp() {

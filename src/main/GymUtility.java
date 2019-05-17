@@ -31,13 +31,13 @@ public class GymUtility {
         double femaleIdealMemberWeight = ((Math.round((member.getHeight() - 1.524) / .0254)) * 2.3) + 45.5;
 
         if (member.getGender() == "M") {
-            if (assessment.getWeight() <= maleIdealMemberWeight + 2 && assessment.getWeight() >= maleIdealMemberWeight - 2) {
+            if (assessment.getWeight() <= maleIdealMemberWeight + .2 && assessment.getWeight() >= maleIdealMemberWeight - .2) {
                 return true;
             } else {
                 return false;
             }
         } else {
-            if (assessment.getWeight() <= femaleIdealMemberWeight + 2 && assessment.getWeight() >= femaleIdealMemberWeight - 2) {
+            if (assessment.getWeight() <= femaleIdealMemberWeight + .2 && assessment.getWeight() >= femaleIdealMemberWeight - .2) {
                 return true;
             } else {
                 return false;

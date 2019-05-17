@@ -9,10 +9,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Tests for Member class")
 public class MemberTest {
-    Member member1;
-    Assessment assessment1;
-    Assessment assessment2;
-    Assessment assessment3;
 
     private class MockMember extends Member {
         public MockMember() {}
@@ -27,6 +23,11 @@ public class MemberTest {
             super.setChosenPackage(chosenPackage);
         }
     }
+
+    Member member1;
+    Assessment assessment1;
+    Assessment assessment2;
+    Assessment assessment3;
 
     @BeforeEach
     public void setUp() {

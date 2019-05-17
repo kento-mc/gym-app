@@ -43,8 +43,6 @@ public class MenuController {
         System.out.println("  1) Login");
         System.out.println("  2) Register");
         System.out.println("---------");
-        System.out.println("  3) View membership packages");
-        System.out.println("---------");
         System.out.println("  0) Exit");
         System.out.print("==>> ");
 
@@ -63,13 +61,9 @@ public class MenuController {
 
             switch (option)
             {
-                case 1:     System.out.println("\nLogging in...");
-                            runLoginMenu();
+                case 1:     runLoginMenu();
                             break;
-                case 2:     System.out.println("\nRegistering...");
-                            runRegisterMenu();
-                            break;
-                case 3:     runPackagesMenu();
+                case 2:     runRegisterMenu();
                             break;
                 default:    System.out.println("\nInvalid option entered: " + option);
                             break;
@@ -97,13 +91,13 @@ public class MenuController {
      */
     private int loginMenu()
     {
-        System.out.println("\nWelcome back!" +
+        System.out.println("\nWelcome back! " +
                            "Are you a member or trainer?");
         System.out.println("---------");
         System.out.println("  1) Login as a member");
         System.out.println("  2) Login as a trainer");
         System.out.println("---------");
-        System.out.println("  3) Return to Login/Register menu");
+        System.out.println("  3) Return to main menu");
         System.out.println("---------");
         System.out.println("  0) Exit");
         System.out.print("==>> ");
@@ -176,13 +170,15 @@ public class MenuController {
      */
     private int registerMenu()
     {
-        System.out.println("\nWelcome!" +
+        System.out.println("\nWelcome! " +
                            "Are you registering as a member or trainer?");
         System.out.println("---------");
         System.out.println("  1) Register as a member");
         System.out.println("  2) Register as a trainer");
         System.out.println("---------");
-        System.out.println("  3) Return to Login/Register menu");
+        System.out.println("  3) View membership packages");
+        System.out.println("---------");
+        System.out.println("  4) Return to main menu");
         System.out.println("---------");
         System.out.println("  0) Exit");
         System.out.print("==>> ");
@@ -208,7 +204,9 @@ public class MenuController {
                 case 2:     Trainer trainer = registerTrainer();
                             runTrainerMenu(trainer);
                             break;
-                case 3:     runWelcomeMenu();
+                case 3:     runReviewPackagesMenu();
+                            break;
+                case 4:     runWelcomeMenu();
                             break;
                 default:    System.out.println("Invalid option entered: " + option);
                             break;
@@ -229,23 +227,20 @@ public class MenuController {
     }
 
     /**
-     * packagesMenu() - This method displays the menu to view
+     * reviewPackagesMenu() - This method displays the menu to view
      * each membership package.
      *
-     * * @return     the user's menu choice
+     * @return     the user's menu choice
      */
-    private int packagesMenu() {
+    private int reviewPackagesMenu() {
         System.out.println("\nMember Packages - select option ro review details");
         System.out.println("---------");
-        System.out.println("Premium packages");
         System.out.println("  1) Platinum package");
         System.out.println("  2) Gold package");
         System.out.println("  3) Duff package");
-        System.out.println("Student packages");
-        System.out.println("  4) Springfield Elementary Package");
-        System.out.println("  5) WIT Package");
+        System.out.println("  4) Student package");
         System.out.println("---------");
-        System.out.println("  6) Return to Login/Register menu");
+        System.out.println("  5) Return to main menu");
         System.out.println("---------");
         System.out.println("  0) Save & Exit");
         System.out.print("==>> ");
@@ -255,37 +250,33 @@ public class MenuController {
     }
 
     /**
-     * This is the method that controls the packagesMenu() loop.
+     * This is the method that controls the reviewPackagesMenu() loop.
      */
-    private void runPackagesMenu()
+    private void runReviewPackagesMenu()
     {
-        int option = packagesMenu();
+        int option = reviewPackagesMenu();
         while (option != 0)
         {
 
             switch (option)
             {
                 case 1:     System.out.println("\nPlatinum package\n");
-                            System.out.println(gymPackage.get("Package 1"));
-                            returnFromPackagesMenu();
+                            System.out.println(gymPackage.get("Platinum"));
+                            runReturnFromPackagesMenu();
                             break;
                 case 2:     System.out.println("\nGold package\n");
-                            System.out.println(gymPackage.get("Package 2"));
-                            returnFromPackagesMenu();
+                            System.out.println(gymPackage.get("Gold"));
+                            runReturnFromPackagesMenu();
                             break;
                 case 3:     System.out.println("\nDuff package\n");
-                            System.out.println(gymPackage.get("Package 3"));
-                            returnFromPackagesMenu();
+                            System.out.println(gymPackage.get("Duff"));
+                            runReturnFromPackagesMenu();
                             break;
-                case 4:     System.out.println("\nSpringfield Elementary package\n");
-                            System.out.println(gymPackage.get("SE"));
-                            returnFromPackagesMenu();
-                            break;
-                case 5:     System.out.println("\nWIT package\n");
+                case 4:     System.out.println("\nStudent Package\n");
                             System.out.println(gymPackage.get("WIT"));
-                            returnFromPackagesMenu();
+                            runReturnFromPackagesMenu();
                             break;
-                case 6:     runWelcomeMenu();
+                case 5:     runWelcomeMenu();
                             break;
                 default:    System.out.println("\nInvalid option entered: " + option);
                             break;
@@ -297,7 +288,7 @@ public class MenuController {
             input.nextLine();
 
             //display the main menu again
-            option = packagesMenu();
+            option = reviewPackagesMenu();
         }
 
         //the user chose option 0, so exit the program
@@ -305,26 +296,55 @@ public class MenuController {
         System.exit(0);
     }
 
-    private void returnFromPackagesMenu() {
+    /**
+     * returnFromPackagesMenu() - This method displays the menu to
+     * return from the packages menu.
+     *
+     * * @return     the user's menu choice
+     */
+    private int returnFromPackagesMenu() {
         System.out.println("---------");
         System.out.println("  1) Return to packages menu");
-        System.out.println("  2) Return to Main menu");
+        System.out.println("  2) Return to main menu");
         System.out.println("---------");
         System.out.println("  0) Exit");
         System.out.print("==>> ");
 
-        input.nextLine();   // dummy read
-        String option2 = input.nextLine();
-        if (option2.equals("1")) {
-            runPackagesMenu();
-        } else if(option2.equals("2")) {
-            runWelcomeMenu();
-        } else if (option2.equals("0")) {
-            System.out.println("\nExiting... bye!");
-            System.exit(0);
-        } else {
-            System.out.println("Invalid option entered: " + option2);
+        int option = input.nextInt();
+        return option;
+    }
+
+    /**
+     * This is the method that controls the returnFromPackagesMenu() loop.
+     */
+    private void runReturnFromPackagesMenu()
+    {
+        int option = returnFromPackagesMenu();
+        while (option != 0)
+        {
+
+            switch (option)
+            {
+                case 1:     runReviewPackagesMenu();
+                            break;
+                case 2:     runWelcomeMenu();
+                            break;
+                default:    System.out.println("\nInvalid option entered: " + option);
+                            break;
+            }
+
+            //pause the program so that the user can read what we just printed to the terminal window
+            System.out.println("\nPress any key to continue...");
+            input.nextLine();   // Scanner class bug
+            input.nextLine();
+
+            //display the main menu again
+            option = returnFromPackagesMenu();
         }
+
+        //the user chose option 0, so exit the program
+        System.out.println("\nExiting... bye!");
+        System.exit(0);
     }
 
     /**
@@ -361,11 +381,11 @@ public class MenuController {
 
             switch (option)
             {
-                case 1:     System.out.println("\n" + member);
+                case 1:     System.out.println(member.profileString(member));
                             if (member.getAssessments().isEmpty()) {
                                 System.out.println("\nNo assessments");
                             } else {
-                                System.out.println("\nLatest assessment:");
+                                System.out.println("\nLatest assessment (" + member.sortedAssessmentDates().last() + "):");
                                 System.out.println(member.latestAssessment());
                             }
                             break;
@@ -482,9 +502,10 @@ public class MenuController {
                             } while (!goodInput);
                             break;
                 case 6:     input.nextLine();   // dummy read
-                            System.out.println("\nEnter new package: ");
-                            String gymPackage = input.nextLine();
-                            member.setChosenPackage(gymPackage);
+                            runReviewPackagesMenu();
+                            //System.out.println("\nEnter new package: ");
+                            //String gymPackage = input.nextLine();
+                            //member.setChosenPackage(gymPackage);
                             System.out.println("\nPackage updated: " + member.getChosenPackage());
                             break;
                 case 7:     runMemberMenu(member);
@@ -550,8 +571,12 @@ public class MenuController {
             switch (option)
             {
                 case 1:     System.out.println("");
-                            for (String date : member.sortedAssessmentDates().descendingSet()) {
-                                System.out.println(date + ": " + member.getAssessments().get(date));
+                            if (member.getAssessments().isEmpty()) {
+                                System.out.println("It looks like your trainer hasn't recorded an assessment for you yet.");
+                            } else {
+                                for (String date : member.sortedAssessmentDates().descendingSet()) {
+                                    System.out.println(date + ": " + member.getAssessments().get(date) + "\n");
+                                }
                             }
                             break;
                 case 2:     if (member.getAssessments().isEmpty()) {
@@ -605,9 +630,9 @@ public class MenuController {
      *
      * @return     the user's menu choice
      */
-    private int trainerMenu()
+    private int trainerMenu(Trainer trainer)
     {
-        System.out.println("\nTrainer Menu");
+        System.out.println("\nTrainer Menu - " + trainer.getName() + " - " + trainer.getSpecialty() + " specialist");
         System.out.println("---------");
         System.out.println("  1) Add a new member");
         System.out.println("  2) List all members");
@@ -627,7 +652,7 @@ public class MenuController {
      */
     private void runTrainerMenu(Trainer trainer)
     {
-        int option = trainerMenu();
+        int option = trainerMenu(trainer);
         while (option != 0)
         {
 
@@ -636,6 +661,18 @@ public class MenuController {
                 case 1:     registerMember();
                             break;
                 case 2:     System.out.println(gymAPI.listMembers());
+                            System.out.println("\nWould you like to view one of these member's details? (Y/N)");
+                            input.nextLine();   // dummy read
+                            String yesNo = input.nextLine();
+                            if (yesNo.startsWith("Y") || yesNo.startsWith("y")) {
+                                System.out.println("\nEnter member index to view member details:");
+                                int index = input.nextInt();
+                                Member member = gymAPI.getMembers().get(index);
+                                runAssessmentMenu(member, trainer);
+                            } else {
+                                System.out.println("\nInvalid member index");
+                                runTrainerMenu(trainer);
+                            }
                             break;
                 case 3:     input.nextLine();   // dummy read
                             System.out.println("\nEmail to search:");
@@ -674,7 +711,7 @@ public class MenuController {
             input.nextLine();
 
             //display the main menu again
-            option = trainerMenu();
+            option = trainerMenu(trainer);
         }
 
         //the user chose option 0, so exit the program
@@ -692,17 +729,22 @@ public class MenuController {
     private int assessmentMenu(Member member)
     {
         System.out.println("\nAssessment Menu");
-        if (member.getAssessments().size() != 1) {
-            System.out.println("Member: " + member.getName() + " - " + member.getAssessments().size() + " assessments");
-        } else {
-            System.out.println("Member: " + member.getName() + " - " + member.getAssessments().size() + " assessment");
+        System.out.println(member.profileString(member));
+        if (member.getAssessments().isEmpty()) {
+            System.out.println("\nNo assessments");
+        } else if (member.getAssessments().size() != 1) {
+            System.out.print("\n" + member.getAssessments().size() + " assessments");
+            } else {
+            System.out.print("\n" + member.getAssessments().size() + " assessment");
         }
-        System.out.println("---------");
-        System.out.println("  1) Add new member assessment");
-        System.out.println("  2) Comment on member assessment");
+        System.out.println("\nLatest (" + member.sortedAssessmentDates().last() + "):");
+        System.out.println(member.latestAssessment());
+        System.out.println("\n---------");
+        System.out.println("  1) Add new assessment");
+        System.out.println("  2) Comment on assessment");
         System.out.println("  3) List all assessments");
         System.out.println("---------");
-        System.out.println("  4) Return to Trainer menu");
+        System.out.println("  4) Return to trainer menu");
         System.out.println("---------");
         System.out.println("  0) Save & Exit");
         System.out.print("==>> ");
@@ -731,7 +773,7 @@ public class MenuController {
                             Float thigh = input.nextFloat();
                             System.out.println("\nPlease enter waist measurement (cm):");
                             Float waist = input.nextFloat();
-                            member.addAssessment(date, weight, thigh, waist);
+                            member.addAssessment(date, weight, thigh, waist, trainer);
                             System.out.println("\nAssessment added for " + member.getName());
                             break;
                 case 2:     input.nextLine();   // dummy read
@@ -741,9 +783,13 @@ public class MenuController {
                             System.out.println("\nPlease enter your comment:");
                             String comment = input.nextLine();
                             assessment.addComment(comment);
-                            System.out.println("\nComment \"" + assessment.getComment() + "\" added to assessment dated " + date);
+                            System.out.println("\nComment \"" + assessment.getComment() + "\" added to assessment dated "
+                                    + date);
                             break;
-                case 3:     System.out.println("\n" + member.getAssessments());
+                case 3:     System.out.println("");
+                            for (String assessmentDate : member.sortedAssessmentDates().descendingSet()) {
+                                System.out.println(assessmentDate + ": " + member.getAssessments().get(assessmentDate) + "\n");
+                            }
                             break;
                 case 4:     runTrainerMenu(trainer);
                             break;
@@ -784,7 +830,8 @@ public class MenuController {
         String email = input.nextLine();
         for (Member member : gymAPI.getMembers()) {
             if (member.getEmail().equals(email)) {
-                System.out.println("\nEmail address already registered. Please sign in or register using a different email address.");
+                System.out.println("\nEmail address already registered. " +
+                        "Please sign in or register using a different email address.");
                 runWelcomeMenu();
             }
         }
@@ -822,43 +869,21 @@ public class MenuController {
             }
         }  while (!goodInput);
 
-        String chosenPackage = "";
+        String chosenPackage = runUpdatePackagesMenu();
 
-        System.out.println("\nWhich package?: ");
-        System.out.println("---------");
-        System.out.println("  1) Platinum");
-        System.out.println("  2) Gold");
-        System.out.println("  3) Duff");
-        System.out.println("  4) Springfield Elementary");
-        System.out.println("  5) WIT");
-        System.out.print("==>> ");
-        int option = input.nextInt();
+        if (chosenPackage.equals("SE") || chosenPackage.equals("WIT")) {
+            String collegeName = "";
+            if (chosenPackage.equals("SE")) {
+                collegeName = "Springfield Elementary";
+            } else if (chosenPackage.equals("WIT")) {
+                collegeName = "WIT";
+            }
 
-        switch (option)
-        {
-            case 1:     chosenPackage = "Platinum";
-                        break;
-            case 2:     chosenPackage = "Gold";
-                        break;
-            case 3:     chosenPackage = "Duff";
-                        break;
-            case 4:     chosenPackage = "SE";
-                        break;
-            case 5:     chosenPackage = "WIT";
-                        break;
-            default:    System.out.println("Invalid option entered: " + option);
-                        break;
-        }
-
-        if (chosenPackage == "SE" || chosenPackage == "WIT") {
-            input.nextLine();   // dummy read
-            System.out.print("\nCollege name:  ");
-            String collegeName = input.nextLine();
-
-            System.out.print("\nStudent ID:  ");
+            System.out.print("\nStudent ID: ");
             String studentID = input.nextLine();
 
-            gymAPI.addMember(new StudentMember(email, memberName, address, gender, height, startWeight, chosenPackage, studentID, collegeName));
+            gymAPI.addMember(new StudentMember(email, memberName, address, gender, height, startWeight, chosenPackage,
+                    studentID, collegeName));
         } else {
             gymAPI.addMember(new PremiumMember(email, memberName, address, gender, height, startWeight, chosenPackage));
         }
@@ -875,6 +900,116 @@ public class MenuController {
         System.out.println("\nNew member - " + memberName + " - has been registered.");
 
         return member;
+    }
+
+    /**
+     * updatePackagesMenu() - This method displays the menu to update
+     * membership package.
+     *
+     * @return     the user's menu choice
+     */
+    private int updatePackagesMenu() {
+        System.out.println("\nChoose member package");
+        System.out.println("---------");
+        System.out.println("  1) Platinum package");
+        System.out.println("  2) Gold package");
+        System.out.println("  3) Duff package");
+        System.out.println("  4) Student package");
+        System.out.print("==>> ");
+
+        int option = input.nextInt();
+        return option;
+    }
+
+    /**
+     * This is the method that controls the updatePackagesMenu() loop.
+     */
+    private String runUpdatePackagesMenu()
+    {
+        int option = updatePackagesMenu();
+        while (option != 0)
+        {
+
+            switch (option)
+            {
+                case 1:     String chosenPackage = "Platinum";
+                            System.out.println("\n" + chosenPackage + ":\n");
+                            System.out.println(gymPackage.get(chosenPackage));
+                            System.out.println("\nSelect this package? (Y/N)");
+                            input.nextLine();   // dummy read
+                            if (input.nextLine().startsWith("Y") || input.nextLine().startsWith("y")) {
+                                return chosenPackage;
+                            } else {
+                                runUpdatePackagesMenu();
+                            }
+                            break;
+                case 2:     chosenPackage = "Gold";
+                            System.out.println("\n" + chosenPackage + ":\n");
+                            System.out.println(gymPackage.get(chosenPackage));
+                            System.out.println("\nSelect this package? (Y/N)");
+                            input.nextLine();   // dummy read
+                            if (input.nextLine().startsWith("Y") || input.nextLine().startsWith("y")) {
+                                return chosenPackage;
+                            } else {
+                                runUpdatePackagesMenu();
+                            }
+                            break;
+                case 3:     chosenPackage = "Duff";
+                            System.out.println("\n" + chosenPackage + ":\n");
+                            System.out.println(gymPackage.get(chosenPackage));
+                            System.out.println("\nSelect this package? (Y/N)");
+                            input.nextLine();   // dummy read
+                            String yesNo = input.nextLine();
+                            if (yesNo.startsWith("Y") || yesNo.startsWith("y")) {
+                                return chosenPackage;
+                            } else {
+                                runUpdatePackagesMenu();
+                            }
+                            break;
+                case 4:     System.out.println("\nWhich university do you attend?");
+                            boolean goodInput = false;
+                            while (!goodInput)
+                            {
+                                input.nextLine();   //dummy read
+                                String uni = input.nextLine();
+                                if (uni.equals("WIT") || uni.equals("wit") || uni.equals("Waterford Institute of Technology")) {
+                                    goodInput = true;
+                                    chosenPackage = "WIT";
+                                    return chosenPackage;
+                                } else if (uni.equals("SE" ) || uni.equals("se") || uni.equals("Springfield Elementary")) {
+                                    goodInput = true;
+                                    chosenPackage = "SE";
+                                    return chosenPackage;
+                                } else {
+                                    System.out.println("\nYour entry does not match any of our partner universities. " +
+                                            "Please enter another university.");
+                                }
+                            }
+                            break;
+                default:    System.out.println("Invalid option entered: " + option);
+                            break;
+            }
+
+            //pause the program so that the user can read what we just printed to the terminal window
+            System.out.println("\nPress any key to continue...");
+            input.nextLine();   // Scanner class bug
+            input.nextLine();
+
+            //display the main menu again
+            option = updatePackagesMenu();
+        }
+
+        //the user chose option 0, so exit the program
+            try{
+            gymAPI.save();
+        }
+            catch(Exception e) {
+            System.err.println("Error saving to file: " + e);
+        }
+            System.out.println("Exiting... bye!");
+            System.exit(0);
+
+        return null;
     }
 
     /**

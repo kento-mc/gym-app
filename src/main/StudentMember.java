@@ -16,7 +16,7 @@ public class StudentMember extends Member {
 
 
     public void chosenPackage(String packageChoice) {
-        if (packageChoice == "SE" || packageChoice == "WIT") {
+        if (packageChoice.equals("SE") || packageChoice.equals("WIT")) {
             super.setChosenPackage(packageChoice);
         } else {
             super.setChosenPackage("Duff");
@@ -26,7 +26,7 @@ public class StudentMember extends Member {
     public String toString()
     {
         return super.toString()
-                + "College: " + getCollegeName() + "\n"
+                + "College: " + getCollegeName() + ", \n"
                 + "Student ID: " + getStudentID();
     }
 

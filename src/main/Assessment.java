@@ -8,10 +8,11 @@ public class Assessment {
 
     public Assessment() {}
 
-    public Assessment(Float weight, Float thigh, Float waist){
+    public Assessment(Float weight, Float thigh, Float waist, Trainer trainer){
         setWeight(weight);
         setThigh(thigh);
         setWaist(waist);
+        setTrainer(trainer);
         comment = "None";
     }
 
@@ -38,8 +39,9 @@ public class Assessment {
         return "\n" +
                 "//-------------------------------------------------------//\n" +
                 "   Weight: " + weight + " kg     Waist: " + waist + " cm     Thigh: " + thigh + " cm\n" +
-                "   Comment: " + comment +
-                "\n//-------------------------------------------------------//\n";
+                "   Comment: " + comment + "\n" +
+                "   Trainer: " + trainer.getName() + " - " + trainer.getSpecialty() + " specialist" +
+                "\n//-------------------------------------------------------//";
     }
 
     //-----------------------getters & setters-----------------------//
