@@ -27,8 +27,8 @@ public class GymUtility {
 
     public static boolean isIdealBodyWeight(Member member, Assessment assessment)
     {
-        double maleIdealMemberWeight = ((Math.round((member.getHeight() - 1.524) / .0254)) * 2.3) + 50;
-        double femaleIdealMemberWeight = ((Math.round((member.getHeight() - 1.524) / .0254)) * 2.3) + 45.5;
+        double maleIdealMemberWeight = (((member.getHeight() - 1.524) / .0254) * 2.3) + 50;
+        double femaleIdealMemberWeight = (((member.getHeight() - 1.524) / .0254) * 2.3) + 45.5;
 
         if (member.getGender() == "M") {
             if (assessment.getWeight() <= maleIdealMemberWeight + .2 && assessment.getWeight() >= maleIdealMemberWeight - .2) {

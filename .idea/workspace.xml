@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="09b8f374-3f57-4751-b291-a348c7a903bd" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/members.xml" beforeDir="false" afterPath="$PROJECT_DIR$/members.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Assessment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Assessment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/PremiumMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/PremiumMember.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/StudentMember.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/StudentMember.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/GymUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GymUtility.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,7 +16,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/MenuController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="312">
@@ -38,8 +33,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/Assessment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-123">
+            <state relative-caret-position="486">
               <caret line="34" column="28" lean-forward="true" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-commons/1.1.0/junit-platform-commons-1.1.0.jar!/org/junit/platform/commons/util/ReflectionUtils.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="463">
+              <caret line="193" selection-start-line="193" selection-end-line="193" />
             </state>
           </provider>
         </entry>
@@ -66,25 +70,22 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/GymUtility.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="39" column="69" selection-start-line="39" selection-start-column="69" selection-end-line="39" selection-end-column="69" />
+            <state relative-caret-position="355">
+              <caret line="39" column="128" selection-start-line="39" selection-start-column="128" selection-end-line="39" selection-end-column="128" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/StudentMember.java">
+        <entry file="file://$PROJECT_DIR$/src/test/GymUtilityTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="30" column="59" selection-start-line="30" selection-end-line="31" />
+            <state relative-caret-position="306">
+              <caret line="100" selection-start-line="100" selection-end-line="100" />
               <folding>
-                <element signature="e#973#974#0" expanded="true" />
-                <element signature="e#1005#1006#0" expanded="true" />
-                <element signature="e#1043#1044#0" expanded="true" />
-                <element signature="e#1077#1078#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -106,15 +107,6 @@
                 <element signature="e#6087#6088#0" expanded="true" />
                 <element signature="e#6125#6126#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/trainers.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="31" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -175,7 +167,6 @@
         <option value="$PROJECT_DIR$/src/test/MemberTest.java" />
         <option value="$PROJECT_DIR$/src/test/GymAPITest.java" />
         <option value="$PROJECT_DIR$/src/main/Person.java" />
-        <option value="$PROJECT_DIR$/src/main/GymUtility.java" />
         <option value="$PROJECT_DIR$/trainers.xml" />
         <option value="$PROJECT_DIR$/src/main/Member.java" />
         <option value="$PROJECT_DIR$/src/main/StudentMember.java" />
@@ -183,6 +174,7 @@
         <option value="$PROJECT_DIR$/members.xml" />
         <option value="$PROJECT_DIR$/src/main/Assessment.java" />
         <option value="$PROJECT_DIR$/src/main/MenuController.java" />
+        <option value="$PROJECT_DIR$/src/main/GymUtility.java" />
       </list>
     </option>
   </component>
@@ -320,7 +312,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.MenuController">
+  <component name="RunManager" selected="JUnit.MemberTest">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -413,10 +405,10 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MenuController" />
         <item itemvalue="JUnit.MemberTest" />
-        <item itemvalue="JUnit.GymUtilityTest" />
         <item itemvalue="JUnit.GymAPITest" />
+        <item itemvalue="JUnit.GymUtilityTest" />
+        <item itemvalue="Application.MenuController" />
         <item itemvalue="Application.Member" />
       </list>
     </recent_temporary>
@@ -438,44 +430,44 @@
       <workItem from="1556922447634" duration="12000" />
       <workItem from="1557170742930" duration="12017000" />
       <workItem from="1557320393559" duration="75523000" />
-      <workItem from="1557912545926" duration="67512000" />
+      <workItem from="1557912545926" duration="71542000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="GymAPITest - 2019.05.13 at 01h 42m 24s.xml">
-      <configuration name="GymAPITest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="GymAPITest - 2019.05.13 at 01h 45m 02s.xml">
-      <configuration name="GymAPITest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="GymUtilityTest - 2019.05.13 at 01h 45m 22s.xml">
+    <history-entry file="GymUtilityTest - 2019.05.18 at 23h 42m 26s.xml">
       <configuration name="GymUtilityTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MemberTest - 2019.05.13 at 01h 45m 45s.xml">
-      <configuration name="MemberTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MemberTest - 2019.05.13 at 01h 47m 44s.xml">
-      <configuration name="MemberTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="GymUtilityTest - 2019.05.13 at 01h 48m 04s.xml">
+    <history-entry file="GymUtilityTest - 2019.05.18 at 23h 49m 58s.xml">
       <configuration name="GymUtilityTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GymAPITest - 2019.05.13 at 01h 48m 28s.xml">
-      <configuration name="GymAPITest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="GymAPITest - 2019.05.16 at 13h 12m 58s.xml">
-      <configuration name="GymAPITest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="GymUtilityTest - 2019.05.16 at 13h 13m 15s.xml">
+    <history-entry file="GymUtilityTest - 2019.05.18 at 23h 50m 10s.xml">
       <configuration name="GymUtilityTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MemberTest - 2019.05.16 at 13h 13m 34s.xml">
-      <configuration name="MemberTest" configurationId="JUnit" />
+    <history-entry file="GymUtilityTest - 2019.05.18 at 23h 51m 12s.xml">
+      <configuration name="GymUtilityTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GymUtilityTest - 2019.05.18 at 23h 58m 06s.xml">
+      <configuration name="GymUtilityTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GymUtilityTest - 2019.05.18 at 23h 58m 17s.xml">
+      <configuration name="GymUtilityTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GymUtilityTest - 2019.05.19 at 00h 08m 09s.xml">
+      <configuration name="GymUtilityTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GymUtilityTest - 2019.05.19 at 00h 28m 13s.xml">
+      <configuration name="GymUtilityTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GymUtilityTest - 2019.05.19 at 00h 28m 30s.xml">
+      <configuration name="GymUtilityTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="GymUtilityTest - 2019.05.19 at 00h 29m 17s.xml">
+      <configuration name="GymUtilityTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="191941000" />
+    <option name="totallyTimeSpent" value="195971000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="366" y="23" width="1314" height="990" extended-state="0" />
@@ -575,6 +567,14 @@
           </properties>
           <option name="timeStamp" value="37" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/GymUtilityTest.java</url>
+          <line>96</line>
+          <properties class="GymUtilityTest.IsIdealWeight" method="normal">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -604,25 +604,6 @@
           <caret line="48" selection-start-line="48" selection-end-line="48" />
           <folding>
             <element signature="e#1273#1274#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-commons/1.1.0/junit-platform-commons-1.1.0.jar!/org/junit/platform/commons/util/ReflectionUtils.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1860">
-          <caret line="193" selection-start-line="193" selection-end-line="193" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/GymUtilityTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#851#852#0" expanded="true" />
-            <element signature="e#912#913#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -699,13 +680,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Assessment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-123">
-          <caret line="34" column="28" lean-forward="true" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Person.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -721,13 +695,6 @@
             <element signature="e#387#388#0" expanded="true" />
             <element signature="e#440#441#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/GymUtility.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="39" column="69" selection-start-line="39" selection-start-column="69" selection-end-line="39" selection-end-column="69" />
         </state>
       </provider>
     </entry>
@@ -758,6 +725,37 @@
             <element signature="e#214#215#0" expanded="true" />
             <element signature="e#272#273#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Assessment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="34" column="28" lean-forward="true" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-commons/1.1.0/junit-platform-commons-1.1.0.jar!/org/junit/platform/commons/util/ReflectionUtils.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="463">
+          <caret line="193" selection-start-line="193" selection-end-line="193" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/GymUtilityTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="100" selection-start-line="100" selection-end-line="100" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/GymUtility.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="39" column="128" selection-start-line="39" selection-start-column="128" selection-end-line="39" selection-end-column="128" />
         </state>
       </provider>
     </entry>
