@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.Scanner;
+import java.util.TreeSet;
 
 public class MenuController {
 
@@ -502,10 +503,8 @@ public class MenuController {
                             } while (!goodInput);
                             break;
                 case 6:     input.nextLine();   // dummy read
-                            runReviewPackagesMenu();
-                            //System.out.println("\nEnter new package: ");
-                            //String gymPackage = input.nextLine();
-                            //member.setChosenPackage(gymPackage);
+                            System.out.println("\n" + member.getName() + " - current package: " + member.getChosenPackage());
+                            runUpdatePackagesMenu(member);
                             System.out.println("\nPackage updated: " + member.getChosenPackage());
                             break;
                 case 7:     runMemberMenu(member);
@@ -516,7 +515,7 @@ public class MenuController {
 
             //pause the program so that the user can read what we just printed to the terminal window
             System.out.println("\nPress any key to continue...");
-            input.nextLine();   // Scanner class bug
+            //input.nextLine();   // Scanner class bug
             input.nextLine();
 
             //display the main menu again
@@ -524,6 +523,12 @@ public class MenuController {
         }
 
         //the user chose option 0, so exit the program
+        try{
+            gymAPI.save();
+        }
+        catch(Exception e) {
+            System.err.println("\nError saving to file: " + e);
+        }
         System.out.println("\nExiting... bye!");
         System.exit(0);
     }
@@ -737,8 +742,10 @@ public class MenuController {
             } else {
             System.out.print("\n" + member.getAssessments().size() + " assessment");
         }
-        System.out.println("\nLatest (" + member.sortedAssessmentDates().last() + "):");
-        System.out.println(member.latestAssessment());
+        if (!member.getAssessments().isEmpty()) {
+            System.out.println("\nLatest (" + member.sortedAssessmentDates().last() + "):");
+            System.out.println(member.latestAssessment());
+        }
         System.out.println("\n---------");
         System.out.println("  1) Add new assessment");
         System.out.println("  2) Comment on assessment");
@@ -775,21 +782,28 @@ public class MenuController {
                             Float waist = input.nextFloat();
                             member.addAssessment(date, weight, thigh, waist, trainer);
                             System.out.println("\nAssessment added for " + member.getName());
+                            input.nextLine();   // Scanner class bug
                             break;
                 case 2:     input.nextLine();   // dummy read
-                            System.out.println("\nPlease enter the assessment date (YY/MM/DD):");
+                            commentOnAssessmentMenu(member, trainer);
+                            /*System.out.println("\nPlease enter the assessment date (YY/MM/DD):");
                             date = input.nextLine();
                             Assessment assessment = (Assessment) member.getAssessments().get(date);
                             System.out.println("\nPlease enter your comment:");
                             String comment = input.nextLine();
                             assessment.addComment(comment);
                             System.out.println("\nComment \"" + assessment.getComment() + "\" added to assessment dated "
-                                    + date);
+                                    + date);*/
                             break;
-                case 3:     System.out.println("");
+                case 3:     if (member.getAssessments().isEmpty()) {
+                                System.out.println("\nIt looks like your trainer hasn't recorded an assessment for you yet.");
+                            } else {
+                                System.out.println("\n" + member.getName() + "'s " + ((member.getAssessments().size() == 1) ? "assessment:\n" : "assessments:\n"));
+                            }
                             for (String assessmentDate : member.sortedAssessmentDates().descendingSet()) {
                                 System.out.println(assessmentDate + ": " + member.getAssessments().get(assessmentDate) + "\n");
                             }
+                            input.nextLine();   // dummy read
                             break;
                 case 4:     runTrainerMenu(trainer);
                             break;
@@ -799,7 +813,7 @@ public class MenuController {
 
             //pause the program so that the user can read what we just printed to the terminal window
             System.out.println("\nPress any key to continue...");
-            input.nextLine();   // Scanner class bug
+            //input.nextLine();   // Scanner class bug
             input.nextLine();
 
             //display the main menu again
@@ -817,6 +831,73 @@ public class MenuController {
         System.exit(0);
     }
 
+    /**
+     * commentOnAssessmentMenu() - This method displays the menu
+     * for adding comments to an assessment, reads the menu option
+     * that the use enters and executes it.
+     */
+    private void commentOnAssessmentMenu(Member member, Trainer trainer)
+    {
+        if (member.getAssessments().isEmpty()) {
+            System.out.println("\nIt looks like your trainer hasn't recorded an assessment for you yet.");
+        } else if (member.getAssessments().size() == 1) {
+            Assessment assessment = member.latestAssessment();
+            System.out.println(assessment);
+            System.out.println("\nPlease enter your comment:");
+            //input.nextLine();  // dummy read
+            String comment = input.nextLine();
+            assessment.addComment(comment, trainer);
+            System.out.println("\nComment \"" + assessment.getComment() + "\" added to assessment");
+            runTrainerMenu(trainer);
+        } else {
+            TreeSet<String> sortedTemp = new TreeSet<>();               // temporary clone of sortedAssessmentDates TreeSet
+            HashMap<Integer, Assessment> commentMenu = new HashMap<>(); // HashMap to store menu choice ints as keys instead of dates
+            sortedTemp.addAll(member.sortedAssessmentDates());          // dates cloned
+            System.out.println("\nWhich of " + member.getName() + "'s assessments would you like to comment on?");
+            System.out.println("\n---------");
+            int i = 1;
+            for (String date : member.sortedAssessmentDates().descendingSet()) {
+                System.out.println("  " + i + ") " + date
+                                    + " - Weight: " + member.getAssessments().get(date).getWeight() + " kg"
+                                    + " - Waist: " + member.getAssessments().get(date).getWaist() + " cm"
+                                    + " - Thigh: " + member.getAssessments().get(date).getThigh() + " cm"
+                                    + " - Comment: " + member.getAssessments().get(date).getComment());
+                commentMenu.put(i, member.getAssessments().get(sortedTemp.pollLast()));  // dates removed from Set after being returned
+                i++;
+            }
+            System.out.println("---------");
+            System.out.println("  " + i + ") Return to trainer menu");
+            System.out.println("---------");
+            System.out.println("  0) Exit");
+            System.out.print("==>> ");
+
+            int option = input.nextInt();
+
+            while (option != 0) {
+                if (option < (member.sortedAssessmentDates().size() + 1) && option > 0) {
+                    Assessment assessment = commentMenu.get(option);
+                    System.out.println("\nPlease enter your comment:");
+                    input.nextLine();  // dummy read
+                    String comment = input.nextLine();
+                    assessment.addComment(comment, trainer);
+                    System.out.println("\nComment \"" + assessment.getComment() + "\" added to assessment");
+                    option = member.sortedAssessmentDates().size() + 1;
+                } else if (option == member.sortedAssessmentDates().size() + 1) {
+                    runTrainerMenu(trainer);
+                } else if (option == 0) {
+                    try {
+                        gymAPI.save();
+                    } catch (Exception e) {
+                        System.err.println("\nError saving to file: " + e);
+                    }
+                    System.out.println("\nExiting... bye!");
+                    System.exit(0);
+                } else {
+                    System.out.println("\nInvalid option entered: " + option);
+                }
+            }
+        }
+    }
 
     /**
      * Gather the member data from the user and create a new member.
@@ -869,7 +950,7 @@ public class MenuController {
             }
         }  while (!goodInput);
 
-        String chosenPackage = runUpdatePackagesMenu();
+        String chosenPackage = runSetPackagesMenu();
 
         if (chosenPackage.equals("SE") || chosenPackage.equals("WIT")) {
             String collegeName = "";
@@ -903,13 +984,13 @@ public class MenuController {
     }
 
     /**
-     * updatePackagesMenu() - This method displays the menu to update
-     * membership package.
+     * setPackagesMenu() - This method displays the menu to set the
+     * membership package at the time of registration.
      *
      * @return     the user's menu choice
      */
-    private int updatePackagesMenu() {
-        System.out.println("\nChoose member package");
+    private int setPackagesMenu() {
+        System.out.println("\nChoose package");
         System.out.println("---------");
         System.out.println("  1) Platinum package");
         System.out.println("  2) Gold package");
@@ -922,40 +1003,18 @@ public class MenuController {
     }
 
     /**
-     * This is the method that controls the updatePackagesMenu() loop.
+     * This is the method that controls the setPackagesMenu() loop.
      */
-    private String runUpdatePackagesMenu()
+    private String runSetPackagesMenu()
     {
-        int option = updatePackagesMenu();
+        int option = setPackagesMenu();
         while (option != 0)
         {
 
             switch (option)
             {
                 case 1:     String chosenPackage = "Platinum";
-                            System.out.println("\n" + chosenPackage + ":\n");
-                            System.out.println(gymPackage.get(chosenPackage));
-                            System.out.println("\nSelect this package? (Y/N)");
-                            input.nextLine();   // dummy read
-                            if (input.nextLine().startsWith("Y") || input.nextLine().startsWith("y")) {
-                                return chosenPackage;
-                            } else {
-                                runUpdatePackagesMenu();
-                            }
-                            break;
-                case 2:     chosenPackage = "Gold";
-                            System.out.println("\n" + chosenPackage + ":\n");
-                            System.out.println(gymPackage.get(chosenPackage));
-                            System.out.println("\nSelect this package? (Y/N)");
-                            input.nextLine();   // dummy read
-                            if (input.nextLine().startsWith("Y") || input.nextLine().startsWith("y")) {
-                                return chosenPackage;
-                            } else {
-                                runUpdatePackagesMenu();
-                            }
-                            break;
-                case 3:     chosenPackage = "Duff";
-                            System.out.println("\n" + chosenPackage + ":\n");
+                            System.out.println("\n" + chosenPackage + " package:\n");
                             System.out.println(gymPackage.get(chosenPackage));
                             System.out.println("\nSelect this package? (Y/N)");
                             input.nextLine();   // dummy read
@@ -963,7 +1022,31 @@ public class MenuController {
                             if (yesNo.startsWith("Y") || yesNo.startsWith("y")) {
                                 return chosenPackage;
                             } else {
-                                runUpdatePackagesMenu();
+                                runSetPackagesMenu();
+                            }
+                            break;
+                case 2:     chosenPackage = "Gold";
+                            System.out.println("\n" + chosenPackage + " package:\n");
+                            System.out.println(gymPackage.get(chosenPackage));
+                            System.out.println("\nSelect this package? (Y/N)");
+                            input.nextLine();   // dummy read
+                            yesNo = input.nextLine();
+                            if (yesNo.startsWith("Y") || yesNo.startsWith("y")) {
+                                return chosenPackage;
+                            } else {
+                                runSetPackagesMenu();
+                            }
+                            break;
+                case 3:     chosenPackage = "Duff";
+                            System.out.println("\n" + chosenPackage + " package:\n");
+                            System.out.println(gymPackage.get(chosenPackage));
+                            System.out.println("\nSelect this package? (Y/N)");
+                            input.nextLine();   // dummy read
+                            yesNo = input.nextLine();
+                            if (yesNo.startsWith("Y") || yesNo.startsWith("y")) {
+                                return chosenPackage;
+                            } else {
+                                runSetPackagesMenu();
                             }
                             break;
                 case 4:     System.out.println("\nWhich university do you attend?");
@@ -994,6 +1077,121 @@ public class MenuController {
             System.out.println("\nPress any key to continue...");
             input.nextLine();   // Scanner class bug
             input.nextLine();
+
+            //display the main menu again
+            option = setPackagesMenu();
+        }
+
+        //the user chose option 0, so exit the program
+        try{
+            gymAPI.save();
+        }
+        catch(Exception e) {
+            System.err.println("Error saving to file: " + e);
+        }
+        System.out.println("Exiting... bye!");
+        System.exit(0);
+
+        return null;
+    }
+
+    /**
+     * updatePackagesMenu() - This method displays the menu to update
+     * membership package.
+     *
+     * @return     the user's menu choice
+     */
+    private int updatePackagesMenu() {
+        System.out.println("\nChoose package");
+        System.out.println("---------");
+        System.out.println("  1) Platinum package");
+        System.out.println("  2) Gold package");
+        System.out.println("  3) Duff package");
+        System.out.println("  4) Student package");
+        System.out.print("==>> ");
+
+        int option = input.nextInt();
+        return option;
+    }
+
+    /**
+     * This is the method that controls the updatePackagesMenu() loop.
+     */
+    private String runUpdatePackagesMenu(Member member)
+    {
+        int option = updatePackagesMenu();
+        while (option != 0)
+        {
+
+            switch (option)
+            {
+                case 1:     String chosenPackage = "Platinum";
+                            System.out.println("\n" + chosenPackage + " package:\n");
+                            System.out.println(gymPackage.get(chosenPackage));
+                            System.out.println("\nSelect this package? (Y/N)");
+                            input.nextLine();   // dummy read
+                            String yesNo = input.nextLine();
+                            if (yesNo.startsWith("Y") || yesNo.startsWith("y")) {
+                                member.chosenPackage(chosenPackage);
+                                return chosenPackage;
+                            } else {
+                                runUpdatePackagesMenu(member);
+                            }
+                            break;
+                case 2:     chosenPackage = "Gold";
+                            System.out.println("\n" + chosenPackage + " package:\n");
+                            System.out.println(gymPackage.get(chosenPackage));
+                            System.out.println("\nSelect this package? (Y/N)");
+                            input.nextLine();   // dummy read
+                            yesNo = input.nextLine();
+                            if (yesNo.startsWith("Y") || yesNo.startsWith("y")) {
+                                member.chosenPackage(chosenPackage);
+                                return chosenPackage;
+                            } else {
+                                runUpdatePackagesMenu(member);
+                            }
+                            break;
+                case 3:     chosenPackage = "Duff";
+                            System.out.println("\n" + chosenPackage + " package:\n");
+                            System.out.println(gymPackage.get(chosenPackage));
+                            System.out.println("\nSelect this package? (Y/N)");
+                            input.nextLine();   // dummy read
+                            yesNo = input.nextLine();
+                            if (yesNo.startsWith("Y") || yesNo.startsWith("y")) {
+                                member.chosenPackage(chosenPackage);
+                                return chosenPackage;
+                            } else {
+                                runUpdatePackagesMenu(member);
+                            }
+                            break;
+                case 4:     System.out.println("\nWhich university do you attend?");
+                            boolean goodInput = false;
+                            while (!goodInput)
+                            {
+                                input.nextLine();   //dummy read
+                                String uni = input.nextLine();
+                                if (uni.equals("WIT") || uni.equals("wit") || uni.equals("Waterford Institute of Technology")) {
+                                    goodInput = true;
+                                    chosenPackage = "WIT";
+                                    return chosenPackage;
+                                } else if (uni.equals("SE" ) || uni.equals("se") || uni.equals("Springfield Elementary")) {
+                                    goodInput = true;
+                                    chosenPackage = "SE";
+                                    return chosenPackage;
+                                } else {
+                                    System.out.println("\nYour entry does not match any of our partner universities. " +
+                                            "Please enter another university.");
+                                }
+                            }
+                            break;
+                default:    System.out.println("Invalid option entered: " + option);
+                            break;
+            }
+
+            //pause the program so that the user can read what we just printed to the terminal window
+            System.out.println("\nPress any key to continue...");
+            //input.nextLine();   // Scanner class bug
+            //input.nextLine();
 
             //display the main menu again
             option = updatePackagesMenu();
@@ -1038,7 +1236,7 @@ public class MenuController {
             gymAPI.save();
         }
         catch(Exception e) {
-            System.err.println("Error saving to file: " + e);
+            System.err.println("\nError saving to file: " + e);
         }
 
         Trainer trainer = gymAPI.searchTrainersByEmail(email);

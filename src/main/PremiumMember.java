@@ -14,7 +14,8 @@ public class PremiumMember extends Member  {
     }
 
     public String toString() {
-        return super.toString();
+        return super.toString()
+            + ", Assessments: " + getAssessments().size();
     }
 
 }

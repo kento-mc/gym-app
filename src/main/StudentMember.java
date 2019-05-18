@@ -26,8 +26,9 @@ public class StudentMember extends Member {
     public String toString()
     {
         return super.toString()
-                + "College: " + getCollegeName() + ", \n"
-                + "Student ID: " + getStudentID();
+                + "College: " + getCollegeName() + ", "
+                + "Student ID: " + getStudentID() + ", "
+                + "Assessments: " + getAssessments().size();
     }
 
 

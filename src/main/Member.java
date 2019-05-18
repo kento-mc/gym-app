@@ -133,16 +133,18 @@ public abstract class Member extends Person {
     {
         if (member.assessments.isEmpty()) {
         return "\n" +
-                "//-----------------------------------------------------------------//\n" +
+                "//-----------------------------PROFILE-----------------------------//\n" +
                 "   " + getName().toUpperCase() + " - " + getEmail() + " - " + chosenPackage + " package\n" +
+                "   -----------------------------------------------------------------   \n" +
                 "   Gender: " + getGender() + "     Weight: " + getStartWeight() + " kg" + "     Height: " + getHeight() + " m\n" +
                 "   Address: " + getAddress() +
                 "\n//-----------------------------------------------------------------//";
         } else {
             double bmi = GymUtility.calculateBMI(member, latestAssessment());
             return "\n" +
-                    "//-----------------------------------------------------------------//\n" +
+                    "//-----------------------------PROFILE-----------------------------//\n" +
                     "   " + getName().toUpperCase() + " - " + getEmail() + " - " + chosenPackage + " package\n" +
+                    "   -----------------------------------------------------------------   \n" +
                     "   Gender: " + getGender() + "     Weight: " + latestAssessment().getWeight() + " kg" + "     Height: " + getHeight() + " m\n" +
                     "   Address: " + getAddress() + "\n" +
                     "   -----------------------------------------------------------------   \n" +

@@ -15,7 +15,7 @@
             <weight>99.0</weight>
             <thigh>99.0</thigh>
             <waist>99.0</waist>
-            <comment>None</comment>
+            <comment>FAAAAAATTTT</comment>
             <trainer>
               <name>Rainier Wolfcastle</name>
               <email>rainier@wolfcastle.com</email>
@@ -74,8 +74,14 @@
             <weight>65.0</weight>
             <thigh>50.0</thigh>
             <waist>60.0</waist>
-            <comment>None</comment>
-            <trainer/>
+            <comment>Wow!</comment>
+            <trainer>
+              <name>Manjula Nahasapeemapetilon</name>
+              <email>manjula@kwikemart.com</email>
+              <address>Springfield</address>
+              <gender>F</gender>
+              <specialty>Yoga</specialty>
+            </trainer>
           </Assessment>
         </entry>
       </assessments>
@@ -151,6 +157,28 @@
       <height>1.7</height>
       <startWeight>65.0</startWeight>
       <chosenPackage>Duff</chosenPackage>
+      <assessments/>
+    </PremiumMember>
+    <StudentMember>
+      <name>Lisa Simpson</name>
+      <email>lisa@simpson.com</email>
+      <address>742 Evergreen Terrace, Springfield, USA</address>
+      <gender>F</gender>
+      <height>1.1</height>
+      <startWeight>40.0</startWeight>
+      <chosenPackage>SE</chosenPackage>
+      <assessments/>
+      <studentID>3423</studentID>
+      <collegeName>Springfield Elementary</collegeName>
+    </StudentMember>
+    <PremiumMember>
+      <name>Test Tester</name>
+      <email>test@test.com</email>
+      <address>111 Test St.</address>
+      <gender>F</gender>
+      <height>2.0</height>
+      <startWeight>75.0</startWeight>
+      <chosenPackage>Platinum</chosenPackage>
       <assessments/>
     </PremiumMember>
   </list>

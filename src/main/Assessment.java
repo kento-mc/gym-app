@@ -31,8 +31,9 @@ public class Assessment {
         setTrainer(trainer);
     }
 
-    public void addComment(String comment) {
+    public void addComment(String comment, Trainer trainer) {
         setComment(comment);
+        setTrainer(trainer);
     }
 
     public String toString() {
