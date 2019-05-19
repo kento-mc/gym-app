@@ -11,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class MemberTest {
 
     private class MockMember extends Member {
+
         public MockMember() {}
 
         public MockMember(String email, String name, String address,

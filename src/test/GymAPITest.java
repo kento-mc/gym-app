@@ -608,9 +608,9 @@ public class GymAPITest {
                 assertTrue(members.length ==3 );
                 assertTrue(members[0].contains("name1")
                         && members[0].contains("129 kg")
-                        && members[0].contains("284 lbs")
+                        && members[0].contains("283 lbs")
                         && members[0].contains("2.1 metres")
-                        && members[0].contains("83 inches"));
+                        && members[0].contains("84 inches"));
             }
         }
 

@@ -14,7 +14,9 @@ public class StudentMember extends Member {
 
     }
 
-
+    /**
+     * Validates and sets package choice String.
+     */
     public void chosenPackage(String packageChoice) {
         if (packageChoice.equals("SE") || packageChoice.equals("WIT")) {
             super.setChosenPackage(packageChoice);
@@ -23,6 +25,11 @@ public class StudentMember extends Member {
         }
     }
 
+    /**
+     * Builds a String representing a user friendly representation of student member info.
+     *
+     * @return Details of the student member
+     */
     public String toString()
     {
         return super.toString()

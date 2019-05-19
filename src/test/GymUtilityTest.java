@@ -12,6 +12,7 @@ public class GymUtilityTest {
 
 
     private class MockMember extends Member {
+
         public MockMember() {}
 
         public MockMember(String email, String name, String address,

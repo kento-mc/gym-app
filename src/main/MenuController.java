@@ -50,7 +50,7 @@ public class MenuController {
      * application - asking whether the user wants to register or log in -
      * reads the menu option that the user enters and returns it.
      *
-     * @return     the user's menu choice
+     * @return  the user's menu choice
      */
     private int welcomeMenu()
     {
@@ -103,7 +103,7 @@ public class MenuController {
     /** loginMenu() - This method displays the menu to select the user type,
      * reads the menu option that the user enters and returns it.
      *
-     * @return     the user's menu choice
+     * @return  the user's menu choice
      */
     private int loginMenu()
     {
@@ -184,7 +184,7 @@ public class MenuController {
     /** registerMenu() - This method displays the menu to select the user type,
      * reads the menu option that the user enters and returns it.
      *
-     * @return     the user's menu choice
+     * @return  the user's menu choice
      */
     private int registerMenu()
     {
@@ -248,7 +248,7 @@ public class MenuController {
      * reviewPackagesMenu() - This method displays the menu to view
      * each membership package.
      *
-     * @return     the user's menu choice
+     * @return  the user's menu choice
      */
     private int reviewPackagesMenu() {
         System.out.println("\nMember Packages - select option ro review details");
@@ -390,7 +390,7 @@ public class MenuController {
      * for the application, reads the menu option that the user
      * enters and returns it.
      *
-     * @return     the user's menu choice
+     * @return  the user's menu choice
      */
     private int memberMenu(Member member)
     {
@@ -453,7 +453,7 @@ public class MenuController {
      * updateProfileMenu() - This method displays options for which
      * instance fields the member would like to update.
      *
-     * @return     the user's menu choice
+     * @return  the user's menu choice
      */
     private int updateProfileMenu(Member member)
     {
@@ -575,7 +575,7 @@ public class MenuController {
      * menu for the application, reads the menu option that the user
      * enters and returns it.
      *
-     * @return     the user's menu choice
+     * @return  the user's menu choice
      */
     private int progressMenu(Member member)
     {
@@ -674,7 +674,7 @@ public class MenuController {
      * for the application, reads the menu option that the user
      * enters and returns it.
      *
-     * @return     the user's menu choice
+     * @return  the user's menu choice
      */
     private int trainerMenu(Trainer trainer)
     {
@@ -879,7 +879,7 @@ public class MenuController {
      * categories, reads the menu option that the user enters
      * and returns it.
      *
-     * @return     the user's menu choice
+     * @return  the user's menu choice
      */
     private String bmiCategoryMenu(Trainer trainer) {
         String s1 = "SEVERELY UNDERWEIGHT";
@@ -935,7 +935,7 @@ public class MenuController {
      * menu for the application, reads the menu option that the user
      * enters and returns it.
      *
-     * @return     the user's menu choice
+     * @return  the user's menu choice
      */
     private int assessmentMenu(Member member)
     {
@@ -1249,6 +1249,8 @@ public class MenuController {
 
     /**
      * Gather the member data from the user and create a new member.
+     *
+     * @return  newly registered member
      */
     private Member registerMember(){
         input.nextLine();   // dummy read
@@ -1330,7 +1332,7 @@ public class MenuController {
      * setPackagesMenu() - This method displays the menu to set the
      * membership package at the time of registration.
      *
-     * @return     the user's menu choice
+     * @return  the user's menu choice
      */
     private int setPackagesMenu() {
         System.out.println("\nChoose package");
@@ -1436,7 +1438,7 @@ public class MenuController {
      * updatePackagesMenu() - This method displays the menu to update
      * membership package.
      *
-     * @return     the user's menu choice
+     * @return  the user's menu choice
      */
     private int updatePackagesMenu() {
         System.out.println("\nChoose package");
@@ -1453,6 +1455,8 @@ public class MenuController {
 
     /**
      * This is the method that controls the updatePackagesMenu() loop.
+     *
+     * @return  chosen package String
      */
     private String runUpdatePackagesMenu(Member member)
     {
@@ -1544,6 +1548,8 @@ public class MenuController {
 
     /**
      * Gather the trainer data from the user and create a new trainer.
+     *
+     * @return  newly registered trainer
      */
     private Trainer registerTrainer(){
         input.nextLine();   // dummy read of String to clear the buffer - bug in Scanner class.

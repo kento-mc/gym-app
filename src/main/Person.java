@@ -14,6 +14,11 @@ public class Person {
         setGender(gender);
     }
 
+    /**
+     * Builds a String representing a user friendly representation of person info.
+     *
+     * @return Details of the person
+     */
     public String toString()
     {
         return "Member name: " + getName()

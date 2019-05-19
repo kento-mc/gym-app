@@ -1,6 +1,5 @@
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.SortedSet;
 import java.util.TreeSet;
 
 public abstract class Member extends Person {
@@ -21,13 +20,20 @@ public abstract class Member extends Person {
         assessments = new HashMap<>();
     }
 
+    /**
+     * Instantiates new assessment and adds it to the assessments HashMap
+     */
     public void addAssessment(String date, Float weight, Float thigh, Float waist, Trainer trainer) {
         Assessment assessment = new Assessment(weight, thigh, waist, trainer);
         assessments.put(date, assessment);
     }
 
+    /**
+     * Returns the latest assessment based on last entry (by calendar date).
+     *
+     * @return  latest assessment
+     */
     public Assessment latestAssessment() {
-        //Returns the latest assessment based on last entry (by calendar date).
         if (!assessments.isEmpty()) {
             Assessment assessment = assessments.get(sortedAssessmentDates().last());
             return assessment;
@@ -36,6 +42,11 @@ public abstract class Member extends Person {
         }
     }
 
+    /**
+     * Returns a chronologically sorted set of assessment dates
+     *
+     * @return  sorted assessment dates
+     */
     public TreeSet<String> sortedAssessmentDates() {
         TreeSet<String> sorted = new TreeSet<>();
         Iterator<String> it = assessments.keySet().iterator();
@@ -46,14 +57,23 @@ public abstract class Member extends Person {
         return sorted;
     }
 
+    /**
+     * Abstract method with concrete implementation in Member subclasses
+     */
     public abstract void chosenPackage(String chosenPackage);
 
+    /**
+     * Builds a string to display the member's progress in weight measurements
+     *
+     * @return  weight progress String
+     */
     public String weightProgress() {
         float currentWeight = (assessments.get(sortedAssessmentDates().last())).getWeight();
         String current = "You currently weigh " + currentWeight + " kg.";
         String progress = "";
 
         if (assessments.size() >= 2) {
+            // lower method returns the assessment dated before the one specified
             float previousWeight = (assessments.get(sortedAssessmentDates().lower(sortedAssessmentDates().last())).getWeight());
 
             if (currentWeight < previousWeight) {
@@ -92,12 +112,18 @@ public abstract class Member extends Person {
         return progress;
     }
 
+    /**
+     * Builds a string to display the member's progress in waist measurements
+     *
+     * @return  waist progress String
+     */
     public String waistProgress() {
         float currentWaist = (assessments.get(sortedAssessmentDates().last())).getWaist();
         String current = "Your current waist measurement is " + currentWaist + " cm.";
         String progress = "";
 
         if (assessments.size() >= 2) {
+            // lower method returns the assessment dated before the one specified
             float previousWaist = (assessments.get(sortedAssessmentDates().lower(sortedAssessmentDates().last())).getWaist());
 
             if (currentWaist < previousWaist) {

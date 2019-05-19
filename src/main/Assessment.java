@@ -31,11 +31,19 @@ public class Assessment {
         setTrainer(trainer);
     }
 
+    /**
+     * Adds a comment String to the assessment.
+     */
     public void addComment(String comment, Trainer trainer) {
         setComment(comment);
         setTrainer(trainer);
     }
 
+    /**
+     * Builds a String representing a user friendly representation of assessment info.
+     *
+     * @return Details of the assessment
+     */
     public String toString() {
         return "\n" +
                 "//-------------------------------------------------------//\n" +

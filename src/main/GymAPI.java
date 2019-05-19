@@ -18,11 +18,18 @@ public class GymAPI {
         this.trainers = new ArrayList<Trainer>();
     }
 
+    /**
+     * Adds a new member to the members ArrayList.
+     */
     public void addMember(Member member) {
         members.add(member);
     }
 
-
+    /**
+     * Builds a String representing a user friendly representation of all the members.
+     *
+     * @return String of all members's info
+     */
     public String listMembers() {
         if (members.size() == 0){
             return "\nNo members! This gym must be terrible...";
@@ -38,6 +45,11 @@ public class GymAPI {
         }
     }
 
+    /**
+     * Returns member with passed in email String.
+     *
+     * @return  member
+     */
     public Member searchMembersByEmail (String emailEntered)
     {
         for (Member member : members)
@@ -49,6 +61,11 @@ public class GymAPI {
         return null;
     }
 
+    /**
+     * Returns ArrayList of members matching the passed in name String.
+     *
+     * @return ArrayList of members
+     */
     public ArrayList<String> searchMembersByName (String nameEntered)
     {
         ArrayList<String> nameMatches = new ArrayList<String>();
@@ -61,16 +78,26 @@ public class GymAPI {
         return nameMatches;
     }
 
+    /**
+     * Returns ArrayList of members with ideal weight.
+     *
+     * @return ArrayList of members
+     */
     public ArrayList<Member> listMembersWithIdealWeight () {
         ArrayList<Member> idealMembers = new ArrayList<>();
         for (Member member : members) {
-            if (GymUtility.isIdealBodyWeight(member, member.latestAssessment()) == true) {
+            if (GymUtility.isIdealBodyWeight(member, member.latestAssessment())) {
                 idealMembers.add(member);
             }
         }
         return idealMembers;
     }
 
+    /**
+     * Returns ArrayList of members with passed in BMI category String.
+     *
+     * @return ArrayList of members
+     */
     public ArrayList<Member> listMembersBySpecificBMICategory (String category) {
         ArrayList<Member> membersBMI = new ArrayList<>();
         for (Member member : members ) {
@@ -83,14 +110,19 @@ public class GymAPI {
         return membersBMI;
     }
 
+    /**
+     * Returns a String of members with metric and imperial stats.
+     *
+     * @return String of members
+     */
     public String listMemberDetailsImperialAndMetric () {
         String details = "";
         DecimalFormat df = new DecimalFormat("#.#");
         if (!members.isEmpty()) {
             for (Member member : members) {
                 details = details + member.getName() + ": " + Math.round(member.latestAssessment().getWeight()) + " kg (" +
-                        (Math.round((member.latestAssessment().getWeight() * 2.205))+1) + " lbs) " + df.format(member.getHeight()) +
-                          " metres (" + (Math.round((member.getHeight() * 39.37))-1) + " inches).\n";
+                        (Math.round((member.latestAssessment().getWeight() * 2.205))) + " lbs) " + df.format(member.getHeight()) +
+                          " metres (" + (Math.round((member.getHeight() * 39.37))) + " inches).\n";
             }
             return details;
         } else {
@@ -98,10 +130,18 @@ public class GymAPI {
         }
     }
 
+    /**
+     * Adds new trainer to the trainers ArrayList.
+     */
     public void addTrainer(Trainer trainer) {
         trainers.add(trainer);
     }
 
+    /**
+     * Returns trainer that matches email String passed in.
+     *
+     * @return trainer
+     */
     public Trainer searchTrainersByEmail (String emailEntered)
     {
         for (Trainer trainer : trainers) {
@@ -112,6 +152,11 @@ public class GymAPI {
         return null;
     }
 
+    /**
+     * Returns ArrayList of trainer names as Strings.
+     *
+     * @return ArrayList of String of trainers
+     */
     public ArrayList<String> searchTrainersByName (String nameEntered)
     {
         ArrayList<String> nameMatches = new ArrayList<String>();
@@ -124,6 +169,9 @@ public class GymAPI {
         return nameMatches;
     }
 
+    /**
+     * Loads member and trainer information from an xml file.
+     */
     @SuppressWarnings("unchecked")
     public void load() throws Exception {
         XStream xstream = new XStream(new DomDriver());
@@ -147,6 +195,9 @@ public class GymAPI {
 
     }
 
+    /**
+     * Saves member and trainer information to an xml file.
+     */
     public void save() throws Exception {
         XStream xstream = new XStream(new DomDriver());
 

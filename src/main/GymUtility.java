@@ -1,5 +1,10 @@
 public class GymUtility {
 
+    /**
+     * Calculates member's BMI using most recent assessment
+     *
+     * @return  BMI value as a double
+     */
     public static double calculateBMI(Member member, Assessment assessment)
     {
         double weight = member.getStartWeight();
@@ -12,6 +17,11 @@ public class GymUtility {
         return (int) (bmiValue *100) / 100.0;   // convert to two decimal places
     }
 
+    /**
+     * Determines the BMI category for the member based on passed in BMI value
+     *
+     * @return  BMI category String
+     */
     public static String determineBMICategory(double bmiValue)
     {
         String str;
@@ -31,6 +41,9 @@ public class GymUtility {
         return str;
     }
 
+    /**
+     * Checks whether member falls into the ideal weight category using information from the passed in assessment
+     */
     public static boolean isIdealBodyWeight(Member member, Assessment assessment)
     {
         double maleIdealMemberWeight = (((member.getHeight() - 1.524) / .0254) * 2.3) + 50;
