@@ -42,6 +42,22 @@
           </Assessment>
         </entry>
         <entry>
+          <string>19/05/15</string>
+          <Assessment>
+            <weight>78.0</weight>
+            <thigh>40.0</thigh>
+            <waist>50.0</waist>
+            <comment>None</comment>
+            <trainer>
+              <name>Rainier Wolfcastle</name>
+              <email>rainier@wolfcastle.com</email>
+              <address>Austria</address>
+              <gender>M</gender>
+              <specialty>McBain</specialty>
+            </trainer>
+          </Assessment>
+        </entry>
+        <entry>
           <string>19/05/03</string>
           <Assessment>
             <weight>95.0</weight>
