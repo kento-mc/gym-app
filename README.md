@@ -32,6 +32,8 @@ Any extra features you wish to bring to the assessors attention, i.e. extra func
 
 	I used the DecimalFormat class to format the String returned from the listMemberDetailsImperialAndMetric method in the GymAPI class.
 
+	Used git throughout the development process - Git repo: https://github.com/kento-mc/gym-app
+
 Known bugs/problems :
 
 	I think there are still some instances where the Scanner class bug pops up, and there may be some inconsistencies with how the StudentMember membership packages display in different places.
