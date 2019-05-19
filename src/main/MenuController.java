@@ -929,52 +929,6 @@ public class MenuController {
         }
         return str;
     }
-/*
-    /**
-     * This is the method that controls the bmiCategoryMenu() loop.
-     /
-    private String runBMICategoryMenu(Trainer trainer)
-    {
-        int option = bmiCategoryMenu();
-        String category = "";
-        if (category == "SEVERELY UNDERWEIGHT") {
-            return category;
-        } else if (category == "NORMAL") {
-            return category;
-        } else if (category == "OVERWEIGHT") {
-            return category
-                            break;
-                case 2:     category = "UNDERWEIGHT";
-                            break;
-                case 3:     category = "NORMAL";
-                            break;
-                case 4:     category = "OVERWEIGHT";
-                            break;
-                case 5:     category = "MODERATELY OBESE";
-                            break;
-                case 6:     category = "SEVERELY OBESE";
-                            break;
-                case 7:     runTrainerMenu(trainer);
-                            break;
-                default:    System.out.println("Invalid option entered: " + option);
-                            break;
-            }
-
-            //pause the program so that the user can read what we just printed to the terminal window
-            System.out.println("\nPress any key to continue...");
-            input.nextLine();   // Scanner class bug
-            input.nextLine();
-
-            //display the main menu again
-            option = bmiCategoryMenu();
-        }
-
-        //the user chose option 0, so exit the program
-        System.out.println("Exiting... bye!");
-        System.exit(0);
-
-        return category;
-    }*/
 
     /**
      * assessmentMenu() - This method displays the member assessment
