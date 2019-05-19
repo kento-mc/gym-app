@@ -193,7 +193,17 @@
       <address>111 Test St.</address>
       <gender>F</gender>
       <height>2.0</height>
-      <startWeight>75.0</startWeight>
+      <startWeight>88.5</startWeight>
+      <chosenPackage>Platinum</chosenPackage>
+      <assessments/>
+    </PremiumMember>
+    <PremiumMember>
+      <name>Test2 Tester</name>
+      <email>test2@test.com</email>
+      <address>111 Test St.</address>
+      <gender>M</gender>
+      <height>2.0</height>
+      <startWeight>93.2</startWeight>
       <chosenPackage>Platinum</chosenPackage>
       <assessments/>
     </PremiumMember>

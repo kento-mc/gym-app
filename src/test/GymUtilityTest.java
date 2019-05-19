@@ -10,6 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @DisplayName("Tests for GymUtility class")
 public class GymUtilityTest {
 
+
     private class MockMember extends Member {
         public MockMember() {}
 
@@ -156,4 +157,3 @@ public class GymUtilityTest {
         }
     }
 }
-

@@ -2,16 +2,24 @@ import java.util.HashMap;
 import java.util.Scanner;
 import java.util.TreeSet;
 
+/**
+ * The MenuController class drives the app. It contains the main
+ * method and controls the menus which allow the user to interact
+ * with the app
+ */
 public class MenuController {
 
     private Scanner input;
     private GymAPI gymAPI;
     private HashMap gymPackage;
 
-    public static void main(String[] args) {
-        MenuController menu = new MenuController();
-    }
-
+    /**
+     * The MenuController constructor. It instantiates the scanner object
+     * to allow I/O via the console. It instantiates the GymAPI class to
+     * give access to most of the app's functionality. It instantiates the
+     * gymPackage HashMap fills it with gym membership information. Finally,
+     * it loads the user data from xml files and runs the main menu.
+     */
     public MenuController(){
         input = new Scanner(System.in);
         gymAPI = new GymAPI();
@@ -28,6 +36,13 @@ public class MenuController {
         System.out.println("\nWelcome to the Duff Light(™) Gym!");
         System.out.println("It's either us or Moe's Tavern...");
         runWelcomeMenu();
+    }
+
+    /**
+     * The main method for the app. It instantiates the MenuController class.
+     */
+    public static void main(String[] args) {
+        MenuController menu = new MenuController();
     }
 
     /**
@@ -118,32 +133,34 @@ public class MenuController {
 
             switch (option)
             {
-                case 1:     input.nextLine();   // dummy read of String to clear the buffer - bug in Scanner class.
-                            System.out.print("\nPlease enter your email address:  ");
+                case 1:     input.nextLine();   // dummy read
+                            System.out.print("\nPlease enter your email address:  ");  // no validation performed here,
+                                                                                       // any string is accepted
                             String email = input.nextLine();
                             Member member = gymAPI.searchMembersByEmail(email);
                             if (member != null) {
                                 System.out.println("Login successful!");
                                 runMemberMenu(member);
-                                break;
                             } else {
+                                // rather than exit the app, it reloads the previous menu
                                 System.out.println("\nInvalid email address, please try again.");
                                 runLoginMenu();
-                                break;
                             }
-                case 2:     input.nextLine();   // dummy read of String to clear the buffer - bug in Scanner class.
-                            System.out.print("\nPlease enter your email address:  ");
+                            break;
+                case 2:     input.nextLine();   // dummy read
+                            System.out.print("\nPlease enter your email address:  ");   // no validation performed here,
+                                                                                        // any string is accepted
                             email = input.nextLine();
                             Trainer trainer = gymAPI.searchTrainersByEmail(email);
                             if (trainer != null) {
                                 System.out.println("Login successful!");
                                 runTrainerMenu(trainer);
-                                break;
                             } else {
-                        System.out.println("\nInvalid email address, please try again.");
-                        runLoginMenu();
-                        break;
-                    }
+                                // rather than exit the app, it reloads the previous menu
+                                System.out.println("\nInvalid email address, please try again.");
+                                runLoginMenu();
+                            }
+                            break;
                 case 3:     runWelcomeMenu();
                             break;
                 default:    System.out.println("Invalid option entered: " + option);
@@ -274,7 +291,27 @@ public class MenuController {
                             runReturnFromPackagesMenu();
                             break;
                 case 4:     System.out.println("\nStudent Package\n");
-                            System.out.println(gymPackage.get("WIT"));
+                            System.out.println("\nWhich university package would you like to view?");
+                            boolean goodInput = false;
+                            while (!goodInput)
+                            {
+                                input.nextLine();   //dummy read
+                                String chosenPackage = "";
+                                String uni = input.nextLine();
+                                // determines which university package to view based on user input
+                                if (uni.equals("WIT") || uni.equals("wit") || uni.equals("Waterford Institute of Technology")) {
+                                    goodInput = true;
+                                    chosenPackage = "WIT";
+                                    System.out.println(gymPackage.get(chosenPackage));
+                                } else if (uni.equals("SE" ) || uni.equals("se") || uni.equals("Springfield Elementary")) {
+                                    goodInput = true;
+                                    chosenPackage = "SE";
+                                    System.out.println(gymPackage.get(chosenPackage));
+                                } else {
+                                    System.out.println("\nYour entry does not match any of our partner universities. " +
+                                            "Please enter another university.");
+                                }
+                            }
                             runReturnFromPackagesMenu();
                             break;
                 case 5:     runWelcomeMenu();
@@ -470,7 +507,7 @@ public class MenuController {
                             break;
                 case 4:     Float height;
                             boolean goodInput = false;
-                            do {
+                            do {    // do-while loop to validate float input
                                 try {
                                     input.nextLine();   // dummy read
                                     System.out.println("\nEnter height: ");
@@ -487,7 +524,7 @@ public class MenuController {
                             break;
                 case 5:     Float startWeight;
                             goodInput = false;
-                            do {
+                            do {    // do-while loop to validate float input
                                 try {
                                     input.nextLine();   // dummy read
                                     System.out.println("\nEnter starting weight: ");
@@ -579,6 +616,7 @@ public class MenuController {
                             if (member.getAssessments().isEmpty()) {
                                 System.out.println("It looks like your trainer hasn't recorded an assessment for you yet.");
                             } else {
+                                // for loop to print assessments
                                 for (String date : member.sortedAssessmentDates().descendingSet()) {
                                     System.out.println(date + ": " + member.getAssessments().get(date) + "\n");
                                 }
@@ -590,6 +628,7 @@ public class MenuController {
                                 System.out.println(member.weightProgress());
                                 System.out.println("\nWeight tracker");
                                 System.out.println("---------");
+                                // for loop to print weight measurements from each assessment
                                 for (String date : member.sortedAssessmentDates().descendingSet()) {
                                     System.out.println(date + ": " + member.getAssessments().get(date).getWeight() + " kg");
                                 }
@@ -603,6 +642,7 @@ public class MenuController {
                                 System.out.println(member.waistProgress());
                                 System.out.println("\nWaist tracker");
                                 System.out.println("---------");
+                                // for loop to print waist measurements from each assessment
                                 for (String date : member.sortedAssessmentDates().descendingSet()) {
                                     System.out.println(date + ": " + member.getAssessments().get(date).getWaist() + " cm");
                                 }
@@ -624,6 +664,7 @@ public class MenuController {
         }
 
         //the user chose option 0, so exit the program
+        saveTry();
         System.out.println("Exiting... bye!");
         System.exit(0);
     }
@@ -641,10 +682,13 @@ public class MenuController {
         System.out.println("---------");
         System.out.println("  1) Add a new member");
         System.out.println("  2) List all members");
-        System.out.println("  3) Search members by email");
-        System.out.println("  4) Delete a member");
+        System.out.println("  3) List members with ideal weight");
+        System.out.println("  4) List members by BMI category");
+        System.out.println("  5) Search members by email");
+        System.out.println("  6) Search members by name");
+        System.out.println("  7) Delete a member");             // added deletion for full CRUD functionality
         System.out.println("---------");
-        System.out.println("  5) Assessment Menu");
+        System.out.println("  8) Assessment Menu");
         System.out.println("---------");
         System.out.println("  0) Save & Exit");
         System.out.print("==>> ");
@@ -667,6 +711,8 @@ public class MenuController {
                 case 1:     registerMember();
                             break;
                 case 2:     System.out.println(gymAPI.listMembers());
+                            // allows trainer to select user from the list based on the index, rather than having to enter
+                            // any member details separately from the assessment menu option.
                             System.out.println("\nWould you like to view one of these member's details? (Y/N)");
                             input.nextLine();   // dummy read
                             String yesNo = input.nextLine();
@@ -685,13 +731,72 @@ public class MenuController {
                             }
                             input.nextLine();   // dummy read
                             break;
-                case 3:     input.nextLine();   // dummy read
+                case 3:     if (gymAPI.listMembersWithIdealWeight().isEmpty()) {
+                                System.out.println("\nNo members with ideal weight.");
+                            } else {
+                                System.out.println("");
+                                int index = 0;
+                                for (Member member : gymAPI.listMembersWithIdealWeight()) {
+                                    System.out.println(index + ": " + member);
+                                    index++;
+                                }
+                                // allows trainer to select user from the list based on the index
+                                System.out.println("\nWould you like to view one of these member's details? (Y/N)");
+                                input.nextLine();   // dummy read
+                                yesNo = input.nextLine();
+                                if (yesNo.startsWith("Y") || yesNo.startsWith("y")) {
+                                    System.out.println("\nEnter member index to view member details:");
+                                    index = input.nextInt();
+                                    if (index >= 0 && index < gymAPI.listMembersWithIdealWeight().size()) {
+                                        Member member = gymAPI.listMembersWithIdealWeight().get(index);
+                                        runAssessmentMenu(member, trainer);
+                                    } else {
+                                        System.out.println("\nInvalid member index");
+                                        runTrainerMenu(trainer);
+                                    }
+                                } else {
+                                    runTrainerMenu(trainer);
+                                }
+                            }
+                            input.nextLine();   // dummy read
+                            break;
+                case 4:     String category = bmiCategoryMenu(trainer);
+                            if (gymAPI.listMembersBySpecificBMICategory(category).isEmpty()) {
+                                System.out.println("\nNo members in " + category + " category.");
+                                input.nextLine();  // dummy read
+                            } else {
+                                System.out.println("");
+                                int index = 0;
+                                for (Member member : gymAPI.listMembersBySpecificBMICategory(category)) {
+                                    System.out.println(index + ": " + member);
+                                    index++;
+                                }
+                                // allows trainer to select user from the list based on the index
+                                System.out.println("\nWould you like to view one of these member's details? (Y/N)");
+                                input.nextLine();   // dummy read
+                                yesNo = input.nextLine();
+                                if (yesNo.startsWith("Y") || yesNo.startsWith("y")) {
+                                    System.out.println("\nEnter member index to view member details:");
+                                    index = input.nextInt();
+                                    if (index >= 0 && index < gymAPI.listMembersBySpecificBMICategory(category).size()) {
+                                        Member member = gymAPI.listMembersBySpecificBMICategory(category).get(index);
+                                        runAssessmentMenu(member, trainer);
+                                    } else {
+                                        System.out.println("\nInvalid member index");
+                                        runTrainerMenu(trainer);
+                                    }
+                                } else {
+                                    runTrainerMenu(trainer);
+                                }
+                            }
+                            break;
+                case 5:     input.nextLine();   // dummy read
                             System.out.println("\nEmail address to search:");
                             String memberEmail = input.nextLine();
                             Member member = gymAPI.searchMembersByEmail(memberEmail);
                             if (member != null) {
                                 System.out.println("Member found!\n");
-                                member.toString();
+                                // automatically runs the assessment menu for the member being viewed
                                 runAssessmentMenu(member, trainer);
                             } else {
                                 System.out.println("\nInvalid email address, please try again.");
@@ -699,7 +804,23 @@ public class MenuController {
                             }
                             input.nextLine();   // dummy read
                             break;
-                case 4:     input.nextLine();   // dummy read
+                case 6:     input.nextLine();   // dummy read
+                            System.out.println("\nEmail address to search:");
+                            String memberName = input.nextLine();
+                            member = gymAPI.searchMembersByEmail(memberName);
+                            if (member != null) {
+                                System.out.println("Member found!\n");
+                                // automatically runs the assessment menu for the member being viewed
+                                runAssessmentMenu(member, trainer);
+                            } else {
+                                System.out.println("\nName not found, please try again.");
+                                runTrainerMenu(trainer);
+                            }
+                            input.nextLine();   // dummy read
+                            break;
+                case 7:     input.nextLine();   // dummy read
+                            // forces trainer to enter email address before proceding with deletion, as selecting
+                            // from a list of members might lead to accidentally selecting the wrong member
                             System.out.println("\nEmail address of member to delete:");
                             memberEmail = input.nextLine();
                             member = gymAPI.searchMembersByEmail(memberEmail);
@@ -711,7 +832,7 @@ public class MenuController {
                                 if (yesNo.startsWith("Y") || yesNo.startsWith("y")) {
                                     gymAPI.getMembers().remove(member);
                                     System.out.println("\nMember - " + member.getName() + " - deleted.");
-                                    saveTry();
+                                    saveTry();  // saves to xml without exiting app
                                 } else {
                                     runTrainerMenu(trainer);
                                 }
@@ -720,7 +841,8 @@ public class MenuController {
                                 runTrainerMenu(trainer);
                             }
                             break;
-                case 5:     input.nextLine();   // dummy read
+                case 8:     input.nextLine();   // dummy read
+                            // the second way of accessing the assessment menu - entering the member email explicitely
                             System.out.println("\nEnter email address of member whose assessments you'd like to view:");
                             memberEmail = input.nextLine();
                             member = gymAPI.searchMembersByEmail(memberEmail);
@@ -747,9 +869,112 @@ public class MenuController {
         }
 
         //the user chose option 0, so exit the program
+        saveTry();
         System.out.println("Exiting... bye!");
         System.exit(0);
     }
+
+    /**
+     * bmiCategoryMenu() - This method displays the possible BMI
+     * categories, reads the menu option that the user enters
+     * and returns it.
+     *
+     * @return     the user's menu choice
+     */
+    private String bmiCategoryMenu(Trainer trainer) {
+        String s1 = "SEVERELY UNDERWEIGHT";
+        String s2 = "UNDERWEIGHT";
+        String s3 = "NORMAL";
+        String s4 = "OVERWEIGHT";
+        String s5 = "MODERATELY OBESE";
+        String s6 = "SEVERELY OBESE";
+
+        System.out.println("\nBMI categories");
+        System.out.println("---------");
+        System.out.println("  1) " + s1);
+        System.out.println("  2) " + s2);
+        System.out.println("  3) " + s3);
+        System.out.println("  4) " + s4);
+        System.out.println("  5) " + s5);
+        System.out.println("  6) " + s6);
+        System.out.println("---------");
+        System.out.println("  7) Return to trainer menu");
+        System.out.println("---------");
+        System.out.println("  0) Exit");
+        System.out.print("==>> ");
+
+        int option = input.nextInt();
+        String str = "";
+
+        if (option == 1) {
+            str = s1;
+        } else if (option == 2) {
+            str = s2;
+        } else if (option == 3) {
+            str = s3;
+        } else if (option == 4) {
+            str = s4;
+        } else if (option == 5) {
+            str = s5;
+        } else if (option == 6) {
+            str = s6;
+        } else if (option == 7) {
+            runTrainerMenu(trainer);
+        } else if (option == 0) {
+            System.out.println("Exiting... bye!");
+            System.exit(0);
+        } else {
+            System.out.println("Invalid option entered: " + option);
+            bmiCategoryMenu(trainer);
+        }
+        return str;
+    }
+/*
+    /**
+     * This is the method that controls the bmiCategoryMenu() loop.
+     /
+    private String runBMICategoryMenu(Trainer trainer)
+    {
+        int option = bmiCategoryMenu();
+        String category = "";
+        if (category == "SEVERELY UNDERWEIGHT") {
+            return category;
+        } else if (category == "NORMAL") {
+            return category;
+        } else if (category == "OVERWEIGHT") {
+            return category
+                            break;
+                case 2:     category = "UNDERWEIGHT";
+                            break;
+                case 3:     category = "NORMAL";
+                            break;
+                case 4:     category = "OVERWEIGHT";
+                            break;
+                case 5:     category = "MODERATELY OBESE";
+                            break;
+                case 6:     category = "SEVERELY OBESE";
+                            break;
+                case 7:     runTrainerMenu(trainer);
+                            break;
+                default:    System.out.println("Invalid option entered: " + option);
+                            break;
+            }
+
+            //pause the program so that the user can read what we just printed to the terminal window
+            System.out.println("\nPress any key to continue...");
+            input.nextLine();   // Scanner class bug
+            input.nextLine();
+
+            //display the main menu again
+            option = bmiCategoryMenu();
+        }
+
+        //the user chose option 0, so exit the program
+        System.out.println("Exiting... bye!");
+        System.exit(0);
+
+        return category;
+    }*/
 
     /**
      * assessmentMenu() - This method displays the member assessment
@@ -762,6 +987,8 @@ public class MenuController {
     {
         System.out.println("\nAssessment Menu");
         System.out.println(member.profileString(member));
+
+        // if statement controls printing of assessment number information
         if (member.getAssessments().isEmpty()) {
             System.out.println("\nNo assessments");
         } else if (member.getAssessments().size() != 1) {
@@ -769,6 +996,7 @@ public class MenuController {
             } else {
             System.out.print("\n" + member.getAssessments().size() + " assessment");
         }
+        // if statement displays latest assessment as long as the assessments HashMap isn't empty
         if (!member.getAssessments().isEmpty()) {
             System.out.println("\nLatest (" + member.sortedAssessmentDates().last() + "):");
             System.out.println(member.latestAssessment());
@@ -800,6 +1028,7 @@ public class MenuController {
             switch (option)
             {
                 case 1:     input.nextLine();   // dummy read
+                            // no validation performed for date format. this would be necessary for a more robust app
                             System.out.println("\nPlease enter the assessment date (YY/MM/DD):");
                             String date = input.nextLine();
                             System.out.println("\nPlease enter weight measurement (kg):");
@@ -817,6 +1046,9 @@ public class MenuController {
                             } else {
                                 System.out.println("\n" + member.getName() + "'s " + ((member.getAssessments().size() == 1) ? "assessment:\n" : "assessments:\n"));
                             }
+
+                            // implements descendingSet method on the sortedAssessmentDates TreeSet to make the dates display
+                            // in descending order from the most recent. for loop prints assessments.
                             for (String assessmentDate : member.sortedAssessmentDates().descendingSet()) {
                                 System.out.println(assessmentDate + ": " + member.getAssessments().get(assessmentDate) + "\n");
                             }
@@ -844,12 +1076,7 @@ public class MenuController {
         }
 
         //the user chose option 0, so exit the program
-        try{
-            gymAPI.save();
-        }
-        catch(Exception e) {
-            System.err.println("Error saving to file: " + e);
-        }
+        saveTry();
         System.out.println("Exiting... bye!");
         System.exit(0);
     }
@@ -863,7 +1090,9 @@ public class MenuController {
     {
         if (member.getAssessments().isEmpty()) {
             System.out.println("\nIt looks like your trainer hasn't recorded an assessment for you yet.");
-        } else if (member.getAssessments().size() == 1) {
+        }
+        // if there is only one assessment adding the comment is straightforward
+        else if (member.getAssessments().size() == 1) {
             Assessment assessment = member.latestAssessment();
             System.out.println(assessment);
             System.out.println("\nPlease enter your comment:");
@@ -872,23 +1101,38 @@ public class MenuController {
             assessment.addComment(comment, trainer);
             System.out.println("\nComment \"" + assessment.getComment() + "\" added to assessment");
             runTrainerMenu(trainer);
-        } else {
-            TreeSet<String> sortedTemp = new TreeSet<>();               // temporary clone of sortedAssessmentDates TreeSet
-            HashMap<Integer, Assessment> commentMenu = new HashMap<>(); // HashMap to store menu choice ints as keys instead of dates
-            sortedTemp.addAll(member.sortedAssessmentDates());          // dates cloned
+        }
+        // creating a menu for viewing multiple assessments than can then be selected based on simple user input
+        // and using the same display format as the other menus. This menu won't use a switch statement since the
+        // number of options in the menu will be determined by the number of assessments.
+        else {
+            // temporary clone of sortedAssessmentDates TreeSet. Using the new TreeSet because the entries will be removed
+            // when using the pollLast method below
+            TreeSet<String> sortedTemp = new TreeSet<>();
+
+            // HashMap to store menu choice ints as keys instead of dates
+            HashMap<Integer, Assessment> commentMenu = new HashMap<>();
+
+            sortedTemp.addAll(member.sortedAssessmentDates());  // dates cloned
             System.out.println("\nWhich of " + member.getName() + "'s assessments would you like to comment on?");
             System.out.println("\n---------");
             int i = 1;
+            // for-each loop used since the size of the TreeSet changes each time through the loop
             for (String date : member.sortedAssessmentDates().descendingSet()) {
                 System.out.println("  " + i + ") " + date
                                     + " - Weight: " + member.getAssessments().get(date).getWeight() + " kg"
                                     + " - Waist: " + member.getAssessments().get(date).getWaist() + " cm"
                                     + " - Thigh: " + member.getAssessments().get(date).getThigh() + " cm"
                                     + " - Comment: " + member.getAssessments().get(date).getComment());
-                commentMenu.put(i, member.getAssessments().get(sortedTemp.pollLast()));  // dates removed from Set after being returned
+
+                // assessments added to new HashMap with ints as keys. Dates removed from TreeSet after being returned.
+                commentMenu.put(i, member.getAssessments().get(sortedTemp.pollLast()));
                 i++;
             }
             System.out.println("---------");
+
+            // i variable iterates after the last loop so it will always be one number higher than the highest assessment
+            // number in the menu, thus it can be used for the return option in the menu.
             System.out.println("  " + i + ") Return to trainer menu");
             System.out.println("---------");
             System.out.println("  0) Exit");
@@ -897,6 +1141,7 @@ public class MenuController {
             int option = input.nextInt();
 
             while (option != 0) {
+                // if statement checks if option variable stores a valid key for the MashMap
                 if (option < (member.sortedAssessmentDates().size() + 1) && option > 0) {
                     Assessment assessment = commentMenu.get(option);
                     System.out.println("\nPlease enter your comment:");
@@ -904,15 +1149,13 @@ public class MenuController {
                     String comment = input.nextLine();
                     assessment.addComment(comment, trainer);
                     System.out.println("\nComment \"" + assessment.getComment() + "\" added to assessment");
+
+                    // increments option variable to call the runTrainerMenu method on the next loop
                     option = member.sortedAssessmentDates().size() + 1;
                 } else if (option == member.sortedAssessmentDates().size() + 1) {
                     runTrainerMenu(trainer);
                 } else if (option == 0) {
-                    try {
-                        gymAPI.save();
-                    } catch (Exception e) {
-                        System.err.println("\nError saving to file: " + e);
-                    }
+                    saveTry();
                     System.out.println("\nExiting... bye!");
                     System.exit(0);
                 } else {
@@ -931,7 +1174,9 @@ public class MenuController {
     {
         if (member.getAssessments().isEmpty()) {
             System.out.println("\nIt looks like your trainer hasn't recorded an assessment for you yet.");
-        } else if (member.getAssessments().size() == 1) {
+        }
+        // if there is only one assessment, deleting it is straightforward
+        else if (member.getAssessments().size() == 1) {
             Assessment assessment = member.latestAssessment();
             System.out.println(assessment);
             System.out.println("\nAre you sure you want to delete this assessment?");
@@ -943,13 +1188,22 @@ public class MenuController {
             } else {
                 runAssessmentMenu(member, trainer);
             }
-        } else {
-            TreeSet<String> sortedTemp = new TreeSet<>();               // temporary clone of sortedAssessmentDates TreeSet
-            TreeSet<String> sortedTemp2 = new TreeSet<>();              // clone for reversed HashMap
-            HashMap<Integer, Assessment> deleteMenu = new HashMap<>();  // HashMap to store menu choice ints as keys instead of dates
-            HashMap<Assessment, String> reverseDeleteMenu = new HashMap<>();  // HashMap to store assessments as keys
+        }
+        // similar implementaion to the commentOnAssessmentMenu method above, so there is some duplication of code
+        else {
+            // temporary clone of sortedAssessmentDates TreeSet as in commentOnAssessmentMenu method above
+            TreeSet<String> sortedTemp = new TreeSet<>();
+
+            // second temporary clone of the TreeSet used to fill the HashMap with reversed key/value pairs
+            TreeSet<String> sortedTemp2 = new TreeSet<>();
+
+            // HashMap to store menu choice ints as keys instead of dates as in commentOnAssessmentMenu method above
+            HashMap<Integer, Assessment> deleteMenu = new HashMap<>();
+
+            // second MashMap assessments as keys and dates as values, so the dates can be easily retrieved
+            HashMap<Assessment, String> reverseDeleteMenu = new HashMap<>();
             sortedTemp.addAll(member.sortedAssessmentDates());          // dates cloned
-            sortedTemp2.addAll(member.sortedAssessmentDates());         //dates cloned
+            sortedTemp2.addAll(member.sortedAssessmentDates());         // dates cloned
             System.out.println("\nWhich of " + member.getName() + "'s assessments would you like to delete?");
             System.out.println("\n---------");
             int i = 1;
@@ -959,11 +1213,16 @@ public class MenuController {
                         + " - Waist: " + member.getAssessments().get(date).getWaist() + " cm"
                         + " - Thigh: " + member.getAssessments().get(date).getThigh() + " cm"
                         + " - Comment: " + member.getAssessments().get(date).getComment());
+
+                // assessments added to new HashMap with ints as keys. Dates removed from TreeSet after being returned.
                 deleteMenu.put(i, member.getAssessments().get(sortedTemp.pollLast()));  // dates removed from Set after being returned
-                reverseDeleteMenu.put(member.getAssessments().get(sortedTemp2.pollLast()), date);  // assessments removed from Set after being returned
+
+                // dates added to new HashMap with assessments as keys. Assessments removed from TreeSet after being returned.
+                reverseDeleteMenu.put(member.getAssessments().get(sortedTemp2.pollLast()), date);
                 i++;
             }
             System.out.println("---------");
+            // i variable iterates and is used as in commentOnAssessmentMenu method above
             System.out.println("  " + i + ") Return to assessment menu");
             System.out.println("---------");
             System.out.println("  0) Exit");
@@ -972,6 +1231,7 @@ public class MenuController {
             int option = input.nextInt();
 
             while (option != 0) {
+                // if statement checks if option variable stores a valid key for the MashMap
                 if (option < (member.sortedAssessmentDates().size() + 1) && option > 0) {
                     Assessment assessment = deleteMenu.get(option);
                     System.out.println("\nAre you sure you want to delete this assessment?");
@@ -980,6 +1240,8 @@ public class MenuController {
                     if (yesNo.startsWith("Y") || yesNo.startsWith("y")) {
                         member.getAssessments().remove(reverseDeleteMenu.get(assessment));
                         System.out.println("\nAssessment deleted");
+
+                        // increments option variable to call the runTrainerMenu method on the next loop
                         option = member.sortedAssessmentDates().size() + 1;
                     } else {
                         runAssessmentMenu(member, trainer);
@@ -987,11 +1249,7 @@ public class MenuController {
                 } else if (option == member.sortedAssessmentDates().size() + 1) {
                     runAssessmentMenu(member, trainer);
                 } else if (option == 0) {
-                    try {
-                        gymAPI.save();
-                    } catch (Exception e) {
-                        System.err.println("\nError saving to file: " + e);
-                    }
+                    saveTry();
                     System.out.println("\nExiting... bye!");
                     System.exit(0);
                 } else {
@@ -1185,15 +1443,9 @@ public class MenuController {
         }
 
         //the user chose option 0, so exit the program
-        try{
-            gymAPI.save();
-        }
-        catch(Exception e) {
-            System.err.println("Error saving to file: " + e);
-        }
+        saveTry();
         System.out.println("Exiting... bye!");
         System.exit(0);
-
         return null;
     }
 
@@ -1300,14 +1552,9 @@ public class MenuController {
         }
 
         //the user chose option 0, so exit the program
-            try{
-            gymAPI.save();
-        }
-            catch(Exception e) {
-            System.err.println("Error saving to file: " + e);
-        }
-            System.out.println("Exiting... bye!");
-            System.exit(0);
+        saveTry();
+        System.out.println("Exiting... bye!");
+        System.exit(0);
 
         return null;
     }
@@ -1334,12 +1581,7 @@ public class MenuController {
 
         gymAPI.addTrainer(new Trainer(email, trainerName, address, gender, specialty));
 
-        try{
-            gymAPI.save();
-        }
-        catch(Exception e) {
-            System.err.println("\nError saving to file: " + e);
-        }
+        saveTry();
 
         Trainer trainer = gymAPI.searchTrainersByEmail(email);
 
@@ -1348,6 +1590,9 @@ public class MenuController {
         return trainer;
     }
 
+    /**
+     * Method to save user data to xml.
+     */
     public void saveTry() {
         try {
             gymAPI.save();
@@ -1357,7 +1602,7 @@ public class MenuController {
     }
 
     /**
-     * Fill gymPackage HashMap.
+     * Method to fill gymPackage HashMap.
      */
     public void fillGymPackageMap()
     {

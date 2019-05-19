@@ -290,8 +290,8 @@ public class MemberTest {
             @Test
             public void sorted() {
                 SortedSet<String> result = member1.sortedAssessmentDates();
-                assertTrue(result.last() == "18/01/03", "Last date not correct");
-                assertTrue(result.first() == "18/01/01", "Last date not correct");
+                assertTrue(result.last().equals("18/01/03"), "Last date not correct");
+                assertTrue(result.first().equals("18/01/01"), "First date not correct");
             }
         }
         @Nested
@@ -326,7 +326,7 @@ public class MemberTest {
             @Test
             public void latest() {
                 Assessment result = member1.latestAssessment();
-                assertTrue(result.getComment() == "comment3", "Incorrect assessment returned");
+                assertTrue(result.getComment().equals("comment3"), "Incorrect assessment returned");
             }
         }
         @Nested
@@ -342,4 +342,3 @@ public class MemberTest {
         }
     }
 }
-

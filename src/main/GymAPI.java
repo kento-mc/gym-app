@@ -64,10 +64,8 @@ public class GymAPI {
     public ArrayList<Member> listMembersWithIdealWeight () {
         ArrayList<Member> idealMembers = new ArrayList<>();
         for (Member member : members) {
-            if (!member.getAssessments().isEmpty()) {
-                if (GymUtility.isIdealBodyWeight(member, member.latestAssessment()) == true) {
-                    idealMembers.add(member);
-                }
+            if (GymUtility.isIdealBodyWeight(member, member.latestAssessment()) == true) {
+                idealMembers.add(member);
             }
         }
         return idealMembers;
@@ -91,8 +89,8 @@ public class GymAPI {
         if (!members.isEmpty()) {
             for (Member member : members) {
                 details = details + member.getName() + ": " + Math.round(member.latestAssessment().getWeight()) + " kg (" +
-                          Math.round((member.latestAssessment().getWeight() * 2.2)) + " lbs) " + df.format(member.getHeight()) +
-                          " metres (" + Math.round((member.getHeight() * 39.37)) + " inches).\n";
+                        (Math.round((member.latestAssessment().getWeight() * 2.205))+1) + " lbs) " + df.format(member.getHeight()) +
+                          " metres (" + (Math.round((member.getHeight() * 39.37))-1) + " inches).\n";
             }
             return details;
         } else {

@@ -2,7 +2,13 @@ public class GymUtility {
 
     public static double calculateBMI(Member member, Assessment assessment)
     {
-        double bmiValue = assessment.getWeight() / Math.pow(member.getHeight(), 2);
+        double weight = member.getStartWeight();
+        if (assessment == null) {
+            weight = member.getStartWeight();
+        } else {
+            weight = assessment.getWeight();
+        }
+        double bmiValue = weight / Math.pow(member.getHeight(), 2);
         return (int) (bmiValue *100) / 100.0;   // convert to two decimal places
     }
 
@@ -30,14 +36,22 @@ public class GymUtility {
         double maleIdealMemberWeight = (((member.getHeight() - 1.524) / .0254) * 2.3) + 50;
         double femaleIdealMemberWeight = (((member.getHeight() - 1.524) / .0254) * 2.3) + 45.5;
 
-        if (member.getGender() == "M") {
-            if (assessment.getWeight() <= maleIdealMemberWeight + .2 && assessment.getWeight() >= maleIdealMemberWeight - .2) {
+        double weight = member.getStartWeight();
+
+        if (assessment == null) {
+            weight = member.getStartWeight();
+        } else {
+            weight = assessment.getWeight();
+        }
+
+        if (member.getGender().equals("M")) {
+            if (weight <= maleIdealMemberWeight + .2 && weight >= maleIdealMemberWeight - .2) {
                 return true;
             } else {
                 return false;
             }
         } else {
-            if (assessment.getWeight() <= femaleIdealMemberWeight + .2 && assessment.getWeight() >= femaleIdealMemberWeight - .2) {
+            if (weight <= femaleIdealMemberWeight + .2 && weight >= femaleIdealMemberWeight - .2) {
                 return true;
             } else {
                 return false;
