@@ -109,7 +109,7 @@
       <gender>M</gender>
       <height>1.2</height>
       <startWeight>50.0</startWeight>
-      <chosenPackage>Student</chosenPackage>
+      <chosenPackage>SE</chosenPackage>
       <assessments>
         <entry>
           <string>19/05/10</string>
@@ -138,8 +138,25 @@
       <gender>M</gender>
       <height>1.2</height>
       <startWeight>40.0</startWeight>
-      <chosenPackage>Student</chosenPackage>
-      <assessments/>
+      <chosenPackage>SE</chosenPackage>
+      <assessments>
+        <entry>
+          <string>19/05/15</string>
+          <Assessment>
+            <weight>55.0</weight>
+            <thigh>25.0</thigh>
+            <waist>40.0</waist>
+            <comment>You are pathetic</comment>
+            <trainer>
+              <name>Rainier Wolfcastle</name>
+              <email>rainier@wolfcastle.com</email>
+              <address>Austria</address>
+              <gender>M</gender>
+              <specialty>McBain</specialty>
+            </trainer>
+          </Assessment>
+        </entry>
+      </assessments>
       <studentID>2348</studentID>
       <collegeName>Springfield Elementary</collegeName>
     </StudentMember>
@@ -207,5 +224,17 @@
       <chosenPackage>Platinum</chosenPackage>
       <assessments/>
     </PremiumMember>
+    <StudentMember>
+      <name>Martin Prince</name>
+      <email>martin@prince.com</email>
+      <address>Springfield</address>
+      <gender>M</gender>
+      <height>1.3</height>
+      <startWeight>50.0</startWeight>
+      <chosenPackage>SE</chosenPackage>
+      <assessments/>
+      <studentID>3240</studentID>
+      <collegeName>Springfield Elementary</collegeName>
+    </StudentMember>
   </list>
 </object-stream>

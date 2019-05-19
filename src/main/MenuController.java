@@ -710,7 +710,7 @@ public class MenuController {
             {
                 case 1:     registerMember();
                             break;
-                case 2:     System.out.println(gymAPI.listMembers());
+                case 2:     System.out.println("\n" + gymAPI.listMembers());
                             // allows trainer to select user from the list based on the index, rather than having to enter
                             // any member details separately from the assessment menu option.
                             System.out.println("\nWould you like to view one of these member's details? (Y/N)");
@@ -985,12 +985,46 @@ public class MenuController {
                             // no validation performed for date format. this would be necessary for a more robust app
                             System.out.println("\nPlease enter the assessment date (YY/MM/DD):");
                             String date = input.nextLine();
-                            System.out.println("\nPlease enter weight measurement (kg):");
-                            Float weight = input.nextFloat();
-                            System.out.println("\nPlease enter thigh measurement (cm):");
-                            Float thigh = input.nextFloat();
-                            System.out.println("\nPlease enter waist measurement (cm):");
-                            Float waist = input.nextFloat();
+                            boolean goodInput = false;
+                            float weight = 0;
+                            do {    // do-while loop to validate float input
+                                try {
+                                    System.out.println("\nPlease enter weight measurement (kg):");
+                                    weight = input.nextFloat();
+                                    goodInput = true;
+                                } catch (Exception e) {
+                                    input.nextLine();   // dummy read
+                                    System.out.println("\nNumber expected - you entered text.");
+                                    System.out.println("\nPress any key to try again...");
+                                }
+                            } while (!goodInput);
+
+                            float waist = 0;
+                            do {    // do-while loop to validate float input
+                                try {
+                                    System.out.println("\nPlease enter waist measurement (cm):");
+                                    waist = input.nextFloat();
+                                    goodInput = true;
+                                } catch (Exception e) {
+                                    input.nextLine();   // dummy read
+                                    System.out.println("\nNumber expected - you entered text.");
+                                    System.out.println("\nPress any key to try again...");
+                                }
+                            } while (!goodInput);
+
+                            float thigh = 0;
+                            do {    // do-while loop to validate float input
+                                try {
+                                    System.out.println("\nPlease enter thigh measurement (kg):");
+                                    thigh = input.nextFloat();
+                                    goodInput = true;
+                                } catch (Exception e) {
+                                    input.nextLine();   // dummy read
+                                    System.out.println("\nNumber expected - you entered text.");
+                                    System.out.println("\nPress any key to try again...");
+                                }
+                            } while (!goodInput);
+
                             member.addAssessment(date, weight, thigh, waist, trainer);
                             System.out.println("\nAssessment added for " + member.getName());
                             input.nextLine();   // Scanner class bug
@@ -1283,12 +1317,7 @@ public class MenuController {
             gymAPI.addMember(new PremiumMember(email, memberName, address, gender, height, startWeight, chosenPackage));
         }
 
-        try{
-            gymAPI.save();
-        }
-        catch(Exception e) {
-            System.err.println("Error saving to file: " + e);
-        }
+        saveTry();
 
         Member member = gymAPI.searchMembersByEmail(email);
 

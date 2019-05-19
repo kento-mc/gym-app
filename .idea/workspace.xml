@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="09b8f374-3f57-4751-b291-a348c7a903bd" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/members.xml" beforeDir="false" afterPath="$PROJECT_DIR$/members.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MenuController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -18,11 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/MenuController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1803">
-              <caret line="930" column="5" selection-start-line="930" selection-start-column="5" selection-end-line="930" selection-end-column="5" />
+            <state relative-caret-position="150">
+              <caret line="1026" column="28" selection-start-line="1026" selection-start-column="28" selection-end-line="1026" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -60,7 +60,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/GymUtility.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="405">
@@ -97,8 +97,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="390">
-                <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+              <first_editor relative-caret-position="414">
+                <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
               </first_editor>
               <second_editor />
             </state>
@@ -130,8 +130,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/members.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3045">
-              <caret line="203" column="24" selection-start-line="203" selection-start-column="24" selection-end-line="203" selection-end-column="24" />
+            <state relative-caret-position="361">
+              <caret line="146" column="31" lean-forward="true" selection-start-line="146" selection-start-column="31" selection-end-line="146" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -170,13 +170,13 @@
         <option value="$PROJECT_DIR$/src/main/StudentMember.java" />
         <option value="$PROJECT_DIR$/src/main/PremiumMember.java" />
         <option value="$PROJECT_DIR$/src/main/Assessment.java" />
-        <option value="$PROJECT_DIR$/members.xml" />
         <option value="$PROJECT_DIR$/src/main/GymUtility.java" />
         <option value="$PROJECT_DIR$/src/test/GymAPITest.java" />
         <option value="$PROJECT_DIR$/src/test/GymUtilityTest.java" />
         <option value="$PROJECT_DIR$/src/test/MemberTest.java" />
         <option value="$PROJECT_DIR$/src/main/GymAPI.java" />
         <option value="$PROJECT_DIR$/src/main/Member.java" />
+        <option value="$PROJECT_DIR$/members.xml" />
         <option value="$PROJECT_DIR$/src/main/MenuController.java" />
       </list>
     </option>
@@ -315,7 +315,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.MemberTest">
+  <component name="RunManager" selected="Application.MenuController">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -408,10 +408,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MenuController" />
         <item itemvalue="JUnit.MemberTest" />
         <item itemvalue="JUnit.GymUtilityTest" />
         <item itemvalue="JUnit.GymAPITest" />
-        <item itemvalue="Application.MenuController" />
         <item itemvalue="Application.Member" />
       </list>
     </recent_temporary>
@@ -434,7 +434,7 @@
       <workItem from="1557170742930" duration="12017000" />
       <workItem from="1557320393559" duration="75523000" />
       <workItem from="1557912545926" duration="100413000" />
-      <workItem from="1558278081819" duration="1915000" />
+      <workItem from="1558278081819" duration="3464000" />
     </task>
     <servers />
   </component>
@@ -471,12 +471,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="226757000" />
+    <option name="totallyTimeSpent" value="228306000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="366" y="23" width="1314" height="990" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18160377" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18160377" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -485,7 +486,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32962137" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3830735" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3830735" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49912587" weight="0.3986637" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -700,18 +701,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/members.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3045">
-          <caret line="203" column="24" selection-start-line="203" selection-start-column="24" selection-end-line="203" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="390">
-            <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+          <first_editor relative-caret-position="414">
+            <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
           </first_editor>
           <second_editor />
         </state>
@@ -737,16 +731,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/MenuController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1803">
-          <caret line="930" column="5" selection-start-line="930" selection-start-column="5" selection-end-line="930" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/GymAPI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1380">
@@ -761,6 +745,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="27" column="16" lean-forward="true" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/members.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="146" column="31" lean-forward="true" selection-start-line="146" selection-start-column="31" selection-end-line="146" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/MenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="1026" column="28" selection-start-line="1026" selection-start-column="28" selection-end-line="1026" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
